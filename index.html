@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f8f6ee" />
+    <title>Letter Hive — Daily Word Game</title>
+    <link rel="stylesheet" href="letter-hive.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="top">
+        <div>
+          <div class="brand"><span class="mark">✳</span>Letter Hive</div>
+          <div class="subtitle">A little word game</div>
+        </div>
+        <div class="topRight">
+          <span class="date" id="today"></span
+          ><button
+            class="pill themeBtn"
+            id="themeBtn"
+            type="button"
+            aria-label="Switch colour theme"
+            title="Switch colour theme"
+          >
+            ◐</button
+          ><button class="pill" id="howBtn" type="button">? How to play</button>
+        </div>
+      </header>
+      <main class="content">
+        <section class="game" aria-label="Word puzzle">
+          <h1 class="heading">Make words. Find the pangram.</h1>
+          <p class="hint">Every word needs the golden letter.</p>
+          <div class="scoreline">
+            <div class="scoretitle">
+              <strong id="rank">Beginner</strong
+              ><span><b id="points">0</b> points</span>
+            </div>
+            <div class="track"><div id="progress"></div></div>
+          </div>
+          <div class="entry" aria-live="polite">
+            <div id="typed" class="typed"></div>
+            <span class="cursor" id="cursor"></span>
+          </div>
+          <div class="message" id="message" aria-live="polite"></div>
+          <div class="hive" role="group" aria-label="Letter tiles">
+            <button class="hex centerhex" id="center" type="button"></button
+            ><button class="hex outer" type="button"></button
+            ><button class="hex outer" type="button"></button
+            ><button class="hex outer" type="button"></button
+            ><button class="hex outer" type="button"></button
+            ><button class="hex outer" type="button"></button
+            ><button class="hex outer" type="button"></button>
+          </div>
+          <div class="actions">
+            <button type="button" class="action" id="delete">Delete</button
+            ><button
+              type="button"
+              class="action round"
+              id="shuffle"
+              aria-label="Shuffle letters"
+              title="Shuffle letters"
+            >
+              ⤨</button
+            ><button type="button" class="action submit" id="enter">
+              Enter ↵
+            </button>
+          </div>
+        </section>
+        <aside>
+          <div class="panel">
+            <div class="panelTop">
+              <h2>Words you've found</h2>
+              <span class="counter" id="count">0 words</span>
+            </div>
+            <div class="ranks" id="ranks"></div>
+            <div class="next" id="next"></div>
+            <div class="found" id="found">
+              <div class="empty">
+                Your discoveries will appear here.<br />Start with any
+                four-letter word!
+              </div>
+            </div>
+            <div class="panelFoot">Your progress is saved on this device.</div>
+          </div>
+          <div class="rules">
+            <strong>THE RULES</strong>
+            <p>
+              Words must be at least 4 letters long and contain the centre
+              letter. Letters may be reused. Four-letter words earn 1 point;
+              longer words earn 1 point per letter. Use all 7 letters for a
+              7-point pangram bonus.
+            </p>
+          </div>
+        </aside>
+      </main>
+      <div class="foot">
+        An independent word game inspired by classic letter-hive puzzles. No
+        account required.
+      </div>
+    </div>
+    <div id="toast" class="toast" role="status"></div>
+    <dialog id="help">
+      <h2>How to play</h2>
+      <p>
+        Build words from the seven letters. Each word must use the
+        <strong>golden centre letter</strong>, be at least four letters long,
+        and use only the letters shown. Repeated letters are allowed.
+      </p>
+      <p>
+        Score 1 point for four-letter words, 1 point per letter for longer
+        words, and a bonus 7 points for words using all seven letters.
+      </p>
+      <p>
+        Find as many words as you can and aim for the highest rank. There is a
+        new letter set each day, and your progress is saved locally.
+      </p>
+      <p>
+        The offline dictionary is expanded and curated, though acceptance can
+        still differ from other word games.
+      </p>
+      <button id="closeHelp">Let's play</button>
+    </dialog>
+    <script src="letter-hive.js" defer></script>
+  </body>
+</html>
