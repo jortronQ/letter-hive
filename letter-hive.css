@@ -638,3 +638,37 @@ button:focus-visible {
 #progress {
   width: 0%;
 }
+
+.foot a {
+  color: inherit;
+}
+
+.hex:disabled,
+.actions button:disabled {
+  cursor: wait;
+}
+
+.puzzleNav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.puzzleNav #newPuzzle {
+  background: var(--gold);
+  color: var(--gold-ink);
+  border-color: var(--gold);
+}
+
+.puzzleNav button:disabled {
+  opacity: .5;
+  cursor: default;
+}
+
+.puzzleStatus {
+  margin: 10px 0 18px;
+  min-height: 1em;
+  font-size: 12px;
+  color: var(--muted);
+}

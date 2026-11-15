@@ -1,0 +1,12 @@
+{
+  "letter_sets": 120,
+  "min_words": 40,
+  "max_words": 150,
+  "seed": "letter-hive-esdb-au-60-v1",
+  "preserve": [
+    { "center": "o", "outer": "acelrt" },
+    { "center": "i", "outer": "aelnrt" },
+    { "center": "m", "outer": "aeinrt" },
+    { "center": "l", "outer": "aceort" }
+  ]
+}

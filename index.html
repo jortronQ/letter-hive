@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f8f6ee" />
     <title>Letter Hive — Daily Word Game</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="letter-hive.css" />
   </head>
   <body>
@@ -31,6 +32,12 @@
         <section class="game" aria-label="Word puzzle">
           <h1 class="heading">Make words. Find the pangram.</h1>
           <p class="hint">Every word needs the golden letter.</p>
+          <div class="puzzleNav" aria-label="Choose a puzzle">
+            <button class="pill" id="newPuzzle" type="button" disabled>New puzzle</button>
+            <button class="pill" id="previousPuzzle" type="button" disabled>Previous</button>
+            <button class="pill" id="dailyPuzzle" type="button" disabled>Today’s puzzle</button>
+          </div>
+          <p class="puzzleStatus" id="puzzleStatus" aria-live="polite"></p>
           <div class="scoreline">
             <div class="scoretitle">
               <strong id="rank">Beginner</strong
@@ -42,7 +49,7 @@
             <div id="typed" class="typed"></div>
             <span class="cursor" id="cursor"></span>
           </div>
-          <div class="message" id="message" aria-live="polite"></div>
+          <div class="message" id="message" aria-live="polite">Loading puzzle…</div>
           <div class="hive" role="group" aria-label="Letter tiles">
             <button class="hex centerhex" id="center" type="button"></button
             ><button class="hex outer" type="button"></button
@@ -81,7 +88,7 @@
                 four-letter word!
               </div>
             </div>
-            <div class="panelFoot">Your progress is saved on this device.</div>
+            <div class="panelFoot">Progress for each puzzle is saved on this device.</div>
           </div>
           <div class="rules">
             <strong>THE RULES</strong>
@@ -96,7 +103,8 @@
       </main>
       <div class="foot">
         An independent word game inspired by classic letter-hive puzzles. No
-        account required.
+        account required. Dictionary: ESDB, Australian English.
+        <a href="data/esdb/COPYRIGHT.txt">Dictionary copyright and licence</a>.
       </div>
     </div>
     <div id="toast" class="toast" role="status"></div>
@@ -112,12 +120,14 @@
         words, and a bonus 7 points for words using all seven letters.
       </p>
       <p>
-        Find as many words as you can and aim for the highest rank. There is a
-        new letter set each day, and your progress is saved locally.
+        Find as many words as you can and aim for the highest rank. Try the
+        daily puzzle, or choose New puzzle whenever you like. Previous takes
+        you back, and Today’s puzzle returns to the daily challenge. Each
+        puzzle’s progress is saved separately on this device.
       </p>
       <p>
-        The offline dictionary is expanded and curated, though acceptance can
-        still differ from other word games.
+        Answers come from ESDB level 60 using Australian spelling. Words may
+        differ from those accepted by other word games.
       </p>
       <button id="closeHelp">Let's play</button>
     </dialog>

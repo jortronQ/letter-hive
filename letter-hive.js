@@ -1,411 +1,13 @@
-(() => {
+(async () => {
   "use strict";
-  const allWords = [
-    [
-      "accelerator",
-      "actor",
-      "allocate",
-      "allocator",
-      "allot",
-      "alto",
-      "aorta",
-      "cacao",
-      "carol",
-      "carrot",
-      "clot",
-      "coal",
-      "coaler",
-      "coat",
-      "coca",
-      "coco",
-      "cocoa",
-      "coerce",
-      "cola",
-      "cole",
-      "collar",
-      "collateral",
-      "collect",
-      "collector",
-      "color",
-      "colorer",
-      "colt",
-      "cooee",
-      "cooer",
-      "cool",
-      "cooler",
-      "coot",
-      "coral",
-      "core",
-      "corolla",
-      "corral",
-      "correct",
-      "correlate",
-      "cotter",
-      "creator",
-      "creole",
-      "croc",
-      "crore",
-      "electoral",
-      "electorate",
-      "error",
-      "local",
-      "locale",
-      "locate",
-      "loco",
-      "loot",
-      "lore",
-      "ocelot",
-      "octet",
-      "oracle",
-      "oral",
-      "orate",
-      "orator",
-      "otter",
-      "reactor",
-      "reallocate",
-      "realtor",
-      "recollect",
-      "rector",
-      "relocate",
-      "retort",
-      "retro",
-      "roar",
-      "rococo",
-      "role",
-      "roll",
-      "roller",
-      "root",
-      "rootee",
-      "rooter",
-      "rotate",
-      "rotator",
-      "rote",
-      "rotor",
-      "tattoo",
-      "teetotaler",
-      "terror",
-      "tolerate",
-      "toll",
-      "tool",
-      "tootle",
-      "tore",
-      "torero",
-      "total",
-      "tote",
-      "totter",
-      "tractor",
-      "trot",
-      "trotter",
-    ],
-    [
-      "aerial",
-      "airline",
-      "airliner",
-      "alien",
-      "alienate",
-      "aniline",
-      "anti",
-      "aria",
-      "arterial",
-      "attain",
-      "attire",
-      "earlier",
-      "eerie",
-      "elite",
-      "entail",
-      "entertain",
-      "entertainer",
-      "entire",
-      "entitle",
-      "illiterate",
-      "inane",
-      "inert",
-      "inertia",
-      "inertial",
-      "initial",
-      "initiate",
-      "inlet",
-      "inlier",
-      "inliner",
-      "innate",
-      "inner",
-      "intent",
-      "inter",
-      "intern",
-      "internal",
-      "internet",
-      "irate",
-      "irritant",
-      "irritate",
-      "itinerant",
-      "lain",
-      "lenient",
-      "liana",
-      "liar",
-      "lien",
-      "lilt",
-      "line",
-      "lineal",
-      "linear",
-      "linen",
-      "liner",
-      "lint",
-      "lira",
-      "liter",
-      "literal",
-      "literate",
-      "litter",
-      "litterer",
-      "little",
-      "littler",
-      "nail",
-      "nine",
-      "nineteen",
-      "nitrate",
-      "rail",
-      "railer",
-      "rain",
-      "rainier",
-      "ratline",
-      "rein",
-      "reiterate",
-      "reliant",
-      "retail",
-      "retailer",
-      "retain",
-      "retainer",
-      "retaliate",
-      "retina",
-      "retinal",
-      "retire",
-      "retiree",
-      "retrain",
-      "retrial",
-      "rile",
-      "rill",
-      "rite",
-      "tail",
-      "taint",
-      "terrain",
-      "terrier",
-      "tier",
-      "tile",
-      "tiler",
-      "till",
-      "tiller",
-      "tilt",
-      "tine",
-      "tinier",
-      "tint",
-      "tire",
-      "titanate",
-      "title",
-      "titter",
-      "trail",
-      "trailer",
-      "train",
-      "trainer",
-      "trait",
-      "trial",
-      "triennial",
-      "trier",
-      "trilateral",
-      "trilinear",
-      "trill",
-      "trite",
-    ],
-    [
-      "airman",
-      "airmen",
-      "airtime",
-      "amen",
-      "anemia",
-      "animate",
-      "armament",
-      "attainment",
-      "emanate",
-      "eminent",
-      "emir",
-      "emit",
-      "enema",
-      "entertainment",
-      "imamate",
-      "imitate",
-      "immanent",
-      "imminent",
-      "inanimate",
-      "inmate",
-      "interim",
-      "intermittent",
-      "internment",
-      "intimate",
-      "item",
-      "main",
-      "maintain",
-      "mama",
-      "mamma",
-      "mane",
-      "mania",
-      "manna",
-      "manner",
-      "mare",
-      "marina",
-      "marine",
-      "mariner",
-      "maritime",
-      "mart",
-      "martini",
-      "mate",
-      "mater",
-      "matinee",
-      "matte",
-      "matter",
-      "mean",
-      "meaner",
-      "meant",
-      "meantime",
-      "meat",
-      "meet",
-      "meme",
-      "mere",
-      "merit",
-      "merman",
-      "meter",
-      "metier",
-      "metre",
-      "mien",
-      "mine",
-      "miner",
-      "minim",
-      "minima",
-      "mint",
-      "minter",
-      "mire",
-      "mite",
-      "miter",
-      "mitre",
-      "mitt",
-      "name",
-      "namer",
-      "rearm",
-      "remain",
-      "remint",
-      "remit",
-      "remitter",
-      "remnant",
-      "rename",
-      "retirement",
-      "rime",
-      "tame",
-      "tamer",
-      "team",
-      "teammate",
-      "tenement",
-      "term",
-      "terminate",
-      "termini",
-      "time",
-      "timer",
-      "treatment",
-      "trim",
-      "trimmer",
-    ],
-    [
-      "accelerate",
-      "accelerator",
-      "alert",
-      "allocate",
-      "allocator",
-      "allot",
-      "alloter",
-      "altar",
-      "alter",
-      "alto",
-      "call",
-      "calla",
-      "caller",
-      "cartel",
-      "cattle",
-      "cell",
-      "cellar",
-      "cereal",
-      "clatter",
-      "clear",
-      "clearer",
-      "cleat",
-      "clot",
-      "coal",
-      "cola",
-      "cole",
-      "collar",
-      "collateral",
-      "collect",
-      "collector",
-      "color",
-      "colt",
-      "cool",
-      "cooler",
-      "coral",
-      "corolla",
-      "corral",
-      "correlate",
-      "creole",
-      "earl",
-      "elect",
-      "electoral",
-      "electorate",
-      "lace",
-      "lacerate",
-      "lactate",
-      "late",
-      "later",
-      "lateral",
-      "latter",
-      "leal",
-      "letter",
-      "letterer",
-      "local",
-      "locale",
-      "locate",
-      "loco",
-      "loot",
-      "lore",
-      "ocelot",
-      "oracle",
-      "oral",
-      "rattle",
-      "rattler",
-      "real",
-      "reallocate",
-      "realtor",
-      "recall",
-      "recollect",
-      "reel",
-      "relate",
-      "relocate",
-      "retell",
-      "role",
-      "roll",
-      "roller",
-      "tale",
-      "tall",
-      "taller",
-      "teetotaler",
-      "tell",
-      "teller",
-      "telltale",
-      "tolerate",
-      "toll",
-      "tool",
-      "total",
-    ],
-  ];
-  const configs = [
-    ["o", "acelrt"],
-    ["i", "aelnrt"],
-    ["m", "aeinrt"],
-    ["l", "aceort"],
-  ];
+  const controls = document.querySelectorAll(".hex, .actions button, .puzzleNav button");
+  controls.forEach((button) => (button.disabled = true));
+  const response = await fetch("data/puzzles.json");
+  if (!response.ok) throw new Error("Puzzle data unavailable");
+  const { puzzles } = await response.json();
+  if (!Array.isArray(puzzles) || !puzzles.length) {
+    throw new Error("Invalid puzzle data");
+  }
   const $ = (id) => document.getElementById(id);
   const userTheme = (() => {
     try {
@@ -444,42 +46,53 @@
     String(now.getMonth() + 1).padStart(2, "0"),
     String(now.getDate()).padStart(2, "0"),
   ].join("-");
-  const index =
-    Math.floor(
-      Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) / 86400000,
-    ) % configs.length;
-  const [center, outerText] = configs[index],
-    letters = center + outerText,
-    available = new Set(letters);
-  const words = allWords[index].filter(
-    (w) =>
-      w.length >= 4 &&
-      w.includes(center) &&
-      [...w].every((c) => available.has(c)),
+  const dayNumber = Math.floor(
+    Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) / 86400000,
   );
-  const dictionary = new Set(words);
-  const isPangram = (w) => [...available].every((ch) => w.includes(ch));
-  const score = (w) => (w.length === 4 ? 1 : w.length) + (isPangram(w) ? 7 : 0);
-  const total = words.reduce((sum, w) => sum + score(w), 0);
-  const storageKey = "letterhive-v2-" + dayKey,
-    oldStorageKey = "letterhive-v1-" + dayKey;
-  let found = [],
-    guess = "",
-    outer = [...outerText];
-  try {
-    const recent = JSON.parse(localStorage.getItem(storageKey) || "null");
-    const older = JSON.parse(localStorage.getItem(oldStorageKey) || "[]");
-    const saved = Array.isArray(recent) ? recent : older;
-    if (Array.isArray(saved))
-      found = [...new Set(saved.filter((w) => dictionary.has(w)))];
-  } catch {}
+  const dailyPuzzle = puzzles[dayNumber % puzzles.length];
+  const byId = new Map(puzzles.map((puzzle) => [puzzle.id, puzzle]));
+  function readSaved(key, fallback) {
+    try {
+      return JSON.parse(localStorage.getItem(key) || "null") ?? fallback;
+    } catch {
+      return fallback;
+    }
+  }
+  function save(key, value) {
+    try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
+  }
+  const savedSession = readSaved("letterhive-session-v1", {});
+  const validIds = (value) => Array.isArray(value) ? value.filter((id) => byId.has(id)) : [];
+  const history = savedSession?.dayKey === dayKey ? validIds(savedSession.history) : [];
+  let seen = new Set(validIds(savedSession?.seen));
+  const progress = new Map();
+  let current, center, outer, available, dictionary, total, storageKey;
+  let guess = "", found = [];
+  const isPangram = (word) => [...available].every((letter) => word.includes(letter));
+  const score = (word) => (word.length === 4 ? 1 : word.length) + (isPangram(word) ? 7 : 0);
+
+  // Old saves were keyed only by date, using the original four-puzzle rotation.
+  // Move today's answers to their actual letter set, even if today's new daily
+  // puzzle is different. Leave the original save untouched.
+  const legacyIds = ["o-acelrt", "i-aelnrt", "m-aeinrt", "l-aceort"];
+  const legacyPuzzle = byId.get(legacyIds[dayNumber % legacyIds.length]);
+  if (legacyPuzzle && readSaved("letterhive-puzzle-" + legacyPuzzle.id, null) === null) {
+    const legacy = readSaved("letterhive-v2-" + dayKey, null)
+      ?? readSaved("letterhive-v1-" + dayKey, []);
+    if (Array.isArray(legacy) && legacy.length) {
+      save("letterhive-puzzle-" + legacyPuzzle.id,
+        [...new Set(legacy.filter((word) => legacyPuzzle.words.includes(word)))]);
+    }
+  }
+  function saveSession() {
+    save("letterhive-session-v1", { dayKey, history, seen: [...seen] });
+  }
   $("today").textContent = now.toLocaleDateString(undefined, {
     weekday: "short",
     day: "numeric",
     month: "short",
     year: "numeric",
   });
-  $("center").textContent = center.toUpperCase();
   const tiles = [...document.querySelectorAll(".hex.outer")];
   function paintTiles() {
     tiles.forEach((tile, i) => {
@@ -572,16 +185,58 @@
     if (found.includes(w)) return feedback("Already found");
     if (!dictionary.has(w)) return feedback("Not in this puzzle’s dictionary");
     found.push(w);
-    try {
-      localStorage.setItem(storageKey, JSON.stringify(found));
-    } catch {}
+    progress.set(current.id, [...found]);
+    save(storageKey, found);
     paintScore();
     feedback((isPangram(w) ? "★ Pangram! " : "Nice! ") + "+" + score(w));
   }
-  $("center").setAttribute(
-    "aria-label",
-    "Centre letter " + center.toUpperCase(),
-  );
+  function loadPuzzle(puzzle, remember = true) {
+    current = puzzle;
+    center = puzzle.center;
+    outer = [...puzzle.outer];
+    available = new Set(center + puzzle.outer);
+    dictionary = new Set(puzzle.words);
+    total = puzzle.words.reduce((sum, word) => sum + score(word), 0);
+    storageKey = "letterhive-puzzle-" + puzzle.id;
+    const saved = progress.get(puzzle.id) ?? readSaved(storageKey, []);
+    found = Array.isArray(saved)
+      ? [...new Set(saved.filter((word) => dictionary.has(word)))] : [];
+    guess = "";
+    clearTimeout(messageTimeout);
+    $("message").textContent = "";
+    $("center").textContent = center.toUpperCase();
+    $("center").setAttribute("aria-label", "Centre letter " + center.toUpperCase());
+    if (remember && history.at(-1) !== puzzle.id) history.push(puzzle.id);
+    if (history.length > puzzles.length * 2) history.shift();
+    seen.add(puzzle.id);
+    saveSession();
+    $("puzzleStatus").textContent = puzzle.id === dailyPuzzle.id
+      ? "Today’s puzzle" : "Puzzle " + (puzzles.indexOf(puzzle) + 1) + " of " + puzzles.length;
+    $("dailyPuzzle").disabled = puzzle.id === dailyPuzzle.id;
+    $("previousPuzzle").disabled = history.length < 2;
+    paintTiles();
+    paintGuess();
+    paintScore();
+  }
+  $("newPuzzle").addEventListener("click", () => {
+    let candidates = puzzles.filter((puzzle) => puzzle.id !== current.id && !seen.has(puzzle.id));
+    if (!candidates.length) {
+      seen = new Set([current.id]);
+      candidates = puzzles.filter((puzzle) => puzzle.id !== current.id);
+    }
+    if (!candidates.length) return;
+    // Prefer different letters from the puzzle just played.
+    const overlap = (puzzle) => [...(puzzle.center + puzzle.outer)].filter((letter) => available.has(letter)).length;
+    const minimum = Math.min(...candidates.map(overlap));
+    candidates = candidates.filter((puzzle) => overlap(puzzle) === minimum);
+    loadPuzzle(candidates[Math.floor(Math.random() * candidates.length)]);
+  });
+  $("dailyPuzzle").addEventListener("click", () => loadPuzzle(dailyPuzzle));
+  $("previousPuzzle").addEventListener("click", () => {
+    if (history.length < 2) return;
+    history.pop();
+    loadPuzzle(byId.get(history.at(-1)), false);
+  });
   $("center").addEventListener("click", () => add(center));
   tiles.forEach((tile, i) =>
     tile.addEventListener("click", () => add(outer[i])),
@@ -604,6 +259,7 @@
       e.target.matches("input,textarea")
     )
       return;
+    if (e.target.matches("button") && (e.key === "Enter" || e.key === " ")) return;
     const ch = e.key.toLowerCase();
     if (ch.length === 1 && available.has(ch)) {
       e.preventDefault();
@@ -618,7 +274,9 @@
   });
   $("howBtn").addEventListener("click", () => $("help").showModal());
   $("closeHelp").addEventListener("click", () => $("help").close());
-  paintTiles();
-  paintGuess();
-  paintScore();
-})();
+  controls.forEach((button) => (button.disabled = false));
+  loadPuzzle(byId.get(history.at(-1)) || dailyPuzzle);
+})().catch(() => {
+  document.getElementById("message").textContent =
+    "Couldn’t load the puzzle. Check your connection and reload.";
+});

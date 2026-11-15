@@ -27,10 +27,18 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
+      - name: Generate and validate puzzle answers
+        run: |
+          python3 -m unittest discover -s tests -p 'test_*.py'
+          python3 scripts/build-puzzles.py --check
+          node --test tests/game.test.cjs
+
       - name: Prepare static site
         run: |
-          mkdir -p "$RUNNER_TEMP/letter-hive-site"
-          cp index.html letter-hive.css letter-hive.js "$RUNNER_TEMP/letter-hive-site/"
+          mkdir -p "$RUNNER_TEMP/letter-hive-site/data/esdb"
+          cp index.html letter-hive.css letter-hive.js favicon.svg "$RUNNER_TEMP/letter-hive-site/"
+          cp data/puzzles.json "$RUNNER_TEMP/letter-hive-site/data/"
+          cp data/esdb/COPYRIGHT.txt "$RUNNER_TEMP/letter-hive-site/data/esdb/"
 
       - name: Upload site
         uses: actions/upload-pages-artifact@v4

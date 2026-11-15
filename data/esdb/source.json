@@ -1,0 +1,21 @@
+{
+  "repository": "https://github.com/en-wl/wordlist",
+  "revision": "1e5b7d3a72f47a71da5d28686c1dd4b397178485",
+  "size": 60,
+  "spelling": "D (Australian English)",
+  "variant_level": 1,
+  "export_command": [
+    "python3",
+    "scowl",
+    "word-list",
+    "60",
+    "D",
+    "1",
+    "--deaccent",
+    "--wo-poses=abbr",
+    "--categories=",
+    "--wo-pos-categories=nonword,wordpart"
+  ],
+  "sha256": "1f5b5e276c0cb8cb9c5f4b7aecb8c6cdc7c5366a2e267066a21557f195449200",
+  "entries": 108458
+}
