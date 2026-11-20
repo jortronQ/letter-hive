@@ -42,6 +42,7 @@
             <div class="scoretitle">
               <strong id="rank">Beginner</strong
               ><span><b id="points">0</b> points</span>
+              <button class="pill" id="wordsBtn" type="button" aria-haspopup="dialog">Found words</button>
             </div>
             <div class="track"><div id="progress"></div></div>
           </div>
@@ -50,14 +51,16 @@
             <span class="cursor" id="cursor"></span>
           </div>
           <div class="message" id="message" aria-live="polite">Loading puzzle…</div>
-          <div class="hive" role="group" aria-label="Letter tiles">
-            <button class="hex centerhex" id="center" type="button"></button
-            ><button class="hex outer" type="button"></button
-            ><button class="hex outer" type="button"></button
-            ><button class="hex outer" type="button"></button
-            ><button class="hex outer" type="button"></button
-            ><button class="hex outer" type="button"></button
-            ><button class="hex outer" type="button"></button>
+          <div class="hiveSpace">
+            <div class="hive" role="group" aria-label="Letter tiles">
+              <button class="hex centerhex" id="center" type="button"></button
+              ><button class="hex outer" type="button"></button
+              ><button class="hex outer" type="button"></button
+              ><button class="hex outer" type="button"></button
+              ><button class="hex outer" type="button"></button
+              ><button class="hex outer" type="button"></button
+              ><button class="hex outer" type="button"></button>
+            </div>
           </div>
           <div class="actions">
             <button type="button" class="action" id="delete">Delete</button
@@ -74,10 +77,10 @@
             </button>
           </div>
         </section>
-        <aside>
+        <aside id="wordPanel">
           <div class="panel">
             <div class="panelTop">
-              <h2>Words you've found</h2>
+              <h2 id="foundHeading">Words you've found</h2>
               <span class="counter" id="count">0 words</span>
             </div>
             <div class="ranks" id="ranks"></div>
@@ -101,13 +104,16 @@
           </div>
         </aside>
       </main>
-      <div class="foot">
+      <div class="foot" id="credits">
         An independent word game inspired by classic letter-hive puzzles. No
         account required. Dictionary: ESDB, Australian English.
         <a href="data/esdb/COPYRIGHT.txt">Dictionary copyright and licence</a>.
       </div>
     </div>
     <div id="toast" class="toast" role="status"></div>
+    <dialog id="wordsDialog" aria-labelledby="foundHeading">
+      <form method="dialog"><button autofocus>Back to puzzle</button></form>
+    </dialog>
     <dialog id="help">
       <h2>How to play</h2>
       <p>
