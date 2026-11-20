@@ -253,6 +253,7 @@
   document.addEventListener("keydown", (e) => {
     if (
       $("help").open ||
+      $("wordsDialog").open ||
       e.altKey ||
       e.ctrlKey ||
       e.metaKey ||
@@ -271,6 +272,19 @@
       e.preventDefault();
       submit();
     }
+  });
+  $("wordsBtn").addEventListener("click", () => {
+    const dialog = $("wordsDialog");
+    const panel = $("wordPanel");
+    const credits = $("credits");
+    const content = panel.parentElement;
+    const wrap = credits.parentElement;
+    dialog.append(panel, credits);
+    dialog.addEventListener("close", () => {
+      content.append(panel);
+      wrap.append(credits);
+    }, { once: true });
+    dialog.showModal();
   });
   $("howBtn").addEventListener("click", () => $("help").showModal());
   $("closeHelp").addEventListener("click", () => $("help").close());
