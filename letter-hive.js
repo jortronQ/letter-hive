@@ -142,6 +142,16 @@
       level === 9
         ? "Perfect! You found every word."
         : `Next rank at ${Math.ceil(((level + 1) * total) / 9)} points · ${total} possible`;
+    const preview = $("foundPreview");
+    preview.replaceChildren();
+    for (const word of [...found].reverse()) {
+      const item = document.createElement("span");
+      item.textContent = word + (isPangram(word) ? " ★" : "");
+      preview.append(item);
+    }
+    if (!found.length) preview.textContent = "No words yet";
+    preview.scrollLeft = 0;
+
     const list = $("found");
     list.replaceChildren();
     if (!found.length) {
@@ -273,19 +283,24 @@
       submit();
     }
   });
-  $("wordsBtn").addEventListener("click", () => {
+  function openFoundWords() {
     const dialog = $("wordsDialog");
     const panel = $("wordPanel");
     const credits = $("credits");
     const content = panel.parentElement;
     const wrap = credits.parentElement;
-    dialog.append(panel, credits);
+    const body = $("wordsDialogBody");
+    body.append(panel, credits);
+    body.scrollTop = 0;
     dialog.addEventListener("close", () => {
       content.append(panel);
       wrap.append(credits);
     }, { once: true });
     dialog.showModal();
-  });
+    $("foundHeading").focus();
+  }
+  $("wordsBtn").addEventListener("click", openFoundWords);
+  $("expandWordsBtn").addEventListener("click", openFoundWords);
   $("howBtn").addEventListener("click", () => $("help").showModal());
   $("closeHelp").addEventListener("click", () => $("help").close());
   controls.forEach((button) => (button.disabled = false));

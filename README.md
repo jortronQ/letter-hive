@@ -17,6 +17,12 @@ Use a local server rather than opening `index.html` as a file: the game fetches 
 - `data/puzzles.json` contains the generated answers used by the game.
 - `data/word-overrides.json` holds explicit additions and exclusions (initially empty).
 
+## Install and play offline
+
+Open Letter Hive online first. In Safari on iPhone, use **Share → Add to Home Screen**. In Chrome on Android, use **Install app** or **Add to Home screen** from the browser menu. Launch Letter Hive from the home-screen icon to play in its own window.
+
+Open the installed app once while online so it can cache the game and puzzle data for offline play. Progress is saved locally. Depending on your browser, progress from before installation may live in separate storage.
+
 ## Dictionary
 
 The source is the [English Speller Database (ESDB, formerly SCOWL)](https://github.com/en-wl/wordlist), pinned to revision `1e5b7d3a72f47a71da5d28686c1dd4b397178485`.
@@ -66,7 +72,7 @@ Python tests cover dictionary filtering, Australian spelling, overrides, pangram
 
 ## GitHub Pages
 
-The included workflow checks the generated answers and runs tests before publishing when changes are pushed to `main`. It can also be run manually from the Actions tab. The deployment includes the HTML, CSS, JavaScript, generated puzzle JSON, and dictionary licence. It excludes the full dictionary export and development scripts.
+The included workflow checks the generated answers and runs tests before publishing when changes are pushed to `main`. It can also be run manually from the Actions tab. The deployment includes the HTML, CSS, JavaScript, web app manifest, icons, service worker, generated puzzle JSON, and dictionary licence. It excludes the full dictionary export and development scripts.
 
 1. Create an empty GitHub repository named `letter-hive` under your account.
 2. Connect this checkout and push your committed changes:
