@@ -1,0 +1,233 @@
+{
+  "source": {
+    "name": "Open English WordNet",
+    "edition": "2025",
+    "archive": "https://github.com/globalwordnet/english-wordnet/releases/download/2025-edition/english-wordnet-2025-json.zip",
+    "sha256": "7d749f6e2c39e6970e4997839dcf6e42fd281f3c2fae0171d2192bae8cfa4b51",
+    "licence": "https://creativecommons.org/licenses/by/4.0/",
+    "notices": "https://github.com/globalwordnet/english-wordnet/blob/2025-edition/LICENSE.md",
+    "changes": "Definitions selected by sense and adapted into two original clue phrasings."
+  },
+  "clues": {
+    "aback": {
+      "synset": "00075922-r",
+      "gentle": "Caught off guard.",
+      "stronger": "An adverb in an expression meaning startled by an unexpected remark."
+    },
+    "back": {
+      "synset": "05566350-n",
+      "gentle": "A part of the body opposite the chest.",
+      "stronger": "The area along the spine, below the neck."
+    },
+    "bask": {
+      "synset": "01824240-v",
+      "gentle": "Take pleasure in a good feeling.",
+      "stronger": "What you might do figuratively in the glow of praise."
+    },
+    "blazing": {
+      "synset": "00281710-s",
+      "gentle": "Giving off intense light.",
+      "stronger": "Describes a sun so bright that it makes you squint."
+    },
+    "book": {
+      "synset": "02873453-n",
+      "gentle": "An object made for reading.",
+      "stronger": "A set of bound pages that can sit on a shelf."
+    },
+    "bucksaw": {
+      "synset": "02914026-n",
+      "gentle": "A hand tool for cutting wood.",
+      "stronger": "Its blade is held in an H-shaped frame for cutting logs."
+    },
+    "cask": {
+      "synset": "02798192-n",
+      "gentle": "A vessel for storing liquids.",
+      "stronger": "A rounded container used for ageing wine or holding beer."
+    },
+    "cassock": {
+      "synset": "02982975-n",
+      "gentle": "A formal garment worn in church.",
+      "stronger": "An ankle-length robe often worn by clergy or choir members."
+    },
+    "chock": {
+      "synset": "03027561-n",
+      "gentle": "Something that keeps a heavy object from moving.",
+      "stronger": "A block wedged against a wheel to stop it rolling."
+    },
+    "choking": {
+      "synset": "14081734-n",
+      "gentle": "A dangerous breathing problem.",
+      "stronger": "This can occur when food blocks the airway."
+    },
+    "coho": {
+      "synset": "02539495-n",
+      "gentle": "A kind of salmon.",
+      "stronger": "A silvery species native to the north Pacific."
+    },
+    "cook": {
+      "synset": "01669533-v",
+      "gentle": "Prepare a meal.",
+      "stronger": "What you do at the stove to make dinner."
+    },
+    "cookbook": {
+      "synset": "06424663-n",
+      "gentle": "A kitchen reference.",
+      "stronger": "A volume of recipes with instructions for preparing dishes."
+    },
+    "deed": {
+      "synset": "06557128-n",
+      "gentle": "A document with legal force.",
+      "stronger": "A signed instrument that can transfer ownership of a property."
+    },
+    "devilry": {
+      "synset": "00747241-n",
+      "gentle": "Behaviour that is seriously wicked.",
+      "stronger": "Cruel acts or conduct described as fiendish."
+    },
+    "dude": {
+      "synset": "10103127-n",
+      "gentle": "An informal way to address someone.",
+      "stronger": "A casual term for a man, as when calling to a mate."
+    },
+    "ever": {
+      "synset": "00147423-r",
+      "gentle": "At any time.",
+      "stronger": "An adverb used in questions about whether something has happened before."
+    },
+    "hassock": {
+      "synset": "03502656-n",
+      "gentle": "A thick cushion with a specific use.",
+      "stronger": "It supports your knees when kneeling to pray."
+    },
+    "hock": {
+      "synset": "02465836-n",
+      "gentle": "A joint in a hoofed animal.",
+      "stronger": "The joint on a horse’s hind leg corresponding to the human ankle."
+    },
+    "hooch": {
+      "synset": "07902151-n",
+      "gentle": "A kind of illicit liquor.",
+      "stronger": "Slang for spirits distilled illegally, often of poor quality."
+    },
+    "hook": {
+      "synset": "03537522-n",
+      "gentle": "A tool for catching or holding something.",
+      "stronger": "A curved piece that can snag an object or hang it from a rack."
+    },
+    "hookah": {
+      "synset": "03538194-n",
+      "gentle": "A kind of smoking pipe.",
+      "stronger": "Smoke passes through water before reaching the mouthpiece through a long hose."
+    },
+    "inning": {
+      "synset": "15280615-n",
+      "gentle": "A division of play in a sport.",
+      "stronger": "In baseball, both teams get a turn at bat during each one."
+    },
+    "inquest": {
+      "synset": "00639053-n",
+      "gentle": "A formal investigation.",
+      "stronger": "An inquiry to establish the cause of an unexpected death."
+    },
+    "jumbled": {
+      "synset": "02434302-s",
+      "gentle": "Mixed up and out of order.",
+      "stronger": "Describes a pile whose parts have lost any clear arrangement."
+    },
+    "kook": {
+      "synset": "10260211-n",
+      "gentle": "An informal term for an unconventional person.",
+      "stronger": "Someone regarded as eccentric enough to stand apart from a group."
+    },
+    "latrine": {
+      "synset": "03652123-n",
+      "gentle": "A shared toilet facility.",
+      "stronger": "A basic public toilet in a military camp."
+    },
+    "loll": {
+      "synset": "02723576-v",
+      "gentle": "Hang loosely.",
+      "stronger": "What an arm may do over the edge of a chair when left limp."
+    },
+    "minaret": {
+      "synset": "03773280-n",
+      "gentle": "A slender tower.",
+      "stronger": "A narrow tower with balconies, commonly found beside a mosque."
+    },
+    "queue": {
+      "synset": "08449355-n",
+      "gentle": "People or vehicles waiting their turn.",
+      "stronger": "The line you join at a ticket counter."
+    },
+    "raiment": {
+      "synset": "02745327-n",
+      "gentle": "An old-fashioned term for clothing.",
+      "stronger": "Fine or decorative garments, especially in literary language."
+    },
+    "reliant": {
+      "synset": "00730557-s",
+      "gentle": "Dependent on support.",
+      "stronger": "Describes someone who needs another person’s help to manage."
+    },
+    "retinal": {
+      "synset": "02990684-a",
+      "gentle": "Relating to a part of the eye.",
+      "stronger": "An adjective for the light-sensitive layer at the rear of the eye."
+    },
+    "revere": {
+      "synset": "01782485-v",
+      "gentle": "Hold in deep respect.",
+      "stronger": "To regard someone or something with a sense of awe."
+    },
+    "shack": {
+      "synset": "03552234-n",
+      "gentle": "A very simple shelter.",
+      "stronger": "A small, roughly built dwelling."
+    },
+    "shock": {
+      "synset": "07525864-n",
+      "gentle": "A strong emotional reaction.",
+      "stronger": "Distress and disbelief after something bad and unexpected happens."
+    },
+    "soak": {
+      "synset": "01581362-v",
+      "gentle": "Put something in liquid.",
+      "stronger": "To immerse an object, as when leaving stained fabric under water."
+    },
+    "sock": {
+      "synset": "04261887-n",
+      "gentle": "A piece of clothing for the foot.",
+      "stronger": "A fabric covering worn inside a shoe, sometimes reaching the calf."
+    },
+    "spaying": {
+      "synset": "00693979-n",
+      "gentle": "A veterinary procedure.",
+      "stronger": "Sterilising a female animal by removing her ovaries."
+    },
+    "veer": {
+      "synset": "02037140-v",
+      "gentle": "Change direction suddenly.",
+      "stronger": "What a vehicle does when it turns sharply away from its path."
+    },
+    "verve": {
+      "synset": "04640810-n",
+      "gentle": "Energy expressed through style.",
+      "stronger": "The liveliness and vigour that can make a performance stand out."
+    },
+    "washtub": {
+      "synset": "04562886-n",
+      "gentle": "A container for a household chore.",
+      "stronger": "A basin large enough for cleaning clothes or linen by hand."
+    },
+    "wolfish": {
+      "synset": "02850891-a",
+      "gentle": "Resembling a wild canine.",
+      "stronger": "Describes a look or manner reminiscent of an animal that hunts in packs."
+    },
+    "zestful": {
+      "synset": "02288916-s",
+      "gentle": "Full of enjoyment.",
+      "stronger": "Showing spirited enthusiasm while doing something you like."
+    }
+  }
+}

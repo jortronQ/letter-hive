@@ -5,12 +5,16 @@ const path = require("node:path");
 const vm = require("node:vm");
 const root = path.join(__dirname, "..");
 const data = JSON.parse(fs.readFileSync(path.join(root, "data/puzzles.json")));
+const hintData = JSON.parse(fs.readFileSync(path.join(root, "data/hints.json")));
 const code = fs.readFileSync(path.join(root, "letter-hive.js"), "utf8");
 
 class Element {
-  constructor() { this.children = []; this.listeners = {}; this.style = {}; this.textContent = ""; }
+  constructor() { this.children = []; this.listeners = {}; this.style = {}; this.attributes = {}; this.textContent = ""; }
   addEventListener(type, fn) { this.listeners[type] = fn; }
-  setAttribute() {}
+  setAttribute(name, value) { this.attributes[name] = value; }
+  showModal() { this.open = true; }
+  close() { this.open = false; }
+  focus() { this.focused = true; }
   replaceChildren() { this.children = []; }
   append(node) { this.children.push(node); }
   matches() { return false; }
@@ -23,7 +27,7 @@ async function launch(index, fetchOverride, saved = new Map()) {
     return elements.get(id);
   };
   const tiles = Array.from({ length: 6 }, () => new Element());
-  const controls = [get("center"), ...tiles, get("enter"), get("delete"), get("shuffle")];
+  const controls = [get("center"), ...tiles, get("enter"), get("delete"), get("shuffle"), get("hintBtn")];
   const navigation = [get("newPuzzle"), get("previousPuzzle"), get("dailyPuzzle")];
   const document = {
     documentElement: { dataset: {} },
@@ -41,10 +45,14 @@ async function launch(index, fetchOverride, saved = new Map()) {
     document, Date: Today,
     window: { matchMedia: () => ({ matches: false }) },
     localStorage: { getItem: (key) => saved.get(key) ?? null, setItem: (key, value) => saved.set(key, value) },
-    fetch: fetchOverride || (async (url) => {
+    fetch: async (url) => {
+      if (url === "data/hints.json" && !fetchOverride) {
+        return { ok: true, json: async () => structuredClone(hintData) };
+      }
+      if (fetchOverride) return fetchOverride(url);
       assert.equal(url, "data/puzzles.json");
       return { ok: true, json: async () => structuredClone(data) };
-    }),
+    },
     setTimeout: () => 1, clearTimeout() {},
   });
   return {
@@ -141,6 +149,124 @@ test("old daily saves migrate to their original letters rather than today's new 
   assert.equal(game.get("points").textContent, 0);
   assert.deepEqual(JSON.parse(saved.get("letterhive-puzzle-" + legacy.id)), [legacy.words[0]]);
   assert.ok(saved.has("letterhive-v2-" + day));
+});
+
+test("progressive hints describe the only missing accepted word without revealing it", async () => {
+  const index = data.puzzles.findIndex((puzzle) => puzzle.words.includes("letter"));
+  const puzzle = data.puzzles[index];
+  const word = "letter";
+  const found = puzzle.words.filter((answer) => answer !== word);
+  const progressKey = "letterhive-puzzle-" + puzzle.id;
+  const hintKey = "letterhive-hints-" + puzzle.id;
+  const saved = new Map([[progressKey, JSON.stringify(found)]]);
+  const game = await launch(index, undefined, saved);
+  const initialPoints = game.get("points").textContent;
+  const initialRank = game.get("rank").textContent;
+  const clue = game.get("puzzleClue");
+
+  assert.equal(clue.textContent, "");
+  assert.equal(game.get("hintBtn").attributes["aria-label"], "Hint");
+  assert.equal(game.get("strongerHint").hidden, true);
+  game.get("hintBtn").listeners.click();
+  assert.equal(game.get("hintBtn").attributes["aria-label"], "Different hint");
+  assert.equal(game.get("hintIcon").hidden, true);
+  assert.equal(game.get("differentHintIcon").hidden, false);
+  assert.equal(game.get("hintBtn").disabled, true);
+  assert.equal(clue.textContent, "6 letters, L—: Repeated symbols.");
+  assert.equal(JSON.parse(saved.get(hintKey)).target, word);
+
+  game.get("strongerHint").listeners.click();
+  assert.match(clue.textContent, /^6 letters, LE—: Contains 2 vowels/);
+  assert.equal(game.get("strongerHint").disabled, true);
+  assert.equal(JSON.parse(saved.get(hintKey)).levels[word], 2);
+  assert.equal(game.get("points").textContent, initialPoints);
+  assert.equal(game.get("rank").textContent, initialRank);
+  assert.deepEqual(JSON.parse(saved.get(progressKey)), found);
+
+  game.type(word);
+  game.submit();
+  assert.equal(JSON.parse(saved.get(hintKey)).target, null);
+  assert.equal(clue.textContent, "");
+  assert.equal(game.get("hintBtn").attributes["aria-label"], "Hint");
+  game.get("hintBtn").listeners.click();
+  assert.equal(clue.textContent, "You’ve found every word!");
+  assert.equal(game.get("pangramHint").hidden, true);
+  assert.equal(game.get("rank").textContent, "Queen Bee");
+});
+
+test("reviewed clues are reused across puzzles and fall back if hint data is unavailable", async () => {
+  const word = "book";
+  const puzzles = data.puzzles.filter((puzzle) => puzzle.words.includes(word));
+  assert.ok(puzzles.length > 1);
+
+  for (const puzzle of puzzles) {
+    const saved = new Map([["letterhive-puzzle-" + puzzle.id,
+      JSON.stringify(puzzle.words.filter((answer) => answer !== word))]]);
+    const index = data.puzzles.indexOf(puzzle);
+    const game = await launch(index, undefined, saved);
+    game.get("hintBtn").listeners.click();
+    const clue = game.get("puzzleClue");
+    assert.equal(clue.textContent, `4 letters, B—: ${hintData.clues[word].gentle}`);
+    game.get("strongerHint").listeners.click();
+    assert.equal(clue.textContent, `4 letters, BO—: ${hintData.clues[word].stronger}`);
+
+    const fallback = await launch(index, async (url) => {
+      if (url === "data/hints.json") throw new Error("Hint data unavailable");
+      return { ok: true, json: async () => structuredClone(data) };
+    }, saved);
+    assert.match(fallback.get("puzzleClue").textContent, /^4 letters, BO—: Contains 2 vowels/);
+  }
+});
+
+test("another word, pangram filtering, and saved hint levels respect puzzle boundaries", async () => {
+  const [puzzle] = data.puzzles;
+  const pangram = puzzle.words.find((word) => new Set(word).size === 7);
+  const ordinary = puzzle.words.find((word) => new Set(word).size < 7);
+  const found = puzzle.words.filter((word) => word !== pangram && word !== ordinary);
+  const hintKey = "letterhive-hints-" + puzzle.id;
+  const saved = new Map([
+    ["letterhive-puzzle-" + puzzle.id, JSON.stringify(found)],
+    [hintKey, JSON.stringify({ target: "invented", levels: { invented: 3 }, pangramOnly: false })],
+  ]);
+  let game = await launch(0, undefined, saved);
+  const click = (id) => game.get(id).listeners.click();
+  const hints = () => JSON.parse(saved.get(hintKey));
+
+  click("hintBtn");
+  const first = hints().target;
+  assert.ok([pangram, ordinary].includes(first));
+  click("hintBtn");
+  assert.notEqual(hints().target, first);
+  assert.ok([pangram, ordinary].includes(hints().target));
+  for (const word of Object.keys(hints().levels)) {
+    assert.ok(puzzle.words.includes(word) && !found.includes(word));
+    assert.ok(word.length >= 4 && word.includes(puzzle.center));
+    assert.ok([...word].every((letter) => (puzzle.center + puzzle.outer).includes(letter)));
+  }
+
+  click("pangramHint");
+  assert.equal(hints().target, pangram);
+  assert.equal(game.get("pangramHint").hidden, false);
+  click("strongerHint");
+  assert.equal(hints().levels[pangram], 2);
+  const strongerClue = game.get("puzzleClue").textContent;
+  game = await launch(0, undefined, saved);
+  assert.equal(hints().target, pangram);
+  assert.equal(game.get("puzzleClue").textContent, strongerClue);
+
+  click("newPuzzle");
+  assert.equal(game.get("puzzleClue").textContent, "");
+  click("hintBtn");
+  assert.match(game.get("puzzleClue").textContent, /^[0-9]+ letters, [A-Z]—: /);
+  click("previousPuzzle");
+  assert.equal(hints().target, pangram);
+  assert.equal(game.get("puzzleClue").textContent, strongerClue);
+
+  game.type(pangram);
+  game.submit();
+  assert.equal(game.get("pangramHint").hidden, true);
+  click("hintBtn");
+  assert.equal(hints().target, ordinary);
 });
 
 test("loading errors keep game controls disabled and explain how to recover", async () => {

@@ -100,13 +100,15 @@ input:focus-visible {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 8px;
   font-size: 14px;
   margin-bottom: 9px;
 }
 .scoretitle strong {
   font-size: 16px;
 }
-.scoretitle span {
+.scoretitle > span {
   color: #66645e;
 }
 .track {
@@ -447,7 +449,7 @@ body {
 .subtitle,
 .date,
 .hint,
-.scoretitle span,
+.scoretitle > span,
 .next,
 .panelFoot,
 .foot {
@@ -601,6 +603,53 @@ button:focus-visible {
   cursor: default;
 }
 
+.hintControls {
+  display: flex;
+  gap: 5px;
+  margin-left: auto;
+}
+
+.hintIcon:not([hidden]) {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.hintIcon svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.hintRow {
+  display: flex;
+  align-items: flex-start;
+  column-gap: 8px;
+}
+
+#puzzleClue {
+  flex: 1;
+  margin: 0;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+#puzzleClue:not(:empty),
+#strongerHint:not([hidden]) {
+  margin-top: 6px;
+}
+
+.hintControls button:disabled,
+#strongerHint:disabled {
+  opacity: 0.55;
+}
+
 .puzzleStatus {
   margin: 10px 0 18px;
   min-height: 1em;
@@ -730,11 +779,11 @@ button:focus-visible {
 
   .scoretitle {
     justify-content: flex-start;
-    gap: 8px;
+    gap: 4px 8px;
     margin-bottom: 3px;
   }
 
-  .scoretitle span {
+  .scoretitle > span {
     margin-left: auto;
   }
 

@@ -45,8 +45,39 @@
               <strong id="rank">Beginner</strong
               ><span><b id="points">0</b> points</span>
               <button class="pill" id="wordsBtn" type="button" aria-haspopup="dialog">Found words</button>
+              <div class="hintControls">
+                <button class="pill hintIcon" id="pangramHint" type="button"
+                  aria-label="Pangram hint" title="Pangram hint" aria-controls="puzzleClue" hidden>
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="m12 2 3 6.1 6.7 1-4.9 4.8 1.2 6.7-6-3.2-6 3.2 1.2-6.7-4.9-4.8 6.7-1Z" />
+                  </svg>
+                </button>
+                <button class="pill hintIcon" id="hintBtn" type="button"
+                  aria-label="Hint" title="Hint" aria-controls="puzzleClue" disabled>
+                  <span id="hintIcon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 18h6m-5 3h4M9 15c0-2-3-2.7-3-6a6 6 0 1 1 12 0c0 3.3-3 4-3 6Z" />
+                    </svg>
+                  </span>
+                  <span id="differentHintIcon" aria-hidden="true" hidden>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 4v5h-5M21 9a9 9 0 1 0 .2 6" />
+                      <path d="M11 17h2m-3-2.5c0-1.2-1.6-1.7-1.6-3.6a3.6 3.6 0 0 1 7.2 0c0 1.9-1.6 2.4-1.6 3.6Z" />
+                    </svg>
+                  </span>
+                </button>
+              </div>
             </div>
             <div class="track"><div id="progress"></div></div>
+            <div class="hintRow">
+              <p id="puzzleClue" role="status" aria-atomic="true" tabindex="-1"></p>
+              <button class="pill hintIcon" id="strongerHint" type="button"
+                aria-label="Stronger hint" title="Stronger hint" aria-controls="puzzleClue" hidden>
+                <span aria-hidden="true">💪</span>
+              </button>
+            </div>
           </div>
           <div class="entry" aria-live="polite">
             <div id="typed" class="typed"></div>
@@ -123,6 +154,8 @@
         An independent word game inspired by classic letter-hive puzzles. No
         account required. Dictionary: ESDB, Australian English.
         <a href="data/esdb/COPYRIGHT.txt">Dictionary copyright and licence</a>.
+        Hint definitions adapted from <a href="https://github.com/globalwordnet/english-wordnet/tree/2025-edition">Open English WordNet 2025</a>
+        (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>).
       </div>
     </div>
     <div id="toast" class="toast" role="status"></div>
