@@ -1,6 +1,6 @@
 (async () => {
   "use strict";
-  const controls = document.querySelectorAll(".hex, .actions button, .puzzleNav button");
+  const controls = document.querySelectorAll(".hex, .actions button, .puzzleNav button, #hintBtn");
   controls.forEach((button) => (button.disabled = true));
   const response = await fetch("data/puzzles.json");
   if (!response.ok) throw new Error("Puzzle data unavailable");
@@ -8,6 +8,10 @@
   if (!Array.isArray(puzzles) || !puzzles.length) {
     throw new Error("Invalid puzzle data");
   }
+  const { clues: semanticClues } = await fetch("data/hints.json")
+    .then((result) => result.ok ? result.json() : {})
+    .then((data) => data ?? {})
+    .catch(() => ({}));
   const $ = (id) => document.getElementById(id);
   const userTheme = (() => {
     try {
@@ -68,6 +72,7 @@
   const progress = new Map();
   let current, center, outer, available, dictionary, total, storageKey;
   let guess = "", found = [];
+  let hintTarget, hintLevels;
   const isPangram = (word) => [...available].every((letter) => word.includes(letter));
   const score = (word) => (word.length === 4 ? 1 : word.length) + (isPangram(word) ? 7 : 0);
 
@@ -174,6 +179,77 @@
     clearTimeout(messageTimeout);
     messageTimeout = setTimeout(() => ($("message").textContent = ""), 2300);
   }
+  const strongestHint = 2;
+  function hintStorageKey() {
+    return "letterhive-hints-" + current.id;
+  }
+  function loadHints() {
+    const saved = readSaved(hintStorageKey(), {});
+    const levels = saved?.levels;
+    hintLevels = new Map();
+    for (const word of dictionary) {
+      const level = levels?.[word];
+      if (Number.isInteger(level) && level >= 1 && level <= 3) {
+        hintLevels.set(word, Math.min(level, strongestHint));
+      }
+    }
+    hintTarget = hintLevels.has(saved?.target) && !found.includes(saved.target)
+      ? saved.target : null;
+  }
+  function saveHints() {
+    save(hintStorageKey(), { target: hintTarget, levels: Object.fromEntries(hintLevels) });
+  }
+  function missingWords() {
+    const solved = new Set(found);
+    return [...dictionary].filter((word) => !solved.has(word));
+  }
+  function selectHint(pangramsOnly = false) {
+    const missing = missingWords();
+    const eligible = pangramsOnly ? missing.filter(isPangram) : missing;
+    if (pangramsOnly && eligible.length === 0) return;
+    const alternatives = eligible.filter((word) => word !== hintTarget);
+    const options = alternatives.length ? alternatives : eligible;
+    const unseen = options.filter((word) => !hintLevels.has(word));
+    const reviewed = unseen.filter((word) => semanticClues?.[word]?.gentle);
+    const choices = reviewed.length ? reviewed : unseen.length ? unseen : options;
+    hintTarget = choices[Math.floor(Math.random() * choices.length)] ?? null;
+    if (hintTarget && !hintLevels.has(hintTarget)) hintLevels.set(hintTarget, 1);
+    saveHints();
+    paintHint(missing, true);
+  }
+  function paintHint(missing = missingWords(), requested = false) {
+    const level = hintLevels.get(hintTarget);
+    const clue = $("puzzleClue");
+    const text = hintTarget
+      ? describeHint(hintTarget, level)
+      : requested && !missing.length ? "You’ve found every word!" : "";
+    if (clue.textContent !== text) clue.textContent = text;
+
+    const hintButton = $("hintBtn");
+    const hintLabel = hintTarget ? "Different hint" : "Hint";
+    hintButton.setAttribute("aria-label", hintLabel);
+    hintButton.title = hintLabel;
+    $("hintIcon").hidden = Boolean(hintTarget);
+    $("differentHintIcon").hidden = !hintTarget;
+    hintButton.disabled = Boolean(hintTarget && missing.length < 2);
+    $("pangramHint").hidden = !missing.some(isPangram);
+    $("strongerHint").hidden = !level;
+    $("strongerHint").disabled = !level || level === strongestHint;
+  }
+  function describeHint(word, level) {
+    const prefix = word.slice(0, level).toUpperCase();
+    const start = `${word.length} letters, ${prefix}—:`;
+    const reviewed = semanticClues?.[word];
+    const definition = level === 1 ? reviewed?.gentle : reviewed?.stronger;
+    if (typeof definition === "string" && definition && !definition.toLowerCase().includes(word)) {
+      return `${start} ${definition}`;
+    }
+    const repeats = new Set(word).size < word.length
+      ? "Repeated symbols." : "All symbols distinct.";
+    if (level === 1) return `${start} ${repeats}`;
+    const vowels = [...word].filter((letter) => "aeiou".includes(letter)).length;
+    return `${start} Contains ${vowels} ${vowels === 1 ? "vowel" : "vowels"} (A, E, I, O, U).`;
+  }
   function add(ch) {
     if (guess.length >= 30) {
       feedback("That word is too long");
@@ -195,9 +271,14 @@
     if (found.includes(w)) return feedback("Already found");
     if (!dictionary.has(w)) return feedback("Not in this puzzle’s dictionary");
     found.push(w);
+    if (w === hintTarget) {
+      hintTarget = null;
+      saveHints();
+    }
     progress.set(current.id, [...found]);
     save(storageKey, found);
     paintScore();
+    paintHint();
     feedback((isPangram(w) ? "★ Pangram! " : "Nice! ") + "+" + score(w));
   }
   function loadPuzzle(puzzle, remember = true) {
@@ -214,6 +295,7 @@
     guess = "";
     clearTimeout(messageTimeout);
     $("message").textContent = "";
+    loadHints();
     $("center").textContent = center.toUpperCase();
     $("center").setAttribute("aria-label", "Centre letter " + center.toUpperCase());
     if (remember && history.at(-1) !== puzzle.id) history.push(puzzle.id);
@@ -227,6 +309,7 @@
     paintTiles();
     paintGuess();
     paintScore();
+    paintHint();
   }
   $("newPuzzle").addEventListener("click", () => {
     let candidates = puzzles.filter((puzzle) => puzzle.id !== current.id && !seen.has(puzzle.id));
@@ -251,6 +334,16 @@
   tiles.forEach((tile, i) =>
     tile.addEventListener("click", () => add(outer[i])),
   );
+  $("hintBtn").addEventListener("click", () => selectHint());
+  $("pangramHint").addEventListener("click", () => selectHint(true));
+  $("strongerHint").addEventListener("click", () => {
+    const level = hintLevels.get(hintTarget);
+    if (!level || level >= strongestHint) return;
+    hintLevels.set(hintTarget, level + 1);
+    saveHints();
+    paintHint();
+    $("puzzleClue").focus({ preventScroll: true });
+  });
   $("delete").addEventListener("click", remove);
   $("enter").addEventListener("click", submit);
   $("shuffle").addEventListener("click", () => {

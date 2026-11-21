@@ -23,6 +23,16 @@ Open Letter Hive online first. In Safari on iPhone, use **Share → Add to Home 
 
 Open the installed app once while online so it can cache the game and puzzle data for offline play. Progress is saved locally. Depending on your browser, progress from before installation may live in separate storage.
 
+## Optional puzzle hints
+
+Choose **Hint** beside the score to show a clue below the progress bar. It gives the first letter and a simple definition. **Stronger hint**, to the right of the clue, reveals the first two letters and a more specific definition for the same meaning. Words without reviewed definitions use structural clues instead. Use **Different hint** to switch targets or **Pangram hint** to choose an undiscovered pangram. Hints never show the full answer or affect scoring or rank.
+
+Letter Hive remembers the current target and strongest clue you’ve requested for each word on this device. Progress is separate for each puzzle, and hints work offline with the cached game data.
+
+ESDB supplies the accepted spellings. [data/hints.json](data/hints.json) stores a starter set of two reviewed clues per spelling, shared across puzzles. It records the matching sense ID and the pinned source archive and checksum. The clues are adapted from [Open English WordNet 2025](https://github.com/globalwordnet/english-wordnet/releases/tag/2025-edition) under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). See the [source licence and notices](https://github.com/globalwordnet/english-wordnet/blob/2025-edition/LICENSE.md). A matching spelling alone doesn’t verify the intended sense, so only reviewed clues ship. New hint targets favour reviewed clues where available, and the game can still offer structural clues for other answers.
+
+To expand coverage, add or edit entries in `data/hints.json`. Use an accepted spelling, verify the source sense, and write two increasingly specific clues that omit the answer. Run `python3 scripts/check-hints.py` to check the bundled entries, or pass `--wordnet-zip /path/to/english-wordnet-2025-json.zip` to also verify each sense ID against the pinned archive and measure exact-spelling coverage. The game and normal deployment use the bundled file and don’t need the WordNet archive or API.
+
 ## Dictionary
 
 The source is the [English Speller Database (ESDB, formerly SCOWL)](https://github.com/en-wl/wordlist), pinned to revision `1e5b7d3a72f47a71da5d28686c1dd4b397178485`.
@@ -72,7 +82,7 @@ Python tests cover dictionary filtering, Australian spelling, overrides, pangram
 
 ## GitHub Pages
 
-The included workflow checks the generated answers and runs tests before publishing when changes are pushed to `main`. It can also be run manually from the Actions tab. The deployment includes the HTML, CSS, JavaScript, web app manifest, icons, service worker, generated puzzle JSON, and dictionary licence. It excludes the full dictionary export and development scripts.
+The included workflow checks the generated answers and runs tests before publishing when changes are pushed to `main`. It can also be run manually from the Actions tab. The deployment includes the HTML, CSS, JavaScript, web app manifest, icons, service worker, generated puzzle JSON, reviewed hint JSON, and dictionary licence. It excludes the full dictionary export and development scripts.
 
 1. Create an empty GitHub repository named `letter-hive` under your account.
 2. Connect this checkout and push your committed changes:

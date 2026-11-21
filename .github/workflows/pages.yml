@@ -31,6 +31,7 @@ jobs:
         run: |
           python3 -m unittest discover -s tests -p 'test_*.py'
           python3 scripts/build-puzzles.py --check
+          python3 scripts/check-hints.py
           node --test tests/game.test.cjs
 
       - name: Prepare static site
@@ -39,7 +40,7 @@ jobs:
           cp index.html letter-hive.css letter-hive.js favicon.svg manifest.webmanifest "$RUNNER_TEMP/letter-hive-site/"
           cp -r icons "$RUNNER_TEMP/letter-hive-site/"
           sed "s/LETTER_HIVE_BUILD_REVISION/${GITHUB_SHA}/" sw.js > "$RUNNER_TEMP/letter-hive-site/sw.js"
-          cp data/puzzles.json "$RUNNER_TEMP/letter-hive-site/data/"
+          cp data/puzzles.json data/hints.json "$RUNNER_TEMP/letter-hive-site/data/"
           cp data/esdb/COPYRIGHT.txt "$RUNNER_TEMP/letter-hive-site/data/esdb/"
 
       - name: Upload site
