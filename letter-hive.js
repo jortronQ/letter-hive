@@ -223,7 +223,11 @@
     const text = hintTarget
       ? describeHint(hintTarget, level)
       : requested && !missing.length ? "You’ve found every word!" : "";
-    if (clue.textContent !== text) clue.textContent = text;
+    if (clue.textContent !== text) {
+      clue.textContent = text;
+      clue.scrollTop = 0;
+    }
+    clue.tabIndex = text ? 0 : -1;
 
     const hintButton = $("hintBtn");
     const hintLabel = hintTarget ? "Different hint" : "Hint";

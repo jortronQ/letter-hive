@@ -34,17 +34,25 @@
         <section class="game" aria-label="Word puzzle">
           <h1 class="heading">Make words. Find the pangram.</h1>
           <p class="hint">Every word needs the golden letter.</p>
-          <div class="puzzleNav" aria-label="Choose a puzzle">
-            <button class="pill" id="newPuzzle" type="button" disabled>New puzzle</button>
-            <button class="pill" id="previousPuzzle" type="button" disabled>Previous</button>
-            <button class="pill" id="dailyPuzzle" type="button" disabled>Today’s puzzle</button>
+          <div class="puzzleToolbar">
+            <div class="puzzleNav" role="group" aria-label="Choose a puzzle">
+              <button class="pill" id="newPuzzle" type="button" aria-label="New puzzle" disabled>New</button>
+              <button class="pill" id="previousPuzzle" type="button" aria-label="Previous puzzle" disabled>Previous</button>
+              <button class="pill" id="dailyPuzzle" type="button" aria-label="Today’s puzzle" disabled>Today</button>
+              <button class="pill hintIcon" id="wordsBtn" type="button" aria-label="Found words"
+                title="Found words" aria-haspopup="dialog" aria-controls="wordsDialog">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" aria-hidden="true">
+                  <path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01" />
+                </svg>
+              </button>
+            </div>
+            <p class="puzzleStatus" id="puzzleStatus" aria-live="polite"></p>
           </div>
-          <p class="puzzleStatus" id="puzzleStatus" aria-live="polite"></p>
           <div class="scoreline">
             <div class="scoretitle">
               <strong id="rank">Beginner</strong
               ><span><b id="points">0</b> points</span>
-              <button class="pill" id="wordsBtn" type="button" aria-haspopup="dialog">Found words</button>
               <div class="hintControls">
                 <button class="pill hintIcon" id="pangramHint" type="button"
                   aria-label="Pangram hint" title="Pangram hint" aria-controls="puzzleClue" hidden>
@@ -178,8 +186,8 @@
       </p>
       <p>
         Find as many words as you can and aim for the highest rank. Try the
-        daily puzzle, or choose New puzzle whenever you like. Previous takes
-        you back, and Today’s puzzle returns to the daily challenge. Each
+        daily puzzle, or choose New whenever you like. Previous takes
+        you back, and Today returns to the daily challenge. Each
         puzzle’s progress is saved separately on this device.
       </p>
       <p>
