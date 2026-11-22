@@ -406,20 +406,20 @@ dialog button {
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --page: #151712;
-  --ink: #f0efe8;
-  --muted: #c0bdb2;
-  --line: #45483e;
-  --panel: #22251f;
-  --subtle: #2d3029;
-  --tile: #454a3f;
-  --tile-ink: #fafaf5;
+  --page: #111a28;
+  --ink: #edf3fc;
+  --muted: #b9c9dd;
+  --line: #526680;
+  --panel: #1b293c;
+  --subtle: #26374f;
+  --tile: #354c69;
+  --tile-ink: #f5f8ff;
   --gold: #f5c34c;
   --gold-ink: #1c1b14;
-  --button: #2d3029;
-  --primary: #f0eee4;
-  --primary-ink: #1b1e17;
-  --track: #42453c;
+  --button: #26374f;
+  --primary: #dceafe;
+  --primary-ink: #16263c;
+  --track: #3b506a;
   --focus: #8dd1ff;
 }
 :root {
