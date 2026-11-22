@@ -20,14 +20,15 @@ class Element {
   matches() { return false; }
 }
 
-async function launch(index, fetchOverride, saved = new Map()) {
+async function launch(index, fetchOverride, saved = new Map(), systemDark = false) {
   const elements = new Map();
   const get = (id) => {
     if (!elements.has(id)) elements.set(id, new Element());
     return elements.get(id);
   };
   const tiles = Array.from({ length: 6 }, () => new Element());
-  const controls = [get("center"), ...tiles, get("enter"), get("delete"), get("shuffle"), get("hintBtn")];
+  const controls = [get("center"), ...tiles, get("enter"), get("delete"), get("shuffle")];
+  get("hintBtn").disabled = true;
   const navigation = [get("newPuzzle"), get("previousPuzzle"), get("dailyPuzzle")];
   const document = {
     documentElement: { dataset: {} },
@@ -41,9 +42,10 @@ async function launch(index, fetchOverride, saved = new Map()) {
     date.setDate(date.getDate() + 1);
   }
   class Today extends Date { constructor(...args) { super(...(args.length ? args : [date.getTime()])); } }
+  const media = { matches: systemDark, addEventListener(_event, listener) { this.change = listener; } };
   await vm.runInNewContext(code, {
     document, Date: Today,
-    window: { matchMedia: () => ({ matches: false }) },
+    window: { matchMedia: () => media },
     localStorage: { getItem: (key) => saved.get(key) ?? null, setItem: (key, value) => saved.set(key, value) },
     fetch: async (url) => {
       if (url === "data/hints.json" && !fetchOverride) {
@@ -57,6 +59,8 @@ async function launch(index, fetchOverride, saved = new Map()) {
   });
   return {
     get, controls, navigation, saved,
+    get theme() { return document.documentElement.dataset.theme; },
+    changeSystemTheme(dark) { media.matches = dark; media.change(); },
     type(word) { for (const key of word) document.keydown({ key, target: new Element(), preventDefault() {} }); },
     submit() { get("enter").listeners.click(); },
     activateWithKeyboard(key) {
@@ -71,6 +75,7 @@ test("every daily puzzle loads, scores pangrams, rejects duplicates, and restore
     const game = await launch(index);
     assert.equal(game.get("message").textContent, "");
     assert.ok(game.controls.every((control) => control.disabled === false));
+    assert.equal(game.get("hintBtn").disabled, true);
     const puzzle = data.puzzles[index];
     const word = puzzle.words.find((word) => new Set(word).size === 7);
     game.type(word);
@@ -255,9 +260,8 @@ test("another word, pangram filtering, and saved hint levels respect puzzle boun
   assert.equal(game.get("puzzleClue").textContent, strongerClue);
 
   click("newPuzzle");
-  assert.equal(game.get("puzzleClue").textContent, "");
-  click("hintBtn");
-  assert.match(game.get("puzzleClue").textContent, /^[0-9]+ letters, [A-Z]—: /);
+  assert.match(game.get("puzzleClue").textContent, /^Hints unlock at Moving Up/);
+  assert.equal(game.get("hintBtn").disabled, true);
   click("previousPuzzle");
   assert.equal(hints().target, pangram);
   assert.equal(game.get("puzzleClue").textContent, strongerClue);
@@ -269,11 +273,76 @@ test("another word, pangram filtering, and saved hint levels respect puzzle boun
   assert.equal(hints().target, ordinary);
 });
 
+test("System follows device changes while saved Light and Dark override them", async () => {
+  const saved = new Map();
+  const game = await launch(0, undefined, saved, true);
+  assert.equal(game.get("themeMode").value, "system");
+  assert.equal(game.theme, "dark");
+  game.changeSystemTheme(false);
+  assert.equal(game.theme, "light");
+
+  for (const mode of ["light", "dark"]) {
+    saved.set("letterhive-theme", mode);
+    const reloaded = await launch(0, undefined, saved, mode === "light");
+    const select = reloaded.get("themeMode");
+    assert.equal(select.value, mode);
+    reloaded.changeSystemTheme(mode === "light");
+    assert.equal(reloaded.theme, mode);
+
+    select.value = "system";
+    select.listeners.change();
+    assert.equal(saved.get("letterhive-theme"), "system");
+    assert.equal(reloaded.theme, mode === "light" ? "dark" : "light");
+  }
+});
+
+test("both rank bars and hint availability update at the exact Moving Up threshold", async () => {
+  const puzzle = data.puzzles[0];
+  const points = (word) => (word.length === 4 ? 1 : word.length) + (new Set(word).size === 7 ? 7 : 0);
+  const threshold = Math.ceil(puzzle.words.reduce((sum, word) => sum + points(word), 0) * 2 / 9);
+  const finishingWord = puzzle.words.find((word) => word.length === 4);
+  const combinations = new Map([[0, []]]);
+  for (const word of puzzle.words.filter((answer) => answer !== finishingWord)) {
+    for (const [n, words] of [...combinations]) {
+      const next = n + points(word);
+      if (next < threshold && !combinations.has(next)) combinations.set(next, [...words, word]);
+    }
+  }
+
+  const saved = new Map([["letterhive-puzzle-" + puzzle.id, JSON.stringify(combinations.get(threshold - 1))]]);
+  const game = await launch(0, undefined, saved);
+  const reached = (id) => game.get(id).children.filter((segment) => segment.className === "done").length;
+  assert.equal(game.get("rank").textContent, "Good Start");
+  assert.equal(game.get("puzzleClue").textContent, `Hints unlock at Moving Up (${threshold} points).`);
+  assert.equal(game.get("hintBtn").disabled, true);
+  assert.equal(game.get("pangramHint").disabled, true);
+  assert.equal(reached("progress"), 2);
+  assert.equal(reached("progress"), reached("ranks"));
+
+  game.type(finishingWord);
+  game.submit();
+  assert.equal(game.get("rank").textContent, "Moving Up");
+  assert.equal(game.get("hintBtn").disabled, false);
+  assert.equal(game.get("pangramHint").disabled, false);
+  assert.equal(reached("progress"), 3);
+  assert.equal(reached("progress"), reached("ranks"));
+  assert.deepEqual(game.get("progress").children.map((segment) => segment.title),
+    game.get("ranks").children.map((segment) => segment.title));
+
+  const restored = await launch(0, undefined, saved);
+  assert.equal(restored.get("hintBtn").disabled, false);
+  restored.get("newPuzzle").listeners.click();
+  assert.equal(restored.get("hintBtn").disabled, true);
+  restored.get("previousPuzzle").listeners.click();
+  assert.equal(restored.get("hintBtn").disabled, false);
+});
+
 test("loading errors keep game controls disabled and explain how to recover", async () => {
   for (const fetch of [async () => { throw new Error("offline"); }, async () => ({ ok: false }), async () => ({ ok: true, json: async () => ({ puzzles: [] }) })]) {
     const game = await launch(0, fetch);
     assert.match(game.get("message").textContent, /Couldn’t load the puzzle/);
     assert.ok(game.controls.every((control) => control.disabled));
     assert.ok(game.navigation.every((control) => control.disabled));
+    assert.equal(game.get("hintBtn").disabled, true);
   }
 });

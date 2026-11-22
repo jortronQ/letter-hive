@@ -111,19 +111,6 @@ input:focus-visible {
 .scoretitle > span {
   color: #66645e;
 }
-.track {
-  width: 100%;
-  height: 9px;
-  background: #e9e7df;
-  border-radius: 100px;
-  overflow: hidden;
-}
-.track > div {
-  height: 100%;
-  background: #efbd39;
-  border-radius: 100px;
-  transition: width 0.25s;
-}
 .entry {
   height: 62px;
   display: flex;
@@ -419,20 +406,20 @@ dialog button {
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --page: #151712;
-  --ink: #f0efe8;
-  --muted: #c0bdb2;
-  --line: #45483e;
-  --panel: #22251f;
-  --subtle: #2d3029;
-  --tile: #454a3f;
-  --tile-ink: #fafaf5;
+  --page: #111a28;
+  --ink: #edf3fc;
+  --muted: #b9c9dd;
+  --line: #526680;
+  --panel: #1b293c;
+  --subtle: #26374f;
+  --tile: #354c69;
+  --tile-ink: #f5f8ff;
   --gold: #f5c34c;
   --gold-ink: #1c1b14;
-  --button: #2d3029;
-  --primary: #f0eee4;
-  --primary-ink: #1b1e17;
-  --track: #42453c;
+  --button: #26374f;
+  --primary: #dceafe;
+  --primary-ink: #16263c;
+  --track: #3b506a;
   --focus: #8dd1ff;
 }
 :root {
@@ -486,13 +473,11 @@ body {
 :root[data-theme="dark"] .hex:hover {
   filter: brightness(1.14);
 }
-.track > div,
-.ranks i.done {
-  background: var(--gold);
-}
-.track,
 .ranks i {
   background: var(--track);
+}
+.ranks i.done {
+  background: var(--gold);
 }
 .panel {
   background: var(--panel);
@@ -556,9 +541,14 @@ button:focus-visible {
   flex-wrap: wrap;
   justify-content: flex-end;
 }
-.themeBtn {
-  min-width: 42px;
-  padding: 9px 12px;
+.themeSelect {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.themeSelect:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
 }
 .hex {
   line-height: 1;
@@ -572,8 +562,12 @@ button:focus-visible {
   }
 }
 
-#progress {
-  width: 0%;
+.scoreRanks {
+  margin: 0;
+}
+
+.scoreRanks i {
+  height: 9px;
 }
 
 .foot a {
