@@ -163,7 +163,7 @@ test("old daily saves migrate to their original letters rather than today's new 
   assert.ok(saved.has("letterhive-v2-" + day));
 });
 
-test("progressive hints describe the only missing accepted word without revealing it", async () => {
+test("progressive structural hints describe the only missing accepted word without revealing it", async () => {
   const index = dailyPuzzles.findIndex((puzzle) => puzzle.words.includes("letter"));
   const puzzle = dailyPuzzles[index];
   const word = "letter";
@@ -171,7 +171,10 @@ test("progressive hints describe the only missing accepted word without revealin
   const progressKey = "letterhive-puzzle-" + puzzle.id;
   const hintKey = "letterhive-hints-" + puzzle.id;
   const saved = new Map([[progressKey, JSON.stringify(found)]]);
-  const game = await launch(index, undefined, saved);
+  const game = await launch(index, async (url) => {
+    const fixture = url === "data/hints.json" ? { ...hintData, clues: {} } : data;
+    return { ok: true, json: async () => structuredClone(fixture) };
+  }, saved);
   const initialPoints = game.get("points").textContent;
   const initialRank = game.get("rank").textContent;
   const clue = game.get("puzzleClue");
