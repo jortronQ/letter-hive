@@ -677,6 +677,66 @@ button:focus-visible {
   display: none;
 }
 
+#archiveDialog {
+  max-height: calc(100dvh - 24px);
+}
+
+.archiveForm label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+#archiveDate,
+#playedPuzzle {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 44px;
+  font: inherit;
+  margin: 0;
+  padding-inline: 12px;
+}
+
+#archiveDate {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+#archiveDate::-webkit-date-and-time-value {
+  margin: 0;
+  text-align: start;
+}
+
+.archiveForm > button {
+  margin-top: 8px;
+}
+
+#playedPuzzleForm {
+  border-top: 1px solid var(--line);
+  margin-top: 16px;
+  padding-top: 16px;
+}
+
+#archiveError:empty {
+  display: none;
+}
+
+.archiveActions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+#archiveCancel {
+  color: var(--ink);
+  background: var(--subtle);
+}
+
 #wordsDialog {
   max-height: calc(100dvh - 24px);
   padding: 0;
@@ -964,6 +1024,11 @@ button:focus-visible {
 @media (max-width: 950px) and (max-height: 350px) and (orientation: landscape) {
   .game {
     --entry-height: 28px;
+    grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+  }
+
+  .puzzleNav .pill:not(.hintIcon) {
+    padding-inline: 6px;
   }
 
   .hintRow {

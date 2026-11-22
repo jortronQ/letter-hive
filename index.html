@@ -36,6 +36,8 @@
               <button class="pill" id="newPuzzle" type="button" aria-label="New puzzle" disabled>New</button>
               <button class="pill" id="previousPuzzle" type="button" aria-label="Previous puzzle" disabled>Previous</button>
               <button class="pill" id="dailyPuzzle" type="button" aria-label="Today’s puzzle" disabled>Today</button>
+              <button class="pill" id="archiveBtn" type="button" aria-haspopup="dialog"
+                aria-controls="archiveDialog" disabled>Archive</button>
               <button class="pill hintIcon" id="wordsBtn" type="button" aria-label="Found words"
                 title="Found words" aria-haspopup="dialog" aria-controls="wordsDialog">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
@@ -170,6 +172,28 @@
         <form method="dialog"><button>Back to puzzle</button></form>
       </footer>
     </dialog>
+    <dialog id="archiveDialog" aria-labelledby="archiveHeading">
+      <h2 id="archiveHeading" tabindex="-1" autofocus>Puzzle archive</h2>
+      <div id="archiveDailySection">
+        <p id="archiveRange"></p>
+        <form id="archiveForm" class="archiveForm">
+          <label for="archiveDate">Past daily puzzle</label>
+          <input class="pill" id="archiveDate" type="date" required aria-describedby="archiveRange" />
+          <p id="archiveError" role="alert"></p>
+          <button type="submit">Open daily puzzle</button>
+        </form>
+      </div>
+      <form id="playedPuzzleForm" class="archiveForm">
+        <label for="playedPuzzle">Played puzzles</label>
+        <select class="pill" id="playedPuzzle" required>
+          <option value="">Choose a played puzzle</option>
+        </select>
+        <button type="submit">Resume puzzle</button>
+      </form>
+      <div class="archiveActions">
+        <button type="button" id="archiveCancel">Cancel</button>
+      </div>
+    </dialog>
     <dialog id="help">
       <h2>How to play</h2>
       <p>
@@ -184,7 +208,7 @@
       <p>
         Find as many words as you can and aim for the highest rank. Try the
         daily puzzle, or choose New whenever you like. Previous takes
-        you back, and Today returns to the daily challenge. Each
+        you back, Today returns to the daily challenge, and Archive opens past daily or previously played puzzles. Each
         puzzle’s progress is saved separately on this device.
       </p>
       <p>

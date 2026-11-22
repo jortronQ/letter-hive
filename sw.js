@@ -16,6 +16,7 @@ const assets = new Set([
   "icons/letter-hive-192.png",
   "icons/letter-hive-512.png",
   "data/puzzles.json",
+  "data/daily-rotation.json",
   "data/hints.json",
   "data/esdb/COPYRIGHT.txt",
 ].map((path) => new URL(path, scope).href));

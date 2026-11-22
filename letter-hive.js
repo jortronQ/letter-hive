@@ -21,7 +21,10 @@
   applyTheme();
   const controls = document.querySelectorAll(".hex, .actions button, .puzzleNav button, #hintBtn");
   controls.forEach((button) => (button.disabled = true));
-  const response = await fetch("data/puzzles.json");
+  const [response, rotationResponse] = await Promise.all([
+    fetch("data/puzzles.json"),
+    fetch("data/daily-rotation.json"),
+  ]);
   if (!response.ok) throw new Error("Puzzle data unavailable");
   const { puzzles } = await response.json();
   if (!Array.isArray(puzzles) || !puzzles.length) {
@@ -31,17 +34,35 @@
     .then((result) => result.ok ? result.json() : {})
     .then((data) => data ?? {})
     .catch(() => ({}));
+  if (!rotationResponse.ok) throw new Error("Daily rotation unavailable");
+  const { archiveStart, puzzleIds } = await rotationResponse.json();
   const now = new Date();
   const dayKey = [
     now.getFullYear(),
     String(now.getMonth() + 1).padStart(2, "0"),
     String(now.getDate()).padStart(2, "0"),
   ].join("-");
+  const dayMilliseconds = 86400000;
   const dayNumber = Math.floor(
-    Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) / 86400000,
+    Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) / dayMilliseconds,
   );
-  const dailyPuzzle = puzzles[dayNumber % puzzles.length];
   const byId = new Map(puzzles.map((puzzle) => [puzzle.id, puzzle]));
+  if (!Array.isArray(puzzleIds) || !puzzleIds.length || puzzleIds.some((id) => !byId.has(id))) {
+    throw new Error("Invalid daily rotation");
+  }
+  const puzzleForDay = (day) => byId.get(puzzleIds[(day % puzzleIds.length + puzzleIds.length) % puzzleIds.length]);
+  const dailyPuzzle = puzzleForDay(dayNumber);
+  const archiveEnd = new Date((dayNumber - 1) * dayMilliseconds).toISOString().slice(0, 10);
+  const formatArchiveDate = (date) => new Date(date).toLocaleDateString(undefined, {
+    timeZone: "UTC", day: "numeric", month: "short", year: "numeric",
+  });
+  function archivedPuzzle(date) {
+    if (typeof date !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(date) ||
+        date < archiveStart || date > archiveEnd) return null;
+    const timestamp = Date.parse(date);
+    if (!Number.isFinite(timestamp) || new Date(timestamp).toISOString().slice(0, 10) !== date) return null;
+    return puzzleForDay(timestamp / dayMilliseconds);
+  }
   function readSaved(key, fallback) {
     try {
       return JSON.parse(localStorage.getItem(key) || "null") ?? fallback;
@@ -54,10 +75,19 @@
   }
   const savedSession = readSaved("letterhive-session-v1", {});
   const validIds = (value) => Array.isArray(value) ? value.filter((id) => byId.has(id)) : [];
-  const history = savedSession?.dayKey === dayKey ? validIds(savedSession.history) : [];
+  const history = [];
+  if (savedSession?.dayKey === dayKey && Array.isArray(savedSession.history)) {
+    for (const item of savedSession.history) {
+      // Older sessions stored only puzzle IDs.
+      const id = typeof item === "string" ? item : item?.id;
+      if (!byId.has(id)) continue;
+      const date = archivedPuzzle(item?.date)?.id === id ? item.date : null;
+      history.push({ id, date });
+    }
+  }
   let seen = new Set(validIds(savedSession?.seen));
   const progress = new Map();
-  let current, center, outer, available, dictionary, total, storageKey;
+  let current, currentArchiveDate, center, outer, available, dictionary, total, storageKey;
   let guess = "", found = [];
   let hintTarget, hintLevels;
   const isPangram = (word) => [...available].every((letter) => word.includes(letter));
@@ -76,8 +106,18 @@
         [...new Set(legacy.filter((word) => legacyPuzzle.words.includes(word)))]);
     }
   }
+  const played = new Set(validIds(savedSession?.played));
+  if (!Array.isArray(savedSession?.played)) {
+    // Older saves may still have a visited ID or saved words after history resets.
+    for (const puzzle of puzzles) {
+      const savedWords = readSaved("letterhive-puzzle-" + puzzle.id, null);
+      if (Array.isArray(savedWords) && savedWords.length) played.add(puzzle.id);
+    }
+    for (const id of seen) played.add(id);
+    for (const item of history) played.add(item.id);
+  }
   function saveSession() {
-    save("letterhive-session-v1", { dayKey, history, seen: [...seen] });
+    save("letterhive-session-v1", { dayKey, history, seen: [...seen], played: [...played] });
   }
   $("today").textContent = now.toLocaleDateString(undefined, {
     weekday: "short",
@@ -287,8 +327,9 @@
     paintHint();
     feedback((isPangram(w) ? "★ Pangram! " : "Nice! ") + "+" + score(w));
   }
-  function loadPuzzle(puzzle, remember = true) {
+  function loadPuzzle(puzzle, { date = null, remember = true } = {}) {
     current = puzzle;
+    currentArchiveDate = date;
     center = puzzle.center;
     outer = [...puzzle.outer];
     available = new Set(center + puzzle.outer);
@@ -304,13 +345,20 @@
     loadHints();
     $("center").textContent = center.toUpperCase();
     $("center").setAttribute("aria-label", "Centre letter " + center.toUpperCase());
-    if (remember && history.at(-1) !== puzzle.id) history.push(puzzle.id);
+    const previous = history.at(-1);
+    if (remember && (previous?.id !== puzzle.id || previous.date !== date)) {
+      history.push({ id: puzzle.id, date });
+    }
     if (history.length > puzzles.length * 2) history.shift();
     seen.add(puzzle.id);
+    played.delete(puzzle.id);
+    played.add(puzzle.id);
     saveSession();
-    $("puzzleStatus").textContent = puzzle.id === dailyPuzzle.id
-      ? "Today’s puzzle" : "Puzzle " + (puzzles.indexOf(puzzle) + 1) + " of " + puzzles.length;
-    $("dailyPuzzle").disabled = puzzle.id === dailyPuzzle.id;
+    $("puzzleStatus").textContent = date
+      ? formatArchiveDate(date)
+      : puzzle.id === dailyPuzzle.id
+        ? "Today’s puzzle" : "Puzzle " + (puzzles.indexOf(puzzle) + 1) + " of " + puzzles.length;
+    $("dailyPuzzle").disabled = !date && puzzle.id === dailyPuzzle.id;
     $("previousPuzzle").disabled = history.length < 2;
     paintTiles();
     paintGuess();
@@ -334,7 +382,52 @@
   $("previousPuzzle").addEventListener("click", () => {
     if (history.length < 2) return;
     history.pop();
-    loadPuzzle(byId.get(history.at(-1)), false);
+    const previous = history.at(-1);
+    loadPuzzle(byId.get(previous.id), { date: previous.date, remember: false });
+  });
+  const archiveDialog = $("archiveDialog");
+  const archiveInput = $("archiveDate");
+  const playedSelect = $("playedPuzzle");
+  function paintPlayedPuzzles() {
+    const placeholder = document.createElement("option");
+    placeholder.value = "";
+    placeholder.textContent = "Choose a played puzzle";
+    playedSelect.replaceChildren();
+    playedSelect.append(placeholder);
+    for (const id of [...played].reverse()) {
+      const puzzle = byId.get(id);
+      const option = document.createElement("option");
+      option.value = id;
+      option.textContent = `Puzzle ${puzzles.indexOf(puzzle) + 1} · ${puzzle.center.toUpperCase()} + ${puzzle.outer.toUpperCase()}`;
+      playedSelect.append(option);
+    }
+    playedSelect.value = "";
+  }
+  $("archiveBtn").addEventListener("click", () => {
+    archiveInput.value = currentArchiveDate || archiveEnd;
+    $("archiveError").textContent = "";
+    paintPlayedPuzzles();
+    archiveDialog.showModal();
+  });
+  $("archiveCancel").addEventListener("click", () => archiveDialog.close());
+  $("archiveForm").addEventListener("submit", (event) => {
+    event.preventDefault();
+    const date = archiveInput.value;
+    const puzzle = archivedPuzzle(date);
+    if (!puzzle) {
+      $("archiveError").textContent = "Choose a date in the archive range.";
+      archiveInput.focus();
+      return;
+    }
+    loadPuzzle(puzzle, { date });
+    archiveDialog.close();
+  });
+  $("playedPuzzleForm").addEventListener("submit", (event) => {
+    event.preventDefault();
+    const id = playedSelect.value;
+    if (!played.has(id)) return;
+    loadPuzzle(byId.get(id));
+    archiveDialog.close();
   });
   $("center").addEventListener("click", () => add(center));
   tiles.forEach((tile, i) =>
@@ -362,6 +455,7 @@
   document.addEventListener("keydown", (e) => {
     if (
       $("help").open ||
+      archiveDialog.open ||
       $("wordsDialog").open ||
       e.altKey ||
       e.ctrlKey ||
@@ -403,7 +497,15 @@
   $("howBtn").addEventListener("click", () => $("help").showModal());
   $("closeHelp").addEventListener("click", () => $("help").close());
   controls.forEach((button) => (button.disabled = false));
-  loadPuzzle(byId.get(history.at(-1)) || dailyPuzzle);
+  const archiveAvailable = archiveEnd >= archiveStart;
+  $("archiveDailySection").hidden = !archiveAvailable;
+  archiveInput.min = archiveStart;
+  archiveInput.max = archiveEnd;
+  if (archiveAvailable) {
+    $("archiveRange").textContent = `Available from ${formatArchiveDate(archiveStart)} to ${formatArchiveDate(archiveEnd)}.`;
+  }
+  const last = history.at(-1);
+  loadPuzzle(last ? byId.get(last.id) : dailyPuzzle, { date: last?.date });
 })().catch(() => {
   document.getElementById("message").textContent =
     "Couldn’t load the puzzle. Check your connection and reload.";

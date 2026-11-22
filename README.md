@@ -23,6 +23,12 @@ Open Letter Hive online first. In Safari on iPhone, use **Share → Add to Home 
 
 Open the installed app once while online so it can cache the game and puzzle data for offline play. Progress is saved locally. Depending on your browser, progress from before installation may live in separate storage.
 
+## Daily puzzle archive
+
+Choose **Archive** and select a past date to play its daily puzzle. The archive starts on 16 November 2026, the first full day in Brisbane after the current ESDB rotation went live. **Today** returns to the daily challenge, and **Previous** still follows your play history, including archive dates. An archived puzzle shares saved progress and hints with the same letter set elsewhere in the game. The **Played puzzles** list in Archive also lets you resume previously opened letter sets, including those started with **New**. It is stored on this device and carries over to later days. Older play can be recovered where a visited puzzle ID or saved words are still present.
+
+[data/daily-rotation.json](data/daily-rotation.json) preserves the published order of daily puzzle IDs. Keep this order stable so reordering the free-play collection doesn’t change which puzzle a past date opens.
+
 ## Optional puzzle hints
 
 Hints unlock at the third rank, **Moving Up**, for each puzzle. Choose **Hint** beside the score to show a clue below the progress bar. It gives the first letter and a simple definition. **Stronger hint**, to the right of the clue, reveals the first two letters and a more specific definition for the same meaning. Words without reviewed definitions use structural clues instead. Use **Different hint** to switch targets or **Pangram hint** to choose an undiscovered pangram. Hints never show the full answer or affect scoring or rank.
@@ -45,7 +51,7 @@ Each generated answer must contain the centre letter and use only the seven puzz
 
 The collection contains **120 distinct seven-letter sets**, with **121 puzzles** because two of the preserved original puzzles use the same letters with different centre letters. The original four remain available. New sets are selected deterministically from actual ESDB pangrams, with 40–150 accepted answers, two or three vowels, and at most one of J/Q/X/Z. Selection favours different letters between neighbouring puzzles and balances letter and centre-letter usage. These are vocabulary and variety checks rather than a guarantee of equal difficulty.
 
-The local date chooses a daily puzzle. **New puzzle** starts another immediately, preferring unvisited puzzles whose letters differ most from the current set. No puzzle repeats until the collection has been visited; a new cycle then begins. **Previous** returns through this session's puzzle history, and **Today’s puzzle** returns to the daily challenge. A reload on the same day resumes the current puzzle. A new day opens that day's challenge.
+The local date chooses a daily puzzle. **New** starts another immediately, preferring unvisited puzzles whose letters differ most from the current set. No puzzle repeats until the collection has been visited; a new cycle then begins. **Previous** returns through this session's puzzle history, and **Today** returns to the daily challenge. A reload on the same day resumes the current puzzle. A new day opens that day's challenge.
 
 Progress is stored separately by a stable ID made from the centre and outer letters, so it survives switching puzzles, reloading, and reordering the collection. Today's saves from the old four-puzzle daily rotation are migrated to their original letter set without deleting the old save. Saved answers outside the current dictionary are excluded from the displayed score. Browser storage must be available for persistence across reloads.
 
@@ -82,7 +88,7 @@ Python tests cover dictionary filtering, Australian spelling, overrides, pangram
 
 ## GitHub Pages
 
-The included workflow checks the generated answers and runs tests before publishing when changes are pushed to `main`. It can also be run manually from the Actions tab. The deployment includes the HTML, CSS, JavaScript, web app manifest, icons, service worker, generated puzzle JSON, reviewed hint JSON, and dictionary licence. It excludes the full dictionary export and development scripts.
+The included workflow checks the generated answers and runs tests before publishing when changes are pushed to `main`. It can also be run manually from the Actions tab. The deployment includes the HTML, CSS, JavaScript, web app manifest, icons, service worker, generated puzzle JSON, daily rotation, reviewed hint JSON, and dictionary licence. It excludes the full dictionary export and development scripts.
 
 1. Create an empty GitHub repository named `letter-hive` under your account.
 2. Connect this checkout and push your committed changes:
