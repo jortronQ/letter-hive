@@ -14,30 +14,430 @@
       "gentle": "Caught off guard.",
       "stronger": "An adverb in an expression meaning startled by an unexpected remark."
     },
+    "abbe": {
+      "synset": "09773483-n",
+      "gentle": "A French religious title.",
+      "stronger": "The French title for the senior monk who governs a monastic community."
+    },
+    "acacia": {
+      "synset": "11776561-n",
+      "gentle": "A kind of tree or shrub.",
+      "stronger": "A woody member of the group that includes many wattles and thorn trees."
+    },
+    "acclivity": {
+      "synset": "09229873-n",
+      "gentle": "A rise in the ground.",
+      "stronger": "An upward gradient like a stretch of road that climbs a hill."
+    },
+    "acyl": {
+      "synset": "14618888-n",
+      "gentle": "A group found in organic chemistry.",
+      "stronger": "An oxygen-bearing group left when a carboxylic acid loses the hydroxyl part of its carboxyl group."
+    },
+    "aery": {
+      "synset": "09212054-n",
+      "gentle": "The high nest of a bird of prey.",
+      "stronger": "A hawk's or eagle's nest built in a lofty place such as a cliff ledge."
+    },
+    "again": {
+      "synset": "00040777-r",
+      "gentle": "One more time.",
+      "stronger": "From the beginning or on another occasion after an earlier attempt."
+    },
+    "alfalfa": {
+      "synset": "12569925-n",
+      "gentle": "A plant grown for animal fodder.",
+      "stronger": "A hay crop in the pea family with three-part leaves and clusters of small purple flowers."
+    },
+    "alga": {
+      "synset": "01399755-n",
+      "gentle": "A simple organism often found in water.",
+      "stronger": "A photosynthetic organism such as a kelp or diatom, lacking true roots, stems and leaves."
+    },
+    "algal": {
+      "synset": "02843471-a",
+      "gentle": "Relating to simple photosynthetic organisms.",
+      "stronger": "Describes growths such as the green blooms formed by microscopic organisms in water."
+    },
+    "allay": {
+      "synset": "01819152-v",
+      "gentle": "Make a feeling less intense.",
+      "stronger": "Calm someone’s fears or ease their anxiety."
+    },
+    "allow": {
+      "synset": "00803980-v",
+      "gentle": "Give permission.",
+      "stronger": "Consent to someone doing something they would otherwise be prohibited from doing."
+    },
+    "alloy": {
+      "synset": "14610949-n",
+      "gentle": "A mixture based on metal.",
+      "stronger": "A material such as bronze or steel, made by combining a metal with other elements."
+    },
+    "ally": {
+      "synset": "09804483-n",
+      "gentle": "Someone on your side.",
+      "stronger": "A person who supports or helps you in a shared effort."
+    },
+    "aloe": {
+      "synset": "12457182-n",
+      "gentle": "A succulent with thick leaves.",
+      "stronger": "A plant of a group mostly found in Africa, with a rosette of fleshy leaves and showy flower spikes."
+    },
+    "alto": {
+      "synset": "01218334-s",
+      "gentle": "Of a low female singing range.",
+      "stronger": "Describes the bottom female voice part in a typical four-part choir."
+    },
+    "ambo": {
+      "synset": "03164306-n",
+      "gentle": "A raised platform for a speaker.",
+      "stronger": "An elevated place that makes a speaker easier to see, such as a stand for readings in a church."
+    },
+    "angina": {
+      "synset": "14131521-n",
+      "gentle": "Chest pain caused by poor blood supply to the heart.",
+      "stronger": "Episodes of chest discomfort when too little oxygen reaches the heart muscle."
+    },
+    "anti": {
+      "synset": "01822909-a",
+      "gentle": "Opposed to a proposal.",
+      "stronger": "Describes someone or their position when they are against a particular action or policy."
+    },
+    "area": {
+      "synset": "05823643-n",
+      "gentle": "A field of study.",
+      "stronger": "A particular branch of knowledge or research within a broader subject."
+    },
+    "aria": {
+      "synset": "07063554-n",
+      "gentle": "A piece for a solo singer.",
+      "stronger": "An elaborate solo song, such as one a character sings in an opera."
+    },
+    "array": {
+      "synset": "07955622-n",
+      "gentle": "An ordered arrangement.",
+      "stronger": "A set of items deliberately laid out in a pattern, such as rows and columns."
+    },
+    "arty": {
+      "synset": "01855668-s",
+      "gentle": "Showily artistic.",
+      "stronger": "Describes someone or something that imitates the manner of artists for effect."
+    },
+    "ashy": {
+      "synset": "00388654-s",
+      "gentle": "A light, pale colour.",
+      "stronger": "A shade of grey like the powder left after something burns."
+    },
+    "asphyxia": {
+      "synset": "14065905-n",
+      "gentle": "A dangerous lack of oxygen.",
+      "stronger": "A condition that can occur when breathing is blocked and normal gas exchange stops."
+    },
+    "assay": {
+      "synset": "07233822-n",
+      "gentle": "A report of a chemical analysis.",
+      "stronger": "A written account of what a test found in a sample, such as the proportion of gold in ore."
+    },
+    "ataxia": {
+      "synset": "14114736-n",
+      "gentle": "Difficulty coordinating movement.",
+      "stronger": "Loss of control over voluntary muscle movements that may make walking unsteady."
+    },
+    "awash": {
+      "synset": "01087442-s",
+      "gentle": "Covered with water.",
+      "stronger": "Describes a surface with water lying or sweeping across it, like a deck after a wave breaks."
+    },
+    "awed": {
+      "synset": "02021929-a",
+      "gentle": "Filled with a sense of wonder.",
+      "stronger": "Showing reverence mixed with amazement and a little fear in the presence of something impressive."
+    },
+    "awry": {
+      "synset": "00273429-r",
+      "gentle": "Off the intended course.",
+      "stronger": "In a way that departs from what should have happened, as when a plan goes wrong."
+    },
+    "axis": {
+      "synset": "06017958-n",
+      "gentle": "A reference line through a figure.",
+      "stronger": "An imaginary straight line that a body can rotate around or a shape can be symmetric about."
+    },
+    "ayah": {
+      "synset": "09846223-n",
+      "gentle": "A childcare attendant in India.",
+      "stronger": "A historical term for a nursemaid employed to look after children in an Indian household."
+    },
+    "baas": {
+      "synset": "09846568-n",
+      "gentle": "A term for someone in charge.",
+      "stronger": "A South African word meaning boss or master."
+    },
+    "baba": {
+      "synset": "07645406-n",
+      "gentle": "A small yeast cake.",
+      "stronger": "An individual cake raised with yeast, sometimes soaked in syrup."
+    },
+    "babe": {
+      "synset": "09846929-n",
+      "gentle": "A very young child.",
+      "stronger": "A baby in its first year, before it can walk or talk."
+    },
     "back": {
       "synset": "05566350-n",
       "gentle": "A part of the body opposite the chest.",
       "stronger": "The area along the spine, below the neck."
+    },
+    "ball": {
+      "synset": "02781674-n",
+      "gentle": "A round object used in play.",
+      "stronger": "A sphere that players kick, hit or throw in a sport or game."
+    },
+    "barb": {
+      "synset": "06780713-n",
+      "gentle": "A cutting remark.",
+      "stronger": "A pointed insult aimed at someone and meant to sting."
+    },
+    "barber": {
+      "synset": "09858283-n",
+      "gentle": "Someone who cuts hair for a living.",
+      "stronger": "A tradesperson who gives haircuts and trims or shaves beards."
+    },
+    "bare": {
+      "synset": "02162939-a",
+      "gentle": "Without a protective covering.",
+      "stronger": "Exposed because its usual outer layer has been removed or was never applied."
     },
     "bask": {
       "synset": "01824240-v",
       "gentle": "Take pleasure in a good feeling.",
       "stronger": "What you might do figuratively in the glow of praise."
     },
+    "bass": {
+      "synset": "01218606-s",
+      "gentle": "Low in pitch.",
+      "stronger": "Describes the vocal or instrumental range at the bottom of a piece of music."
+    },
+    "bast": {
+      "synset": "13120203-n",
+      "gentle": "A strong fibre from a plant stem.",
+      "stronger": "A woody fibre taken from tissue beneath the outer bark, as in flax or jute."
+    },
+    "bear": {
+      "synset": "02134305-n",
+      "gentle": "A large shaggy mammal.",
+      "stronger": "A heavy, strong-clawed mammal of the family that includes the grizzly and giant panda."
+    },
+    "bearer": {
+      "synset": "10414772-n",
+      "gentle": "Someone who carries a coffin.",
+      "stronger": "One of the mourners who helps lift and carry the coffin during a funeral."
+    },
+    "bedfellow": {
+      "synset": "09865763-n",
+      "gentle": "A temporary associate.",
+      "stronger": "Someone you find yourself allied with for the moment, perhaps unexpectedly."
+    },
+    "beef": {
+      "synset": "07679337-n",
+      "gentle": "Meat from cattle.",
+      "stronger": "The flesh of an adult cow or steer prepared as food, such as steak or a roast."
+    },
+    "beer": {
+      "synset": "07902824-n",
+      "gentle": "A fermented alcoholic drink.",
+      "stronger": "A beverage made from grains and commonly flavoured with hops."
+    },
+    "bell": {
+      "synset": "02827590-n",
+      "gentle": "A metal object that rings.",
+      "stronger": "A hollow metal device that gives a clear note when struck."
+    },
+    "bier": {
+      "synset": "02839473-n",
+      "gentle": "A stand used at a funeral.",
+      "stronger": "A frame on which a coffin or body rests before burial."
+    },
+    "blab": {
+      "synset": "00939238-v",
+      "gentle": "Tell a secret.",
+      "stronger": "Reveal information someone trusted you to keep confidential."
+    },
     "blazing": {
       "synset": "00281710-s",
       "gentle": "Giving off intense light.",
       "stronger": "Describes a sun so bright that it makes you squint."
+    },
+    "blob": {
+      "synset": "13933034-n",
+      "gentle": "Something with no clear shape.",
+      "stronger": "An indistinct lump or splash with an irregular outline."
+    },
+    "bloc": {
+      "synset": "08187993-n",
+      "gentle": "A group of allied countries.",
+      "stronger": "Nations joined by a special political alliance or common interest."
+    },
+    "blow": {
+      "synset": "07491010-n",
+      "gentle": "An unwelcome setback.",
+      "stronger": "An event that frustrates plans or impedes progress."
+    },
+    "blowback": {
+      "synset": "06647629-n",
+      "gentle": "A boomerang effect involving misinformation.",
+      "stronger": "False material planted abroad that circulates back to the country that planted it."
+    },
+    "blowlamp": {
+      "synset": "02858670-n",
+      "gentle": "A tool that produces intense heat.",
+      "stronger": "A handheld gas burner that mixes fuel and air to make a hot flame."
+    },
+    "blue": {
+      "synset": "00707060-s",
+      "gentle": "Sad or dispirited.",
+      "stronger": "Feeling downhearted and low in spirits."
+    },
+    "bluebell": {
+      "synset": "12057797-n",
+      "gentle": "A plant with drooping blue flowers.",
+      "stronger": "A perennial whose slender stalks carry small blue, bell-shaped blooms."
+    },
+    "bock": {
+      "synset": "07903436-n",
+      "gentle": "A strong kind of lager.",
+      "stronger": "A traditionally German beer brewed in autumn and matured over winter for drinking in spring."
+    },
+    "bola": {
+      "synset": "02868691-n",
+      "gentle": "A cord worn as a tie.",
+      "stronger": "A necktie made from a cord held together at the front by a decorative clasp."
+    },
+    "boll": {
+      "synset": "11705981-n",
+      "gentle": "Part of a plant that holds seeds.",
+      "stronger": "The rounded seed capsule of a cotton or flax plant."
+    },
+    "bomb": {
+      "synset": "07379793-n",
+      "gentle": "A complete failure.",
+      "stronger": "An event or production that flops so badly it has virtually no effect."
+    },
+    "bong": {
+      "synset": "07391054-n",
+      "gentle": "A low, resonant noise.",
+      "stronger": "A dull ringing sound like the deep note of a large bell."
+    },
+    "boob": {
+      "synset": "10059116-n",
+      "gentle": "An insult for a foolish person.",
+      "stronger": "An informal term for someone who behaves ignorantly."
     },
     "book": {
       "synset": "02873453-n",
       "gentle": "An object made for reading.",
       "stronger": "A set of bound pages that can sit on a shelf."
     },
+    "bookbinding": {
+      "synset": "00608489-n",
+      "gentle": "A craft involving printed pages.",
+      "stronger": "The work of assembling pages and attaching them to a cover."
+    },
+    "boom": {
+      "synset": "14512397-n",
+      "gentle": "A period of economic prosperity.",
+      "stronger": "A time when business activity expands rapidly and sales, jobs or investment rise."
+    },
+    "boor": {
+      "synset": "10430560-n",
+      "gentle": "An uncouth person.",
+      "stronger": "Someone regarded as crude for behaving with little courtesy or social refinement."
+    },
+    "bowl": {
+      "synset": "02884435-n",
+      "gentle": "A round vessel.",
+      "stronger": "An open-topped container you might fill with grain or soup."
+    },
+    "brae": {
+      "synset": "09250962-n",
+      "gentle": "A hillside.",
+      "stronger": "A Scots word for a sloping stretch of ground."
+    },
+    "breeze": {
+      "synset": "11451868-n",
+      "gentle": "A light wind.",
+      "stronger": "A gentle movement of air that can feel refreshing on a warm day."
+    },
+    "bubble": {
+      "synset": "09252616-n",
+      "gentle": "A little pocket of gas.",
+      "stronger": "A rounded globule of air or another gas surrounded by liquid, as in a fizzy drink."
+    },
     "bucksaw": {
       "synset": "02914026-n",
       "gentle": "A hand tool for cutting wood.",
       "stronger": "Its blade is held in an H-shaped frame for cutting logs."
+    },
+    "bulb": {
+      "synset": "13154818-n",
+      "gentle": "An underground part that can grow into a plant.",
+      "stronger": "A rounded storage structure that can send up new shoots, as in tulips and onions."
+    },
+    "bull": {
+      "synset": "02405977-n",
+      "gentle": "A mature male bovine.",
+      "stronger": "An adult male of domestic cattle that has not been castrated."
+    },
+    "bumble": {
+      "synset": "01905126-v",
+      "gentle": "Walk clumsily.",
+      "stronger": "Move on foot unsteadily, stumbling or tripping as you go."
+    },
+    "bumblebee": {
+      "synset": "02212276-n",
+      "gentle": "A stout, furry bee.",
+      "stronger": "A large, hairy bee of temperate regions that lives in a colony and often has yellow and black bands."
+    },
+    "buss": {
+      "synset": "00139041-n",
+      "gentle": "A kiss.",
+      "stronger": "An old-fashioned word for a press of the lips in affection or greeting."
+    },
+    "bust": {
+      "synset": "07379624-n",
+      "gentle": "A complete failure.",
+      "stronger": "An informal noun for an effort or venture that flops and yields nothing worthwhile."
+    },
+    "butt": {
+      "synset": "09904118-n",
+      "gentle": "A target of ridicule.",
+      "stronger": "The person at whose expense jokes are made or pranks are played."
+    },
+    "cacao": {
+      "synset": "12222097-n",
+      "gentle": "A tropical tree grown for its seeds.",
+      "stronger": "The American tree whose pods contain the beans from which chocolate is made."
+    },
+    "call": {
+      "synset": "06283456-n",
+      "gentle": "A way to contact someone.",
+      "stronger": "A conversation or attempt to reach someone by telephone."
+    },
+    "calla": {
+      "synset": "11814248-n",
+      "gentle": "A plant grown for its flowers.",
+      "stronger": "A South African ornamental with a white hood around a yellow central spike."
+    },
+    "cark": {
+      "synset": "01768023-v",
+      "gentle": "Make someone uneasy.",
+      "stronger": "An old-fashioned verb for troubling somebody's mind with worry."
+    },
+    "casaba": {
+      "synset": "07772814-n",
+      "gentle": "A type of melon.",
+      "stronger": "A melon with a yellowish outer skin and pale, whitish flesh."
     },
     "cask": {
       "synset": "02798192-n",
@@ -49,20 +449,100 @@
       "gentle": "A formal garment worn in church.",
       "stronger": "An ankle-length robe often worn by clergy or choir members."
     },
+    "cede": {
+      "synset": "02240011-v",
+      "gentle": "Give up control.",
+      "stronger": "Formally hand over territory or authority to someone else."
+    },
+    "cheque": {
+      "synset": "13402907-n",
+      "gentle": "A written instruction to make a payment.",
+      "stronger": "A signed order telling your bank to pay an amount from your account to the named recipient."
+    },
+    "chequered": {
+      "synset": "01792557-s",
+      "gentle": "Covered with a regular geometric pattern.",
+      "stronger": "Marked by alternating squares of contrasting colours, like a chessboard."
+    },
+    "choc": {
+      "synset": "07619020-n",
+      "gentle": "A shortened name for a sweet treat.",
+      "stronger": "Informal British abbreviation for the cocoa-based confection."
+    },
     "chock": {
       "synset": "03027561-n",
       "gentle": "Something that keeps a heavy object from moving.",
       "stronger": "A block wedged against a wheel to stop it rolling."
+    },
+    "chockablock": {
+      "synset": "01087985-s",
+      "gentle": "Completely packed.",
+      "stronger": "Describes a place so full there is hardly room for anything else."
     },
     "choking": {
       "synset": "14081734-n",
       "gentle": "A dangerous breathing problem.",
       "stronger": "This can occur when food blocks the airway."
     },
+    "clay": {
+      "synset": "14837352-n",
+      "gentle": "Fine earth that can be moulded.",
+      "stronger": "A fine-grained material that is pliable when damp and hardens when fired in a kiln."
+    },
+    "cloaca": {
+      "synset": "05311840-n",
+      "gentle": "A shared bodily outlet in many animals.",
+      "stronger": "The chamber in birds and reptiles where the digestive, urinary and reproductive tracts meet."
+    },
+    "clot": {
+      "synset": "05409434-n",
+      "gentle": "A lump formed in a liquid.",
+      "stronger": "A mass made from substances that have thickened or solidified out of a fluid, such as coagulated blood."
+    },
+    "coach": {
+      "synset": "09951098-n",
+      "gentle": "Someone who trains players.",
+      "stronger": "A person who prepares an athlete or team for competition by teaching skills and directing practice."
+    },
+    "coal": {
+      "synset": "14838786-n",
+      "gentle": "A fossil fuel.",
+      "stronger": "A combustible rock formed from ancient plant material."
+    },
+    "coca": {
+      "synset": "12710807-n",
+      "gentle": "A shrub native to South America.",
+      "stronger": "An Andean shrub whose leaves have traditionally been chewed for their stimulant effect."
+    },
+    "cock": {
+      "synset": "04334820-n",
+      "gentle": "A turning control for a flow of water.",
+      "stronger": "A tap that uses a rotating valve to regulate liquid."
+    },
+    "coco": {
+      "synset": "12608564-n",
+      "gentle": "A palm of the tropics.",
+      "stronger": "The tall palm that produces large, hard-shelled fruits with white flesh."
+    },
+    "cocoa": {
+      "synset": "07939004-n",
+      "gentle": "A sweet chocolate drink.",
+      "stronger": "A usually hot drink made by stirring powdered roasted beans and sugar into milk."
+    },
     "coho": {
       "synset": "02539495-n",
       "gentle": "A kind of salmon.",
       "stronger": "A silvery species native to the north Pacific."
+    },
+    "cola": {
+      "synset": "07944171-n",
+      "gentle": "A sweet fizzy drink.",
+      "stronger": "A carbonated soft drink traditionally flavoured with kola nut extract."
+    },
+    "colt": {
+      "synset": "02379443-n",
+      "gentle": "A young male horse.",
+      "stronger": "A male horse that has not yet reached four years of age."
     },
     "cook": {
       "synset": "01669533-v",
@@ -74,35 +554,590 @@
       "gentle": "A kitchen reference.",
       "stronger": "A volume of recipes with instructions for preparing dishes."
     },
+    "cool": {
+      "synset": "02540350-a",
+      "gentle": "Moderately low in temperature.",
+      "stronger": "Describes air that feels pleasantly chilly on a hot day."
+    },
+    "coot": {
+      "synset": "02020681-n",
+      "gentle": "A dark bird often seen on ponds.",
+      "stronger": "A slate-black waterbird that looks somewhat like a duck and has a slow flight."
+    },
+    "cork": {
+      "synset": "14847397-n",
+      "gentle": "The outer bark of a particular oak.",
+      "stronger": "Light, springy bark used for things like bottle stoppers or pinboards."
+    },
+    "cosh": {
+      "synset": "02850699-n",
+      "gentle": "A short club.",
+      "stronger": "A blunt striking weapon, traditionally a leather-covered piece of metal with a flexible handle."
+    },
+    "cottonmouth": {
+      "synset": "01757174-n",
+      "gentle": "A venomous snake.",
+      "stronger": "A semiaquatic species found around swamps in the southern United States."
+    },
+    "crack": {
+      "synset": "03421239-n",
+      "gentle": "A narrow opening.",
+      "stronger": "A slender gap through which you might see a sliver of light."
+    },
+    "crazily": {
+      "synset": "00081240-r",
+      "gentle": "In a wildly irrational manner.",
+      "stronger": "How someone behaves when acting as though reason has gone out the window."
+    },
+    "cred": {
+      "synset": "04791753-n",
+      "gentle": "Informal standing or respect among peers.",
+      "stronger": "The respect someone earns in fashionable youth circles by being seen as authentic."
+    },
+    "crow": {
+      "synset": "01581669-n",
+      "gentle": "A bird with a harsh call.",
+      "stronger": "A usually black bird known for its loud, rough caw."
+    },
+    "cure": {
+      "synset": "00528652-v",
+      "gentle": "Treat food to preserve it.",
+      "stronger": "Prepare meat or fish so it keeps longer by removing moisture or treating it with salt."
+    },
+    "cuss": {
+      "synset": "07139804-n",
+      "gentle": "An impolite expression.",
+      "stronger": "A swear word said out of surprise or anger."
+    },
+    "cyclical": {
+      "synset": "00678969-a",
+      "gentle": "Repeating in a pattern.",
+      "stronger": "Describes events that return to the same stages in sequence, such as seasonal changes."
+    },
+    "dace": {
+      "synset": "01443758-n",
+      "gentle": "A small freshwater fish.",
+      "stronger": "A slender bluish-green fish that lives in rivers and streams in Europe."
+    },
+    "dead": {
+      "synset": "00096133-a",
+      "gentle": "No longer alive.",
+      "stronger": "Describes an organism whose vital functions have permanently ceased."
+    },
+    "deck": {
+      "synset": "07973335-n",
+      "gentle": "A pack of playing cards.",
+      "stronger": "The standard set of 52 cards divided among four suits."
+    },
     "deed": {
       "synset": "06557128-n",
       "gentle": "A document with legal force.",
       "stronger": "A signed instrument that can transfer ownership of a property."
+    },
+    "deep": {
+      "synset": "00693335-a",
+      "gentle": "Extending a long way down or in.",
+      "stronger": "Describes a well with a distant bottom or a cut that penetrates far below the surface."
+    },
+    "deer": {
+      "synset": "02432691-n",
+      "gentle": "A hoofed animal.",
+      "stronger": "In most species, the males grow solid antlers that are shed and regrown."
+    },
+    "defy": {
+      "synset": "02712676-v",
+      "gentle": "Resist openly.",
+      "stronger": "Refuse to submit to an order or authority, even in the face of consequences."
+    },
+    "dell": {
+      "synset": "09287505-n",
+      "gentle": "A little valley with trees.",
+      "stronger": "A small wooded hollow nestled between slopes."
+    },
+    "delude": {
+      "synset": "02581157-v",
+      "gentle": "Mislead someone.",
+      "stronger": "Deceive a person into accepting something false as true."
+    },
+    "denude": {
+      "synset": "00195256-v",
+      "gentle": "Remove a covering completely.",
+      "stronger": "Strip something until it is bare, as when land is cleared of vegetation."
+    },
+    "denuded": {
+      "synset": "01703063-s",
+      "gentle": "Stripped of the usual covering.",
+      "stronger": "Describes something left bare, such as a hillside after all its plant cover has been removed."
+    },
+    "derv": {
+      "synset": "14710181-n",
+      "gentle": "Fuel for certain road vehicles.",
+      "stronger": "A British term for diesel used by cars and lorries."
     },
     "devilry": {
       "synset": "00747241-n",
       "gentle": "Behaviour that is seriously wicked.",
       "stronger": "Cruel acts or conduct described as fiendish."
     },
+    "diddly": {
+      "synset": "13795187-n",
+      "gentle": "A tiny, worthless amount.",
+      "stronger": "An informal word for a quantity so small that it scarcely counts."
+    },
+    "dive": {
+      "synset": "00443966-n",
+      "gentle": "A plunge into water.",
+      "stronger": "A headfirst entry into a pool or other body of water, often from above the surface."
+    },
+    "dodo": {
+      "synset": "01813884-n",
+      "gentle": "An extinct bird that could not fly.",
+      "stronger": "A heavy, flightless relative of pigeons that once lived on Mauritius."
+    },
+    "doer": {
+      "synset": "09786620-n",
+      "gentle": "Someone who takes action.",
+      "stronger": "A person who gets things done by acting on plans and ideas."
+    },
+    "door": {
+      "synset": "03226423-n",
+      "gentle": "A movable barrier at an entrance.",
+      "stronger": "A hinged or sliding panel that opens and closes the way into a room, building or vehicle."
+    },
+    "doorjamb": {
+      "synset": "03227560-n",
+      "gentle": "Part of a frame around an opening.",
+      "stronger": "One of the upright sides of a frame, where the hinges or latch can sit."
+    },
+    "dove": {
+      "synset": "01814978-n",
+      "gentle": "A small pigeon.",
+      "stronger": "One of a group of pigeon species such as the turtle or mourning varieties."
+    },
+    "drove": {
+      "synset": "08201253-n",
+      "gentle": "A group of animals on the move.",
+      "stronger": "A herd or flock travelling together, such as cattle being driven along a road."
+    },
+    "drover": {
+      "synset": "10191239-n",
+      "gentle": "A person who moves livestock.",
+      "stronger": "Someone whose work is driving a herd of cattle or sheep from place to place."
+    },
+    "dryer": {
+      "synset": "03256469-n",
+      "gentle": "An appliance that removes moisture.",
+      "stronger": "A machine that takes water out of something such as freshly washed clothes."
+    },
     "dude": {
       "synset": "10103127-n",
       "gentle": "An informal way to address someone.",
       "stronger": "A casual term for a man, as when calling to a mate."
+    },
+    "duel": {
+      "synset": "01175274-n",
+      "gentle": "A formal fight between two people.",
+      "stronger": "A prearranged single combat, historically fought with weapons to settle a matter of honour."
+    },
+    "duff": {
+      "synset": "07633728-n",
+      "gentle": "A flour pudding.",
+      "stronger": "A firm steamed or boiled pudding that can contain raisins, currants or candied peel."
+    },
+    "dull": {
+      "synset": "00810082-a",
+      "gentle": "Lacking liveliness.",
+      "stronger": "Describes something so flat or uneventful that it fails to hold one's interest."
+    },
+    "dulled": {
+      "synset": "00804168-s",
+      "gentle": "Made less sharp.",
+      "stronger": "Describes a blade whose edge has worn down so that it no longer cuts cleanly."
+    },
+    "dumb": {
+      "synset": "00153897-s",
+      "gentle": "Momentarily unable to speak.",
+      "stronger": "Temporarily lost for words through shock, astonishment or another strong feeling."
+    },
+    "dumbbell": {
+      "synset": "03259733-n",
+      "gentle": "A weight for exercising.",
+      "stronger": "A handheld weight with two heavy ends joined by a short grip."
+    },
+    "dune": {
+      "synset": "09293641-n",
+      "gentle": "A hill of sand.",
+      "stronger": "A ridge or mound built by windblown sand, often on a coast or in a desert."
+    },
+    "dupe": {
+      "synset": "00856586-v",
+      "gentle": "Trick someone.",
+      "stronger": "Fool a person into believing a hoax or acting on false information."
+    },
+    "dyed": {
+      "synset": "01576564-s",
+      "gentle": "Artificially coloured.",
+      "stronger": "Describes fabric whose colour was added after it was made."
+    },
+    "dyer": {
+      "synset": "10060312-n",
+      "gentle": "Someone who colours cloth.",
+      "stronger": "A textile worker who applies dyes to fabric as a trade."
+    },
+    "echo": {
+      "synset": "05017985-n",
+      "gentle": "A sound heard again after a delay.",
+      "stronger": "The repetition you hear when sound waves bounce back from a surface such as a cliff."
+    },
+    "ecru": {
+      "synset": "04980558-n",
+      "gentle": "A pale brown colour.",
+      "stronger": "A light beige shade resembling unbleached linen."
+    },
+    "eddy": {
+      "synset": "07447573-n",
+      "gentle": "A small swirling current.",
+      "stronger": "A little whirlpool where moving water curls back on itself."
+    },
+    "edge": {
+      "synset": "08583230-n",
+      "gentle": "Where a surface ends.",
+      "stronger": "The outer boundary of a flat face, such as the line where a tabletop stops."
+    },
+    "edged": {
+      "synset": "00259277-s",
+      "gentle": "Having a border of a given kind.",
+      "stronger": "Describes something finished around its margins, such as fabric trimmed with lace."
+    },
+    "eerie": {
+      "synset": "01579692-s",
+      "gentle": "Strange in an uncanny way.",
+      "stronger": "Describes an atmosphere so mysterious it seems to hint at something supernatural."
+    },
+    "elude": {
+      "synset": "02078305-v",
+      "gentle": "Manage to escape.",
+      "stronger": "Evade a pursuer or slip out of someone's grasp."
+    },
+    "ended": {
+      "synset": "01006696-s",
+      "gentle": "Brought to a close.",
+      "stronger": "Describes an activity or event that has reached its conclusion."
+    },
+    "endue": {
+      "synset": "02479662-v",
+      "gentle": "Give someone a quality or ability.",
+      "stronger": "An old-fashioned verb for bestowing a capacity or trait on a person."
+    },
+    "error": {
+      "synset": "00071785-n",
+      "gentle": "A mistake.",
+      "stronger": "A wrong action caused by poor judgement, lack of knowledge or a moment's inattention."
     },
     "ever": {
       "synset": "00147423-r",
       "gentle": "At any time.",
       "stronger": "An adverb used in questions about whether something has happened before."
     },
+    "every": {
+      "synset": "02277553-s",
+      "gentle": "All members of a group, taken one at a time.",
+      "stronger": "A word before a singular count noun that includes each instance with no exceptions."
+    },
+    "ewer": {
+      "synset": "03956504-n",
+      "gentle": "A pitcher for pouring water.",
+      "stronger": "A vessel with a handle and spout, often paired with a washbasin."
+    },
+    "extroverted": {
+      "synset": "02266005-s",
+      "gentle": "Comfortable around other people.",
+      "stronger": "Describes someone who finds it easy to strike up a conversation."
+    },
+    "eyed": {
+      "synset": "00956522-a",
+      "gentle": "Having organs of sight of a stated kind.",
+      "stronger": "Having optical features of a specified sort, as in a compound describing their number or colour."
+    },
+    "fail": {
+      "synset": "02534046-v",
+      "gentle": "Be unsuccessful.",
+      "stronger": "Try to achieve an objective and come up short."
+    },
+    "fain": {
+      "synset": "00349906-r",
+      "gentle": "Willingly or gladly.",
+      "stronger": "An archaic adverb for doing something with pleasure or ready consent."
+    },
+    "fall": {
+      "synset": "15261656-n",
+      "gentle": "The season after summer.",
+      "stronger": "The time of year before winter when many deciduous trees shed their leaves."
+    },
+    "familiarly": {
+      "synset": "00338291-r",
+      "gentle": "In an intimate manner.",
+      "stronger": "How someone speaks when they address another person as though they know them very well."
+    },
+    "feed": {
+      "synset": "07816067-n",
+      "gentle": "Food given to farm animals.",
+      "stronger": "Grain, pellets or other rations supplied to livestock."
+    },
+    "feel": {
+      "synset": "04953730-n",
+      "gentle": "A quality sensed by touch.",
+      "stronger": "The texture or resistance noticed when you run your fingers across a material."
+    },
+    "fell": {
+      "synset": "14783454-n",
+      "gentle": "The skin of an animal.",
+      "stronger": "An old term for a hide prepared for use, especially one from a large animal."
+    },
+    "feud": {
+      "synset": "01238738-n",
+      "gentle": "A bitter quarrel.",
+      "stronger": "A lasting dispute in which two people, families or other groups remain hostile to each other."
+    },
+    "fief": {
+      "synset": "13270826-n",
+      "gentle": "Land held under a medieval system.",
+      "stronger": "An estate granted by a lord to a vassal in return for allegiance or service."
+    },
+    "fife": {
+      "synset": "03339437-n",
+      "gentle": "A small, high-pitched flute.",
+      "stronger": "A shrill instrument often played alongside drums in a marching band."
+    },
+    "fill": {
+      "synset": "14892394-n",
+      "gentle": "Material used to occupy a space.",
+      "stronger": "Material such as loose soil placed in a hole or layered into a low area to raise its level."
+    },
+    "fink": {
+      "synset": "10110781-n",
+      "gentle": "A person who informs on others.",
+      "stronger": "A disparaging term for someone who secretly passes information about others to the police."
+    },
+    "fire": {
+      "synset": "07317454-n",
+      "gentle": "An outbreak of burning.",
+      "stronger": "An instance of flames consuming something, such as a blaze that damages a building."
+    },
+    "fitting": {
+      "synset": "01885720-s",
+      "gentle": "In keeping with the occasion.",
+      "stronger": "Describes a gesture or choice that suits the character or spirit of an event."
+    },
+    "fixedly": {
+      "synset": "00342439-r",
+      "gentle": "With unwavering attention.",
+      "stronger": "How someone stares when they keep their gaze on one spot."
+    },
+    "flak": {
+      "synset": "06724098-n",
+      "gentle": "Strong public criticism.",
+      "stronger": "A barrage of disapproval aimed at someone whose actions or decisions have drawn objections."
+    },
+    "flay": {
+      "synset": "01277221-v",
+      "gentle": "Strip off the skin.",
+      "stronger": "Remove the skin from a body, as when taking the hide from an animal."
+    },
+    "flee": {
+      "synset": "02079709-v",
+      "gentle": "Run away.",
+      "stronger": "Escape hurriedly from danger or pursuit."
+    },
+    "flow": {
+      "synset": "07420493-n",
+      "gentle": "The movement of a liquid or gas.",
+      "stronger": "The motion of a fluid as it travels along a path."
+    },
+    "flue": {
+      "synset": "03373724-n",
+      "gentle": "A passage for carrying smoke away.",
+      "stronger": "A duct that channels smoke or exhaust gases from a fireplace or furnace to the outside."
+    },
+    "fluff": {
+      "synset": "14781933-n",
+      "gentle": "Light, downy material.",
+      "stronger": "A loose mass of soft, fine fibres like the lint on a blanket."
+    },
+    "follow": {
+      "synset": "02002464-v",
+      "gentle": "Go behind someone or something.",
+      "stronger": "Travel in the same direction as a person or vehicle ahead of you."
+    },
+    "fool": {
+      "synset": "10240982-n",
+      "gentle": "A court entertainer.",
+      "stronger": "A jester paid to amuse a medieval ruler or noble with jokes and antics."
+    },
+    "foul": {
+      "synset": "01057333-s",
+      "gentle": "Offensively smelly.",
+      "stronger": "Describes an odour so bad it makes you want to turn away."
+    },
+    "fowl": {
+      "synset": "01792381-n",
+      "gentle": "A bird commonly raised on farms.",
+      "stronger": "A domesticated chicken descended from jungle birds."
+    },
+    "free": {
+      "synset": "01714713-s",
+      "gentle": "Available at no cost.",
+      "stronger": "Describes something you can obtain or use without paying a fee."
+    },
+    "frequent": {
+      "synset": "01070231-a",
+      "gentle": "Happening often.",
+      "stronger": "Describes events that recur with little time between them."
+    },
+    "fuel": {
+      "synset": "14899228-n",
+      "gentle": "A substance used to obtain energy.",
+      "stronger": "Material such as coal, petrol or wood that releases energy when consumed."
+    },
+    "full": {
+      "synset": "01086845-a",
+      "gentle": "Filled to capacity.",
+      "stronger": "Containing as much as the container can normally hold."
+    },
+    "fuss": {
+      "synset": "14427176-n",
+      "gentle": "A state of excited agitation.",
+      "stronger": "A commotion caused by people getting worked up or flustered about something."
+    },
+    "gaga": {
+      "synset": "00889690-s",
+      "gentle": "Wildly enthusiastic.",
+      "stronger": "So taken with a person or thing that it occupies much of one's attention."
+    },
+    "gain": {
+      "synset": "13776433-n",
+      "gentle": "An increase in amount.",
+      "stronger": "The difference by which a later total exceeds an earlier one."
+    },
+    "gala": {
+      "synset": "00519725-n",
+      "gentle": "A lively celebration.",
+      "stronger": "A festive occasion often marked by special entertainment and formal dress."
+    },
+    "gall": {
+      "synset": "13120345-n",
+      "gentle": "An abnormal growth on a plant.",
+      "stronger": "A lump on a leaf, twig or stem that can form in response to an insect, infection or injury."
+    },
+    "gamma": {
+      "synset": "06847401-n",
+      "gentle": "A letter of the Greek alphabet.",
+      "stronger": "The Greek letter that comes after beta and before delta."
+    },
+    "gang": {
+      "synset": "08259720-n",
+      "gentle": "An organised crew of workers.",
+      "stronger": "A team assigned to labour together on a job, such as laying railway track."
+    },
+    "gene": {
+      "synset": "05444328-n",
+      "gentle": "A unit of heredity.",
+      "stronger": "A segment of DNA containing instructions involved in making a particular protein."
+    },
+    "gift": {
+      "synset": "05631825-n",
+      "gentle": "An inborn talent.",
+      "stronger": "An ability that comes naturally, such as an exceptional ear for music."
+    },
+    "gill": {
+      "synset": "13032439-n",
+      "gentle": "Part of a mushroom.",
+      "stronger": "One of the thin structures under the cap where spores are produced."
+    },
+    "glib": {
+      "synset": "01804305-s",
+      "gentle": "Plausible only on the surface.",
+      "stronger": "Describes a slick explanation that sounds convincing until you examine it more closely."
+    },
+    "gong": {
+      "synset": "03452665-n",
+      "gentle": "A struck metal instrument.",
+      "stronger": "A flat or rounded metal plate sounded with a padded mallet."
+    },
+    "goon": {
+      "synset": "10294336-n",
+      "gentle": "An awkward, foolish person.",
+      "stronger": "An insulting term for someone regarded as clumsy or dim-witted."
+    },
+    "graveyard": {
+      "synset": "08538806-n",
+      "gentle": "A place for burials.",
+      "stronger": "Ground set aside for graves, sometimes next to a church."
+    },
+    "gull": {
+      "synset": "02043900-n",
+      "gentle": "A mostly white water bird.",
+      "stronger": "A bird often seen along coasts, with long pointed wings and short legs."
+    },
+    "gunfight": {
+      "synset": "00125437-n",
+      "gentle": "A fight involving firearms.",
+      "stronger": "An armed confrontation in which shots are fired at others."
+    },
+    "hack": {
+      "synset": "10174170-n",
+      "gentle": "A person who does tedious work.",
+      "stronger": "Someone who toils diligently at boring professional tasks."
+    },
+    "hackwork": {
+      "synset": "92460704-n",
+      "gentle": "Uninspired writing produced to order.",
+      "stronger": "Commissioned prose turned out routinely with little originality."
+    },
+    "hash": {
+      "synset": "07885367-n",
+      "gentle": "A cooked dish of chopped meat and potato.",
+      "stronger": "A mixture of diced meat and potatoes fried until browned, often made with leftovers."
+    },
     "hassock": {
       "synset": "03502656-n",
       "gentle": "A thick cushion with a specific use.",
       "stronger": "It supports your knees when kneeling to pray."
     },
+    "heed": {
+      "synset": "02577816-v",
+      "gentle": "Pay close attention.",
+      "stronger": "Take notice of a warning and act on it."
+    },
+    "heedfully": {
+      "synset": "00154814-r",
+      "gentle": "With care and attention.",
+      "stronger": "How you act when you consider each step deliberately."
+    },
+    "held": {
+      "synset": "03161358-a",
+      "gentle": "Occupied or controlled.",
+      "stronger": "Describes a place or position in someone's control, often with the controller named before it."
+    },
+    "here": {
+      "synset": "00109247-r",
+      "gentle": "At this place.",
+      "stronger": "An adverb pointing to the current location of the person speaking or writing."
+    },
+    "hexagram": {
+      "synset": "13903468-n",
+      "gentle": "A star-shaped geometric figure.",
+      "stronger": "A six-pointed shape that can be drawn with two overlapping triangles."
+    },
     "hock": {
       "synset": "02465836-n",
       "gentle": "A joint in a hoofed animal.",
       "stronger": "The joint on a horse’s hind leg corresponding to the human ankle."
+    },
+    "home": {
+      "synset": "01222498-a",
+      "gentle": "On one's own ground.",
+      "stronger": "Describes a match played at the venue belonging to the team playing there."
     },
     "hooch": {
       "synset": "07902151-n",
@@ -119,6 +1154,46 @@
       "gentle": "A kind of smoking pipe.",
       "stronger": "Smoke passes through water before reaching the mouthpiece through a long hose."
     },
+    "hooks": {
+      "synset": "05572825-n",
+      "gentle": "A fighter's powerful hands.",
+      "stronger": "Informal name for the large, strong hands a boxer can make into fists."
+    },
+    "hoot": {
+      "synset": "07137263-n",
+      "gentle": "A loud, rough cry.",
+      "stronger": "A call like the hollow sound made by an owl."
+    },
+    "hose": {
+      "synset": "03545055-n",
+      "gentle": "A flexible pipe.",
+      "stronger": "A bendable tube for conveying water or another fluid, such as the one used to water a garden."
+    },
+    "howl": {
+      "synset": "07400148-n",
+      "gentle": "A long animal cry.",
+      "stronger": "The drawn-out, plaintive call of a wolf or hound."
+    },
+    "hush": {
+      "synset": "04989727-n",
+      "gentle": "A peaceful silence.",
+      "stronger": "A quiet stillness that settles over a place after sounds die away."
+    },
+    "idly": {
+      "synset": "00363577-r",
+      "gentle": "Without purposeful activity.",
+      "stronger": "In a way that fills time without any particular aim or productive effort."
+    },
+    "idyll": {
+      "synset": "06391062-n",
+      "gentle": "A short poem about country life.",
+      "stronger": "A brief pastoral verse portraying scenes or people of the countryside."
+    },
+    "imam": {
+      "synset": "10218870-n",
+      "gentle": "A Muslim prayer leader.",
+      "stronger": "A person who leads congregational prayers in a mosque."
+    },
     "inning": {
       "synset": "15280615-n",
       "gentle": "A division of play in a sport.",
@@ -129,45 +1204,855 @@
       "gentle": "A formal investigation.",
       "stronger": "An inquiry to establish the cause of an unexpected death."
     },
+    "jack": {
+      "synset": "07770660-n",
+      "gentle": "A huge tropical fruit.",
+      "stronger": "A relative of breadfruit with edible pulp and large seeds that can be roasted."
+    },
+    "jawbreaker": {
+      "synset": "07614732-n",
+      "gentle": "A sweet that is hard to bite.",
+      "stronger": "A large, round, hard piece of confectionery that you usually suck."
+    },
     "jumbled": {
       "synset": "02434302-s",
       "gentle": "Mixed up and out of order.",
       "stronger": "Describes a pile whose parts have lost any clear arrangement."
+    },
+    "jumpsuit": {
+      "synset": "03610811-n",
+      "gentle": "An outfit with the top and trousers joined.",
+      "stronger": "A one-piece garment inspired by what parachutists wear."
+    },
+    "just": {
+      "synset": "00961341-a",
+      "gentle": "Fair to everyone involved.",
+      "stronger": "Treating all parties as reason and conscience demand, with equal consideration for their claims."
+    },
+    "jute": {
+      "synset": "14949783-n",
+      "gentle": "A plant fibre used for cordage.",
+      "stronger": "A coarse fibre spun into twine or woven into sturdy sacks and hessian."
+    },
+    "kibitzer": {
+      "synset": "10250102-n",
+      "gentle": "A person who gives unwanted advice.",
+      "stronger": "Someone who watches others at a game and insists on telling them what to do."
+    },
+    "kill": {
+      "synset": "01325752-n",
+      "gentle": "The prey taken by a hunter.",
+      "stronger": "The body of an animal after a predator has brought it down."
+    },
+    "kink": {
+      "synset": "13900557-n",
+      "gentle": "A sharp bend in a line.",
+      "stronger": "A tight bend in a cord that can form when a twist or loop is pulled taut."
+    },
+    "kola": {
+      "synset": "12217876-n",
+      "gentle": "A tree grown for caffeinated nuts.",
+      "stronger": "A tropical tree whose reddish or brown seeds have been used to flavour soft drinks."
     },
     "kook": {
       "synset": "10260211-n",
       "gentle": "An informal term for an unconventional person.",
       "stronger": "Someone regarded as eccentric enough to stand apart from a group."
     },
+    "lack": {
+      "synset": "02638434-v",
+      "gentle": "Be without something.",
+      "stronger": "Have none of a quality or resource, or have less of it than is required."
+    },
+    "lacy": {
+      "synset": "01801109-s",
+      "gentle": "Made of or resembling lace.",
+      "stronger": "Having the fine, decorative openwork of a fabric made from interwoven threads."
+    },
+    "lair": {
+      "synset": "08608955-n",
+      "gentle": "A wild animal's shelter.",
+      "stronger": "A den or secluded place where a wild animal lives or rests."
+    },
+    "lamp": {
+      "synset": "03641539-n",
+      "gentle": "A source of artificial light.",
+      "stronger": "A device that gives off visible light, such as one powered by electricity or burning oil."
+    },
     "latrine": {
       "synset": "03652123-n",
       "gentle": "A shared toilet facility.",
       "stronger": "A basic public toilet in a military camp."
+    },
+    "lazy": {
+      "synset": "00295445-s",
+      "gentle": "Disinclined to make an effort.",
+      "stronger": "Describes someone who would rather avoid work or physical exertion when they could do it."
+    },
+    "leer": {
+      "synset": "04687384-n",
+      "gentle": "A suggestive or sneering look.",
+      "stronger": "A sideways glance or grin that conveys an unwelcome interest or a sneer."
+    },
+    "liar": {
+      "synset": "10276234-n",
+      "gentle": "A person who tells falsehoods.",
+      "stronger": "Someone who deliberately says things they know are untrue, especially as a habit."
+    },
+    "lignin": {
+      "synset": "14959457-n",
+      "gentle": "A substance in plants.",
+      "stronger": "A tough polymer reinforcing plant cell walls and giving wood its rigidity."
+    },
+    "lily": {
+      "synset": "12446753-n",
+      "gentle": "A type of flowering plant.",
+      "stronger": "A plant of the genus Lilium, known for large, showy blooms."
+    },
+    "ling": {
+      "synset": "02527751-n",
+      "gentle": "A long-bodied food fish.",
+      "stronger": "A marine fish found in northern waters, sometimes preserved by salting and drying."
+    },
+    "lining": {
+      "synset": "03678596-n",
+      "gentle": "An inner layer of clothing.",
+      "stronger": "Fabric sewn inside a coat to cover seams or improve comfort."
+    },
+    "lira": {
+      "synset": "13708481-n",
+      "gentle": "Italy's former currency unit.",
+      "stronger": "The unit divided into 100 centesimi that Italy used before adopting the euro."
+    },
+    "loam": {
+      "synset": "14966361-n",
+      "gentle": "A rich type of soil.",
+      "stronger": "Fertile soil made up of sand, clay and decaying organic matter."
+    },
+    "local": {
+      "synset": "01110098-a",
+      "gentle": "Relating to government close to home.",
+      "stronger": "Having to do with the administration of a city, town or district."
+    },
+    "lock": {
+      "synset": "03687813-n",
+      "gentle": "A fastener that keeps something shut.",
+      "stronger": "A mechanism that secures a door or drawer, commonly operated with a key."
+    },
+    "loco": {
+      "synset": "02082059-s",
+      "gentle": "Slang for acting crazy.",
+      "stronger": "An informal adjective for someone behaving in a wildly irrational way."
+    },
+    "logo": {
+      "synset": "07286789-n",
+      "gentle": "An emblem for a company.",
+      "stronger": "A graphic mark designed to identify a business on signs, products or packaging."
     },
     "loll": {
       "synset": "02723576-v",
       "gentle": "Hang loosely.",
       "stronger": "What an arm may do over the edge of a chair when left limp."
     },
+    "lollop": {
+      "synset": "01904911-v",
+      "gentle": "Walk with an awkward bounce.",
+      "stronger": "Move in a clumsy, springing gait with your body bobbing at each stride."
+    },
+    "lolly": {
+      "synset": "07631383-n",
+      "gentle": "A frozen treat on a stick.",
+      "stronger": "A chiefly British name for ice cream or flavoured ice held by a small wooden handle."
+    },
+    "look": {
+      "synset": "04687095-n",
+      "gentle": "A facial expression.",
+      "stronger": "A visible sign of emotion on someone's face, such as surprise or disapproval."
+    },
+    "loom": {
+      "synset": "03694483-n",
+      "gentle": "A machine for weaving.",
+      "stronger": "An apparatus that holds lengthwise threads taut while crosswise yarn is worked through them to make cloth."
+    },
+    "loop": {
+      "synset": "13898210-n",
+      "gentle": "A closed curve.",
+      "stronger": "A round or oval shape whose line joins back to its starting point without crossing itself."
+    },
+    "loot": {
+      "synset": "13283562-n",
+      "gentle": "Goods or money taken unlawfully.",
+      "stronger": "Valuables acquired by theft or plunder, such as the proceeds of a robbery."
+    },
+    "lore": {
+      "synset": "05994266-n",
+      "gentle": "Knowledge handed down by tradition.",
+      "stronger": "Stories, customs and practical knowledge passed along informally, often by word of mouth."
+    },
+    "loss": {
+      "synset": "13530399-n",
+      "gentle": "A gradual decline.",
+      "stronger": "A reduction over time in the amount of something, such as a steady drop in the moisture a material holds."
+    },
+    "loyal": {
+      "synset": "00964581-a",
+      "gentle": "Steadfast in one's allegiance.",
+      "stronger": "Describes someone who remains faithful to a duty or a group even when tested."
+    },
+    "loyally": {
+      "synset": "00317497-r",
+      "gentle": "With steadfast allegiance.",
+      "stronger": "In a way that shows continued devotion to a person, cause or duty even in difficult circumstances."
+    },
+    "lube": {
+      "synset": "14914810-n",
+      "gentle": "A material that reduces friction.",
+      "stronger": "A slippery substance such as oil or grease that helps moving surfaces slide past one another."
+    },
+    "luff": {
+      "synset": "03700778-n",
+      "gentle": "The front edge of a sail.",
+      "stronger": "The leading edge of a fore-and-aft sail, usually beside the mast."
+    },
+    "lull": {
+      "synset": "15299427-n",
+      "gentle": "A quiet spell during activity.",
+      "stronger": "A temporary letup in noise, work or excitement before it resumes."
+    },
+    "lulu": {
+      "synset": "10633512-n",
+      "gentle": "A strikingly attractive woman.",
+      "stronger": "An old slang term for a woman seen as especially beautiful or alluring."
+    },
+    "lung": {
+      "synset": "05394887-n",
+      "gentle": "An organ used for breathing.",
+      "stronger": "One of the paired chest organs that transfer oxygen to the blood and remove carbon dioxide."
+    },
+    "magma": {
+      "synset": "14955933-n",
+      "gentle": "Molten rock below ground.",
+      "stronger": "Hot liquid rock within Earth's crust that is called lava once it reaches the surface."
+    },
+    "main": {
+      "synset": "00733659-a",
+      "gentle": "Able to stand alone as a clause.",
+      "stronger": "Describes an independent clause that can form a complete sentence without a supporting clause."
+    },
+    "mama": {
+      "synset": "10297825-n",
+      "gentle": "A familiar word for one's mother.",
+      "stronger": "An affectionate name a young child may use when calling their mother."
+    },
+    "mamma": {
+      "synset": "05561822-n",
+      "gentle": "A milk-producing organ.",
+      "stronger": "A gland in the breast or udder that secretes milk to nourish young."
+    },
+    "manana": {
+      "synset": "15288736-n",
+      "gentle": "Some unspecified time later.",
+      "stronger": "A borrowed Spanish word used to put something off until a vaguely defined future day."
+    },
+    "mania": {
+      "synset": "09204454-n",
+      "gentle": "An irrational fixation.",
+      "stronger": "An overpowering urge or preoccupation that drives a belief or behaviour despite a lack of good reason."
+    },
+    "manna": {
+      "synset": "07876605-n",
+      "gentle": "Food said to have come from heaven.",
+      "stronger": "In Exodus, the food God provides for the Israelites during their journey through the wilderness."
+    },
+    "mare": {
+      "synset": "02380132-n",
+      "gentle": "A female member of the horse family.",
+      "stronger": "A female equine, such as an adult female horse."
+    },
+    "mart": {
+      "synset": "03727779-n",
+      "gentle": "A place in town for trading goods.",
+      "stronger": "A public commercial site in a town set aside for buying and selling."
+    },
+    "mask": {
+      "synset": "03730361-n",
+      "gentle": "A covering for the face.",
+      "stronger": "Something worn over part or all of the face to conceal one's identity."
+    },
+    "mass": {
+      "synset": "05031420-n",
+      "gentle": "The physical property that gives an object weight.",
+      "stronger": "A quantity measured in kilograms that stays the same when an object is moved to a place with different gravity."
+    },
+    "meet": {
+      "synset": "07482986-n",
+      "gentle": "An event with several athletic contests.",
+      "stronger": "A gathering at which competitors take part in multiple events, such as races, jumps and throws."
+    },
+    "meme": {
+      "synset": "05994011-n",
+      "gentle": "An idea passed from person to person.",
+      "stronger": "A piece of culture spread by imitation, such as a widely copied joke or image."
+    },
+    "mere": {
+      "synset": "01103400-s",
+      "gentle": "Nothing more than what is specified.",
+      "stronger": "Used to emphasise how little something amounts to, such as something taking only a few seconds."
+    },
+    "mete": {
+      "synset": "08529808-n",
+      "gentle": "A line marking a boundary.",
+      "stronger": "An old noun for the dividing line that marks the limits of a tract of land."
+    },
     "minaret": {
       "synset": "03773280-n",
       "gentle": "A slender tower.",
       "stronger": "A narrow tower with balconies, commonly found beside a mosque."
+    },
+    "mini": {
+      "synset": "03775972-n",
+      "gentle": "A very short skirt.",
+      "stronger": "A skirt with a hem well above the knee."
+    },
+    "minim": {
+      "synset": "06883894-n",
+      "gentle": "A musical note of a particular duration.",
+      "stronger": "The British name for a half note, worth two crotchets."
+    },
+    "mitt": {
+      "synset": "02803372-n",
+      "gentle": "A glove used in baseball.",
+      "stronger": "A padded glove a fielder wears to catch the ball."
+    },
+    "moll": {
+      "synset": "10347141-n",
+      "gentle": "A gangster's girlfriend.",
+      "stronger": "An old slang term for the female romantic partner of a member of a criminal gang."
+    },
+    "mooch": {
+      "synset": "02275249-v",
+      "gentle": "Try to get things for free.",
+      "stronger": "Cadge food, money or favours from others without paying or reciprocating."
+    },
+    "moor": {
+      "synset": "09381648-n",
+      "gentle": "A stretch of open land.",
+      "stronger": "Uncultivated, often peaty land covered with low plants such as heather and bracken."
+    },
+    "moot": {
+      "synset": "01186128-n",
+      "gentle": "A practice case for law students.",
+      "stronger": "A simulated court hearing where students argue a hypothetical case."
+    },
+    "mosh": {
+      "synset": "01901878-v",
+      "gentle": "Dance with vigorous body contact.",
+      "stronger": "Move to loud rock music by jumping and bumping into others near the stage."
+    },
+    "moss": {
+      "synset": "11557957-n",
+      "gentle": "Small plants that form green mats.",
+      "stronger": "Tiny, flowerless plants with leafy stems that often grow in soft clumps on damp ground or rocks."
+    },
+    "moth": {
+      "synset": "02285853-n",
+      "gentle": "An insect often active at night.",
+      "stronger": "A winged relative of butterflies, typically with feathery or threadlike antennae."
+    },
+    "motorway": {
+      "synset": "03311555-n",
+      "gentle": "A road for fast traffic.",
+      "stronger": "A major road designed for vehicles to travel at high speeds."
+    },
+    "motto": {
+      "synset": "07166967-n",
+      "gentle": "A favourite saying.",
+      "stronger": "A short phrase adopted by a person or group as an expression of their guiding outlook."
+    },
+    "muddle": {
+      "synset": "14524151-n",
+      "gentle": "A confused jumble.",
+      "stronger": "An untidy mixture in which things have become hard to separate or sort."
+    },
+    "muddled": {
+      "synset": "00437830-s",
+      "gentle": "Confused and unclear.",
+      "stronger": "Describes thinking in which ideas have become jumbled and are hard to make sense of."
+    },
+    "muff": {
+      "synset": "03802496-n",
+      "gentle": "A covering that keeps the hands warm.",
+      "stronger": "A padded tube into which you can slide both hands from opposite ends."
+    },
+    "mule": {
+      "synset": "02392753-n",
+      "gentle": "The offspring of a donkey and a horse.",
+      "stronger": "A usually sterile hybrid born to a mare and sired by a male donkey."
+    },
+    "mull": {
+      "synset": "00632042-v",
+      "gentle": "Think carefully about something.",
+      "stronger": "Turn a question or decision over in one's mind before acting."
+    },
+    "mumble": {
+      "synset": "01046405-v",
+      "gentle": "Speak unclearly.",
+      "stronger": "Say words in a low voice without articulating them clearly enough to be understood."
+    },
+    "mush": {
+      "synset": "07719078-n",
+      "gentle": "A soft dish made from cornmeal.",
+      "stronger": "A porridge made by boiling ground maize in water."
+    },
+    "musk": {
+      "synset": "14870816-n",
+      "gentle": "A strongly scented animal secretion.",
+      "stronger": "A substance from a gland of a particular male deer, historically used to make perfume last longer."
+    },
+    "muss": {
+      "synset": "01476516-v",
+      "gentle": "Make something untidy.",
+      "stronger": "Ruffle hair or rumple clothes so they look dishevelled."
+    },
+    "must": {
+      "synset": "07940895-n",
+      "gentle": "Juice used in winemaking.",
+      "stronger": "The liquid from pressed grapes before it has finished fermenting into wine."
+    },
+    "mutt": {
+      "synset": "02087513-n",
+      "gentle": "A dog of mixed ancestry.",
+      "stronger": "An informal name for a dog descended from more than one breed."
+    },
+    "muumuu": {
+      "synset": "03794447-n",
+      "gentle": "A loose garment.",
+      "stronger": "A flowing dress worn without a belt."
+    },
+    "naan": {
+      "synset": "07700034-n",
+      "gentle": "A leavened flatbread.",
+      "stronger": "A soft, often teardrop-shaped bread traditionally baked against the hot wall of a clay oven in India."
+    },
+    "nagging": {
+      "synset": "01142110-s",
+      "gentle": "Persistently finding fault.",
+      "stronger": "Describes repeated complaints or criticisms, often over the same thing."
+    },
+    "naif": {
+      "synset": "10363852-n",
+      "gentle": "An inexperienced person.",
+      "stronger": "Someone whose lack of worldly experience leaves them inclined to take things at face value."
+    },
+    "nail": {
+      "synset": "03810284-n",
+      "gentle": "A pointed metal fastener.",
+      "stronger": "A thin metal pin driven with a hammer to join pieces of material such as wood."
+    },
+    "need": {
+      "synset": "09390888-n",
+      "gentle": "Something essential that is lacking.",
+      "stronger": "A requirement that remains unmet, such as adequate food or shelter."
+    },
+    "needed": {
+      "synset": "01585183-s",
+      "gentle": "Necessary to meet a requirement.",
+      "stronger": "Required to supply what's missing or provide relief."
+    },
+    "niff": {
+      "synset": "05723097-n",
+      "gentle": "An unpleasant sensory impression.",
+      "stronger": "An informal term for a bad smell."
+    },
+    "niggling": {
+      "synset": "01284018-s",
+      "gentle": "Small and relatively unimportant.",
+      "stronger": "Describes the sort of minor concern that may still irritate you."
+    },
+    "nigh": {
+      "synset": "00411619-r",
+      "gentle": "Near or almost here.",
+      "stronger": "An old-fashioned way to say an event is close at hand."
+    },
+    "nine": {
+      "synset": "02194800-s",
+      "gentle": "One more than eight.",
+      "stronger": "Describes a quantity equal to three groups of three."
+    },
+    "nipping": {
+      "synset": "01255786-s",
+      "gentle": "Bracingly cold.",
+      "stronger": "Describes air cold enough to feel sharp against your skin in a refreshing way."
+    },
+    "nonexempt": {
+      "synset": "02408942-a",
+      "gentle": "Still covered by a levy.",
+      "stronger": "Describes goods or money that do not qualify for a tax exclusion."
+    },
+    "noon": {
+      "synset": "15190537-n",
+      "gentle": "The middle of the day.",
+      "stronger": "Twelve o'clock in the daytime, halfway between the preceding and following midnights."
+    },
+    "nude": {
+      "synset": "03840737-n",
+      "gentle": "A painting of an unclothed figure.",
+      "stronger": "A work of art whose subject is a human body depicted without clothing."
+    },
+    "oleo": {
+      "synset": "07688659-n",
+      "gentle": "A spread used in place of butter.",
+      "stronger": "An American shortening of the name for a butter substitute based mainly on vegetable oils."
+    },
+    "opal": {
+      "synset": "14712395-n",
+      "gentle": "A mineral used as a gemstone.",
+      "stronger": "A hydrated form of silica whose prized varieties flash different colours as they turn."
+    },
+    "oral": {
+      "synset": "02291903-s",
+      "gentle": "Spoken.",
+      "stronger": "Describes something delivered by speech, such as an examination answered aloud."
+    },
+    "orca": {
+      "synset": "02073946-n",
+      "gentle": "A large black-and-white whale.",
+      "stronger": "A predatory toothed whale with distinctive white patches and a prominent dorsal fin."
+    },
+    "over": {
+      "synset": "15283505-n",
+      "gentle": "A unit of play in cricket.",
+      "stronger": "Six legal deliveries bowled from the same end of the pitch by one bowler."
+    },
+    "overcrowd": {
+      "synset": "02032027-v",
+      "gentle": "Put too many things together.",
+      "stronger": "Fill a room with more people than it can comfortably hold."
+    },
+    "overdo": {
+      "synset": "02574914-v",
+      "gentle": "Do too much of something.",
+      "stronger": "Carry an action beyond sensible limits, like exercising until you exhaust yourself."
+    },
+    "overjoyed": {
+      "synset": "01366852-s",
+      "gentle": "Extremely happy.",
+      "stronger": "How you might feel on hearing wonderful news you had hardly dared hope for."
+    },
+    "pall": {
+      "synset": "03884813-n",
+      "gentle": "A cloth for wrapping a body for burial.",
+      "stronger": "A shroud in which the deceased is wrapped before interment."
+    },
+    "palm": {
+      "synset": "05573329-n",
+      "gentle": "The inside surface of the hand.",
+      "stronger": "The fleshy area between the wrist and the bases of the fingers."
+    },
+    "papa": {
+      "synset": "10007601-n",
+      "gentle": "A familiar word for father.",
+      "stronger": "An affectionate name a child may use when addressing their dad."
+    },
+    "papaya": {
+      "synset": "07778220-n",
+      "gentle": "A tropical fruit.",
+      "stronger": "A large oval fruit with yellow-orange flesh and many dark seeds in its central cavity."
+    },
+    "pass": {
+      "synset": "15164512-n",
+      "gentle": "Written permission to take leave.",
+      "stronger": "A document authorising a service member to be away from duty."
+    },
+    "peer": {
+      "synset": "09649426-n",
+      "gentle": "A person of equal standing.",
+      "stronger": "Someone with a similar rank or status to another member of the same group."
+    },
+    "ping": {
+      "synset": "07404169-n",
+      "gentle": "A short, high ringing noise.",
+      "stronger": "A sharp resonant note like a sonar echo or a strike against metal."
+    },
+    "pining": {
+      "synset": "07502203-n",
+      "gentle": "A feeling of intense longing.",
+      "stronger": "An ache of yearning for someone or something absent."
+    },
+    "pinning": {
+      "synset": "07243009-n",
+      "gentle": "An agreement to date exclusively.",
+      "stronger": "An old US campus custom in which a student might give a partner a fraternity badge to mark that promise."
+    },
+    "piping": {
+      "synset": "03953957-n",
+      "gentle": "Decorative trim made from cord.",
+      "stronger": "A narrow fabric-covered cord sewn into the edge or seam of a garment or cushion."
+    },
+    "pipit": {
+      "synset": "01531295-n",
+      "gentle": "A small ground-dwelling songbird.",
+      "stronger": "A streaky brown bird of open country often seen walking or running along the ground."
+    },
+    "piss": {
+      "synset": "14879875-n",
+      "gentle": "A crude term for urine.",
+      "stronger": "A vulgar noun for the liquid waste expelled from the bladder."
+    },
+    "placidly": {
+      "synset": "00425154-r",
+      "gentle": "In a calm manner.",
+      "stronger": "How a person might react with no sign of agitation to a sudden interruption."
+    },
+    "play": {
+      "synset": "07021061-n",
+      "gentle": "A work written for the stage.",
+      "stronger": "A dramatic work intended to be performed before an audience by actors."
+    },
+    "plop": {
+      "synset": "07404649-n",
+      "gentle": "The sound of something dropping into water.",
+      "stronger": "The brief hollow noise a rounded object makes as it falls into a liquid without much splash."
+    },
+    "poll": {
+      "synset": "05809006-n",
+      "gentle": "A survey of public opinion.",
+      "stronger": "A study that asks a sample of people what they think, often to estimate support for a candidate."
+    },
+    "polo": {
+      "synset": "00478650-n",
+      "gentle": "A ball game played on horseback.",
+      "stronger": "A team sport in which riders use long mallets to drive a small ball towards a goal."
+    },
+    "polygamy": {
+      "synset": "13990322-n",
+      "gentle": "A form of marriage.",
+      "stronger": "The practice of being married to multiple spouses at the same time."
+    },
+    "pomp": {
+      "synset": "04822233-n",
+      "gentle": "Splendour at a formal event.",
+      "stronger": "The ceremonial grandeur of a coronation or state procession."
+    },
+    "pool": {
+      "synset": "03988418-n",
+      "gentle": "A hollow filled with water.",
+      "stronger": "A basin dug into the ground, sometimes built for swimming."
+    },
+    "poop": {
+      "synset": "06648638-n",
+      "gentle": "Unofficial information.",
+      "stronger": "Slang for inside details or the latest scoop."
+    },
+    "positivism": {
+      "synset": "06002252-n",
+      "gentle": "A philosophical view of knowledge.",
+      "stronger": "The doctrine that reliable knowledge comes from observation and experience."
+    },
+    "positivity": {
+      "synset": "05168179-n",
+      "gentle": "An outlook that offers encouragement.",
+      "stronger": "The quality of making a difficult plan seem likely to succeed."
+    },
+    "post": {
+      "synset": "08641960-n",
+      "gentle": "An assigned position.",
+      "stronger": "The particular place where a sentry is supposed to stand watch."
+    },
+    "posthumous": {
+      "synset": "00820811-s",
+      "gentle": "Coming after a death.",
+      "stronger": "Describes a prize awarded to someone after they have died."
+    },
+    "posy": {
+      "synset": "02882329-n",
+      "gentle": "Schoolwork done outside class.",
+      "stronger": "An informal term for assigned schoolwork completed at home or during a supervised study period."
+    },
+    "prejudge": {
+      "synset": "00683200-v",
+      "gentle": "Form an opinion too soon.",
+      "stronger": "Decide what to think of a case before hearing enough evidence."
+    },
+    "prep": {
+      "synset": "00730406-n",
+      "gentle": "A little bunch of flowers.",
+      "stronger": "A small bouquet arranged to be handed to someone as a gift."
+    },
+    "prey": {
+      "synset": "02155533-n",
+      "gentle": "An animal hunted for food.",
+      "stronger": "An animal such as a rabbit that a predator pursues and catches to eat."
+    },
+    "pump": {
+      "synset": "04028192-n",
+      "gentle": "A machine for moving liquid or gas.",
+      "stronger": "A device that uses suction or pressure to send water or air from one place to another."
+    },
+    "pupa": {
+      "synset": "02315079-n",
+      "gentle": "A stage in an insect's development.",
+      "stronger": "The non-feeding stage between larva and adult, when a butterfly develops inside a chrysalis."
+    },
+    "puss": {
+      "synset": "02124950-n",
+      "gentle": "An informal name for a cat.",
+      "stronger": "A familiar word people may use when calling a pet cat."
+    },
+    "pussyfoot": {
+      "synset": "01915881-v",
+      "gentle": "Move without drawing attention.",
+      "stronger": "Go furtively, trying to slip past someone unnoticed."
+    },
+    "putt": {
+      "synset": "00573875-n",
+      "gentle": "A golf stroke made on the green.",
+      "stronger": "A gentle stroke that rolls the ball along the green towards the hole."
+    },
+    "puzzling": {
+      "synset": "00432472-s",
+      "gentle": "Hard to make sense of.",
+      "stronger": "Describes a confusing instruction whose intended meaning is unclear."
+    },
+    "pyre": {
+      "synset": "07980108-n",
+      "gentle": "A pile of wood for a funeral fire.",
+      "stronger": "A raised stack of wood on which a body is burned as part of a funeral rite."
+    },
+    "quarters": {
+      "synset": "03684710-n",
+      "gentle": "Rooms where people live.",
+      "stronger": "Accommodation set aside for people, such as lodgings for personnel."
+    },
+    "queen": {
+      "synset": "02315660-n",
+      "gentle": "The egg layer in an insect colony.",
+      "stronger": "The fertile female that produces the eggs of a colony of bees, ants or termites."
+    },
+    "queer": {
+      "synset": "00971199-s",
+      "gentle": "Unusual or unexpected.",
+      "stronger": "Describes something that departs from what people would normally expect."
+    },
+    "quenched": {
+      "synset": "01523756-s",
+      "gentle": "Satisfied or eased.",
+      "stronger": "Describes thirst after a drink has taken it away."
+    },
+    "quest": {
+      "synset": "00948466-n",
+      "gentle": "A search for something.",
+      "stronger": "An effort to seek out a particular thing, such as a long hunt for a lost object."
     },
     "queue": {
       "synset": "08449355-n",
       "gentle": "People or vehicles waiting their turn.",
       "stronger": "The line you join at a ticket counter."
     },
+    "quilting": {
+      "synset": "04040953-n",
+      "gentle": "A sewing technique that makes a pattern.",
+      "stronger": "Needlework joining two fabric layers around a soft filling."
+    },
+    "quin": {
+      "synset": "10521493-n",
+      "gentle": "One child in a set of five siblings born together.",
+      "stronger": "An informal short name for one of five babies born from the same pregnancy."
+    },
+    "quit": {
+      "synset": "02387509-v",
+      "gentle": "Give up a position.",
+      "stronger": "Resign from a job or step down from an official role."
+    },
+    "rack": {
+      "synset": "07683818-n",
+      "gentle": "A cut of meat containing ribs.",
+      "stronger": "A section of ribs cut from the forequarter, especially of a lamb."
+    },
+    "rail": {
+      "synset": "04054513-n",
+      "gentle": "A barrier made with a horizontal bar.",
+      "stronger": "A bar held up by posts, such as the barrier along the edge of a balcony."
+    },
     "raiment": {
       "synset": "02745327-n",
       "gentle": "An old-fashioned term for clothing.",
       "stronger": "Fine or decorative garments, especially in literary language."
     },
+    "rare": {
+      "synset": "01071227-s",
+      "gentle": "Occurring infrequently.",
+      "stronger": "Describes an event that happens only after long intervals."
+    },
+    "razz": {
+      "synset": "07138578-n",
+      "gentle": "A mocking noise.",
+      "stronger": "A derisive sound made to show contempt or disapproval, such as a raspberry."
+    },
+    "ream": {
+      "synset": "13604340-n",
+      "gentle": "A standard quantity of paper.",
+      "stronger": "A bundle of paper traditionally containing 480 sheets and nowadays often 500."
+    },
+    "rear": {
+      "synset": "08647083-n",
+      "gentle": "The side opposite the front.",
+      "stronger": "The back end of an object, such as the part of a car where the boot is."
+    },
+    "redo": {
+      "synset": "00199854-v",
+      "gentle": "Do something over.",
+      "stronger": "Repeat or rework something already done, as when renovating a room a second time."
+    },
+    "reed": {
+      "synset": "04074000-n",
+      "gentle": "A part that makes sound in an instrument.",
+      "stronger": "A thin, stiff strip that vibrates as air passes over it."
+    },
+    "reedy": {
+      "synset": "01928038-s",
+      "gentle": "Having a distinctive thin tone.",
+      "stronger": "Describes a sound with the nasal buzz of a clarinet or oboe."
+    },
+    "reef": {
+      "synset": "09429671-n",
+      "gentle": "A ridge just below the surface of water.",
+      "stronger": "A line of rock or coral near the surface that may be hazardous to boats."
+    },
+    "reek": {
+      "synset": "02128571-v",
+      "gentle": "Smell offensively bad.",
+      "stronger": "Give off a strong, unpleasant odour, as spoiled food might."
+    },
+    "reel": {
+      "synset": "04074584-n",
+      "gentle": "The winding part of a fishing rod.",
+      "stronger": "A handled spool mounted on a rod for letting out and retrieving fishing line."
+    },
+    "reeve": {
+      "synset": "02057545-v",
+      "gentle": "Thread a rope through something.",
+      "stronger": "Pass a line through a pulley or an opening in rigging."
+    },
+    "reflexive": {
+      "synset": "00204100-s",
+      "gentle": "Referring to itself.",
+      "stronger": "Describes a form such as “myself” that points to the person already named."
+    },
     "reliant": {
       "synset": "00730557-s",
       "gentle": "Dependent on support.",
       "stronger": "Describes someone who needs another person’s help to manage."
+    },
+    "relocate": {
+      "synset": "00415552-v",
+      "gentle": "Settle somewhere new.",
+      "stronger": "What a household does when it establishes itself in another city."
+    },
+    "requisite": {
+      "synset": "09390100-n",
+      "gentle": "Something essential.",
+      "stronger": "A thing you cannot do without to meet a requirement."
     },
     "retinal": {
       "synset": "02990684-a",
@@ -179,15 +2064,165 @@
       "gentle": "Hold in deep respect.",
       "stronger": "To regard someone or something with a sense of awe."
     },
+    "revered": {
+      "synset": "01229533-s",
+      "gentle": "Held in deep respect.",
+      "stronger": "Describes someone honoured so much that others regard them with awe."
+    },
+    "riff": {
+      "synset": "07059846-n",
+      "gentle": "A repeated phrase in music.",
+      "stronger": "A short recurring figure in jazz that can provide a backdrop for an improvised solo."
+    },
+    "roar": {
+      "synset": "07392282-n",
+      "gentle": "A deep, prolonged noise.",
+      "stronger": "A sustained loud rumble like the sound of a jet engine at takeoff."
+    },
+    "rood": {
+      "synset": "03144943-n",
+      "gentle": "A religious image of a cross.",
+      "stronger": "An old term for a depiction of the cross on which Jesus was crucified."
+    },
+    "rove": {
+      "synset": "01885173-v",
+      "gentle": "Wander without a fixed destination.",
+      "stronger": "Travel from place to place without a set route, perhaps looking for work or food."
+    },
+    "rover": {
+      "synset": "10785347-n",
+      "gentle": "A person who wanders.",
+      "stronger": "Someone who travels from place to place without settling down."
+    },
+    "rower": {
+      "synset": "10388619-n",
+      "gentle": "Someone who propels a boat.",
+      "stronger": "A person who moves a boat by pulling its oars through the water."
+    },
+    "rudder": {
+      "synset": "04124310-n",
+      "gentle": "Part of a boat used to steer.",
+      "stronger": "A hinged plate at the stern that turns the vessel by redirecting the water moving past it."
+    },
+    "rude": {
+      "synset": "00645747-a",
+      "gentle": "Ill-mannered.",
+      "stronger": "Showing a lack of courtesy, as when someone deliberately talks over you."
+    },
+    "sack": {
+      "synset": "04129919-n",
+      "gentle": "A kind of bag.",
+      "stronger": "A paper or plastic bag for carrying purchases."
+    },
+    "sash": {
+      "synset": "04143593-n",
+      "gentle": "The part of a window that holds the glass.",
+      "stronger": "The frame fitted around the panes, which may slide up and down within the larger frame."
+    },
+    "sashay": {
+      "synset": "00535189-n",
+      "gentle": "A quick gliding ballet step.",
+      "stronger": "A series of sliding steps in which the same foot stays in front."
+    },
+    "sass": {
+      "synset": "06734698-n",
+      "gentle": "An insolent reply.",
+      "stronger": "A cheeky comeback made when someone talks disrespectfully."
+    },
+    "sassy": {
+      "synset": "00206887-s",
+      "gentle": "Cheekily bold.",
+      "stronger": "Overly forward in speech or manner, as when someone answers back with an impertinent remark."
+    },
+    "scab": {
+      "synset": "05271746-n",
+      "gentle": "A crust on healing skin.",
+      "stronger": "The dry covering that forms naturally over a scrape or cut while it mends."
+    },
+    "schmooze": {
+      "synset": "01041034-v",
+      "gentle": "Chat in a friendly way.",
+      "stronger": "Have an easy, informal conversation, as at a social gathering."
+    },
     "shack": {
       "synset": "03552234-n",
       "gentle": "A very simple shelter.",
       "stronger": "A small, roughly built dwelling."
     },
+    "shah": {
+      "synset": "10604948-n",
+      "gentle": "A Persian royal title.",
+      "stronger": "The title borne by Iran's former hereditary monarchs."
+    },
+    "shallowly": {
+      "synset": "00453331-r",
+      "gentle": "Without much depth.",
+      "stronger": "How someone breathes when each breath draws in only a little air."
+    },
+    "shay": {
+      "synset": "03006159-n",
+      "gentle": "A small horse-drawn carriage.",
+      "stronger": "A carriage with two wheels and a folding hood, pulled by one horse."
+    },
     "shock": {
       "synset": "07525864-n",
       "gentle": "A strong emotional reaction.",
       "stronger": "Distress and disbelief after something bad and unexpected happens."
+    },
+    "shoo": {
+      "synset": "02007494-v",
+      "gentle": "Drive something away.",
+      "stronger": "What you do when you wave and call at a bird to make it move on."
+    },
+    "shook": {
+      "synset": "04208661-n",
+      "gentle": "A barrel in pieces.",
+      "stronger": "The staves and other parts of a dismantled cask packed for transport or storage."
+    },
+    "show": {
+      "synset": "00521313-n",
+      "gentle": "A performance put on for an audience.",
+      "stronger": "A public entertainment event featuring acts on a stage."
+    },
+    "showboat": {
+      "synset": "04215827-n",
+      "gentle": "A boat used for entertainment.",
+      "stronger": "A river steamer equipped for theatrical performances."
+    },
+    "sinus": {
+      "synset": "05260434-n",
+      "gentle": "An air-filled cavity in the skull.",
+      "stronger": "One of the hollow spaces in the bones around the nose and eyes."
+    },
+    "sissy": {
+      "synset": "10622786-n",
+      "gentle": "A taunt for a timid person.",
+      "stronger": "A derogatory term aimed at a boy or man judged to lack nerve or assertiveness."
+    },
+    "skinful": {
+      "synset": "13791812-n",
+      "gentle": "A substantial amount to drink.",
+      "stronger": "Informal British term for enough alcohol to get someone drunk."
+    },
+    "skua": {
+      "synset": "02047432-n",
+      "gentle": "A gull-like seabird.",
+      "stronger": "A seabird of northern waters, related to jaegers, that often chases other birds to steal food."
+    },
+    "slow": {
+      "synset": "00983718-a",
+      "gentle": "Taking a long time to move or happen.",
+      "stronger": "Describes motion at a pace well below what is usual or expected."
+    },
+    "smallpox": {
+      "synset": "14147905-n",
+      "gentle": "An infectious disease once feared worldwide.",
+      "stronger": "An eradicated viral illness known for fever and a rash that could leave scars."
+    },
+    "smut": {
+      "synset": "14307134-n",
+      "gentle": "A fungal disease of plants.",
+      "stronger": "A disease of cereal crops that can leave dark, powdery masses of spores on the grain."
     },
     "soak": {
       "synset": "01581362-v",
@@ -199,10 +2234,155 @@
       "gentle": "A piece of clothing for the foot.",
       "stronger": "A fabric covering worn inside a shoe, sometimes reaching the calf."
     },
+    "sops": {
+      "synset": "07877397-n",
+      "gentle": "Morsels intended for dipping.",
+      "stronger": "Pieces of bread or other solid food dipped into broth or another liquid."
+    },
     "spaying": {
       "synset": "00693979-n",
       "gentle": "A veterinary procedure.",
       "stronger": "Sterilising a female animal by removing her ovaries."
+    },
+    "spit": {
+      "synset": "09465499-n",
+      "gentle": "A strip of land projecting into water.",
+      "stronger": "A narrow finger of sand or shingle extending from the shore into the sea."
+    },
+    "spot": {
+      "synset": "06408287-n",
+      "gentle": "A short advertisement.",
+      "stronger": "A brief commercial aired between radio or television programmes."
+    },
+    "spots": {
+      "synset": "14388524-n",
+      "gentle": "Tiny shapes that drift across your vision.",
+      "stronger": "Specks that seem to float before the eyes because small pieces of material inside the eye cast shadows."
+    },
+    "stoop": {
+      "synset": "04334342-n",
+      "gentle": "A small porch at an entrance.",
+      "stronger": "A landing or short set of steps directly outside a house's front door."
+    },
+    "stop": {
+      "synset": "01058335-n",
+      "gentle": "A brief stay on a journey.",
+      "stronger": "A pause along the route, perhaps to rest or pick up a passenger before travelling on."
+    },
+    "stops": {
+      "synset": "00494319-n",
+      "gentle": "A card game played for chips.",
+      "stronger": "Players lay cards in ascending order within a suit and collect chips when a card matches one in a separate layout."
+    },
+    "subject": {
+      "synset": "00072167-s",
+      "gentle": "Likely to be affected.",
+      "stronger": "Describes something liable to change under certain conditions."
+    },
+    "swab": {
+      "synset": "04374833-n",
+      "gentle": "A small piece of cotton used to clean or sample.",
+      "stronger": "A tuft of absorbent material used to apply medicine to the skin or take a specimen."
+    },
+    "swash": {
+      "synset": "07359128-n",
+      "gentle": "The motion or noise of water.",
+      "stronger": "The surge and sound of water as it rushes over a beach after a wave breaks."
+    },
+    "swoosh": {
+      "synset": "07411130-n",
+      "gentle": "The sound of something rushing past.",
+      "stronger": "A sudden swishing noise from a rapid movement of air or liquid."
+    },
+    "taxi": {
+      "synset": "02934150-n",
+      "gentle": "A car that carries paying passengers.",
+      "stronger": "A vehicle you hire with a driver to take you to a destination of your choice."
+    },
+    "taxpayer": {
+      "synset": "10713659-n",
+      "gentle": "Someone who contributes to public revenue.",
+      "stronger": "A person who pays a levy assessed by the government."
+    },
+    "tiff": {
+      "synset": "07199395-n",
+      "gentle": "A minor quarrel.",
+      "stronger": "A brief falling-out over something trivial."
+    },
+    "ting": {
+      "synset": "07412697-n",
+      "gentle": "A faint metallic ring.",
+      "stronger": "The short, clear sound of a little bell being struck."
+    },
+    "tinning": {
+      "synset": "00719447-n",
+      "gentle": "Applying a protective coating to metal.",
+      "stronger": "Covering a surface with a thin layer of tin, as on steel used to make food cans."
+    },
+    "tint": {
+      "synset": "04966407-n",
+      "gentle": "A slight variation in colour.",
+      "stronger": "A shade that differs only subtly from a nearby hue."
+    },
+    "tinting": {
+      "synset": "00275995-n",
+      "gentle": "Adding a little colour.",
+      "stronger": "Giving something a slight change of hue with a touch of dye or pigment."
+    },
+    "toot": {
+      "synset": "07412876-n",
+      "gentle": "A blast on a horn.",
+      "stronger": "A short honk, such as the sound from a car signalling its arrival."
+    },
+    "tops": {
+      "synset": "02349970-s",
+      "gentle": "Of the highest quality.",
+      "stronger": "An informal adjective for something judged first-rate in its class."
+    },
+    "tuft": {
+      "synset": "07977383-n",
+      "gentle": "A small bunch of strands or blades.",
+      "stronger": "A cluster of hair, feathers or grass growing close together."
+    },
+    "tuning": {
+      "synset": "01001530-n",
+      "gentle": "Adjusting something to the right pitch.",
+      "stronger": "Bringing an instrument to a standard pitch, as when adjusting the tension of its strings."
+    },
+    "tutu": {
+      "synset": "02783838-n",
+      "gentle": "A short ballet skirt.",
+      "stronger": "A ballerina's skirt, often made of layered netting that flares out at the waist."
+    },
+    "udder": {
+      "synset": "02373012-n",
+      "gentle": "A milk-producing organ on a farm animal.",
+      "stronger": "The gland beneath a cow, sheep or goat from which milk can be drawn through teats."
+    },
+    "umbel": {
+      "synset": "13151787-n",
+      "gentle": "A cluster of flowers with stalks that radiate out.",
+      "stronger": "A flat-topped or rounded cluster whose flower stalks spread from one point, as on a carrot plant."
+    },
+    "undue": {
+      "synset": "00139211-a",
+      "gentle": "Inappropriate in the circumstances.",
+      "stronger": "Describes something improper for the situation, such as pressure that goes beyond what is acceptable."
+    },
+    "uniting": {
+      "synset": "00382488-n",
+      "gentle": "Coming together as one.",
+      "stronger": "The act of joining separate parts or groups into a single whole."
+    },
+    "unneeded": {
+      "synset": "01585523-a",
+      "gentle": "Not necessary.",
+      "stronger": "Describes something that can be left out because it serves no required purpose."
+    },
+    "vapidly": {
+      "synset": "00494366-r",
+      "gentle": "In a dull, unstimulating manner.",
+      "stronger": "How someone speaks when their remarks lack interest and liveliness."
     },
     "veer": {
       "synset": "02037140-v",
@@ -214,20 +2394,120 @@
       "gentle": "Energy expressed through style.",
       "stronger": "The liveliness and vigour that can make a performance stand out."
     },
+    "very": {
+      "synset": "00032295-r",
+      "gentle": "An adverb that adds emphasis.",
+      "stronger": "A word placed before an adjective to raise its degree, as in being extremely cold."
+    },
+    "vivid": {
+      "synset": "00403922-s",
+      "gentle": "Strikingly colourful.",
+      "stronger": "Describes strong, saturated hues that stand out at a glance."
+    },
+    "wall": {
+      "synset": "04554141-n",
+      "gentle": "An upright structure that divides a space.",
+      "stronger": "A building partition that encloses a room or supports the floor or roof above it."
+    },
+    "wallow": {
+      "synset": "09497687-n",
+      "gentle": "A muddy pool used by animals.",
+      "stronger": "A shallow puddle where pigs or other animals roll to coat themselves in mud."
+    },
+    "wash": {
+      "synset": "09498025-n",
+      "gentle": "A dry channel where water sometimes runs.",
+      "stronger": "The bed of a temporary stream that stays dry between rains, often at the bottom of a canyon."
+    },
     "washtub": {
       "synset": "04562886-n",
       "gentle": "A container for a household chore.",
       "stronger": "A basin large enough for cleaning clothes or linen by hand."
+    },
+    "waveband": {
+      "synset": "06271281-n",
+      "gentle": "A range of signals.",
+      "stronger": "A group of neighbouring radio frequencies used for transmission."
+    },
+    "wedded": {
+      "synset": "01485447-s",
+      "gentle": "Joined in marriage.",
+      "stronger": "Describes two people after they have formally become spouses."
+    },
+    "weed": {
+      "synset": "13105873-n",
+      "gentle": "An unwanted plant.",
+      "stronger": "A plant growing among crops or garden plants and competing for room."
+    },
+    "whacked": {
+      "synset": "02443291-s",
+      "gentle": "Very tired.",
+      "stronger": "British slang for how you might feel after a long shift on your feet."
+    },
+    "wheezing": {
+      "synset": "01177592-s",
+      "gentle": "Making a whistling sound while breathing.",
+      "stronger": "Describes breathing accompanied by a high, sometimes strained whistle."
+    },
+    "whoosh": {
+      "synset": "07411130-n",
+      "gentle": "A sudden rushing sound.",
+      "stronger": "The swishing noise made by a sudden surge of air or water."
+    },
+    "wolf": {
+      "synset": "02116752-n",
+      "gentle": "A wild relative of the dog.",
+      "stronger": "A meat-eating canine of Eurasia and North America that often hunts in packs."
     },
     "wolfish": {
       "synset": "02850891-a",
       "gentle": "Resembling a wild canine.",
       "stronger": "Describes a look or manner reminiscent of an animal that hunts in packs."
     },
+    "wooded": {
+      "synset": "02583261-a",
+      "gentle": "Covered with trees.",
+      "stronger": "Describes land where trees and undergrowth grow thickly, as on a forested slope."
+    },
+    "wooer": {
+      "synset": "10693569-n",
+      "gentle": "Someone who courts a woman.",
+      "stronger": "An old-fashioned noun for a man trying to win a woman's affection."
+    },
+    "woof": {
+      "synset": "04606292-n",
+      "gentle": "The crosswise thread in woven cloth.",
+      "stronger": "The yarn passed over and under the lengthwise warp on a loom."
+    },
+    "wool": {
+      "synset": "15128784-n",
+      "gentle": "A natural fibre.",
+      "stronger": "Material shorn from sheep and spun into yarn."
+    },
+    "yahoo": {
+      "synset": "10823706-n",
+      "gentle": "A person seen as uncultured.",
+      "stronger": "A disparaging term for someone regarded as ignorant or indifferent to learning and the arts."
+    },
+    "yelled": {
+      "synset": "01457023-s",
+      "gentle": "Shouted forcefully.",
+      "stronger": "Describes words spoken in a loud outcry, as when calling a warning across a room."
+    },
+    "yips": {
+      "synset": "14399902-n",
+      "gentle": "Nerves that disrupt skilled movement.",
+      "stronger": "A loss of fine control under pressure, notorious for spoiling short golf putts."
+    },
     "zestful": {
       "synset": "02288916-s",
       "gentle": "Full of enjoyment.",
       "stronger": "Showing spirited enthusiasm while doing something you like."
+    },
+    "zing": {
+      "synset": "07415301-n",
+      "gentle": "A short, sharp sound.",
+      "stronger": "A brief high-pitched buzz or hum."
     }
   }
 }
