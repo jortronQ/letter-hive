@@ -5,6 +5,8 @@ const path = require("node:path");
 const vm = require("node:vm");
 const root = path.join(__dirname, "..");
 const data = JSON.parse(fs.readFileSync(path.join(root, "data/puzzles.json")));
+const rotation = JSON.parse(fs.readFileSync(path.join(root, "data/daily-rotation.json")));
+const dailyPuzzles = rotation.puzzleIds.map((id) => data.puzzles.find((puzzle) => puzzle.id === id));
 const hintData = JSON.parse(fs.readFileSync(path.join(root, "data/hints.json")));
 const code = fs.readFileSync(path.join(root, "letter-hive.js"), "utf8");
 
@@ -20,7 +22,7 @@ class Element {
   matches() { return false; }
 }
 
-async function launch(index, fetchOverride, saved = new Map(), systemDark = false) {
+async function launch(index, fetchOverride, saved = new Map(), systemDark = false, fixedDate) {
   const elements = new Map();
   const get = (id) => {
     if (!elements.has(id)) elements.set(id, new Element());
@@ -29,7 +31,7 @@ async function launch(index, fetchOverride, saved = new Map(), systemDark = fals
   const tiles = Array.from({ length: 6 }, () => new Element());
   const controls = [get("center"), ...tiles, get("enter"), get("delete"), get("shuffle")];
   get("hintBtn").disabled = true;
-  const navigation = [get("newPuzzle"), get("previousPuzzle"), get("dailyPuzzle")];
+  const navigation = [get("newPuzzle"), get("previousPuzzle"), get("dailyPuzzle"), get("archiveBtn")];
   const document = {
     documentElement: { dataset: {} },
     getElementById: get,
@@ -38,9 +40,10 @@ async function launch(index, fetchOverride, saved = new Map(), systemDark = fals
     addEventListener(type, fn) { this[type] = fn; },
   };
   let date = new Date(2026, 0, 1, 12);
-  while (Math.floor(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / 86400000) % data.puzzles.length !== index) {
+  while (Math.floor(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / 86400000) % dailyPuzzles.length !== index) {
     date.setDate(date.getDate() + 1);
   }
+  if (fixedDate) date = fixedDate;
   class Today extends Date { constructor(...args) { super(...(args.length ? args : [date.getTime()])); } }
   const media = { matches: systemDark, addEventListener(_event, listener) { this.change = listener; } };
   await vm.runInNewContext(code, {
@@ -48,6 +51,7 @@ async function launch(index, fetchOverride, saved = new Map(), systemDark = fals
     window: { matchMedia: () => media },
     localStorage: { getItem: (key) => saved.get(key) ?? null, setItem: (key, value) => saved.set(key, value) },
     fetch: async (url) => {
+      if (url === "data/daily-rotation.json") return { ok: true, json: async () => structuredClone(rotation) };
       if (url === "data/hints.json" && !fetchOverride) {
         return { ok: true, json: async () => structuredClone(hintData) };
       }
@@ -71,12 +75,12 @@ async function launch(index, fetchOverride, saved = new Map(), systemDark = fals
 }
 
 test("every daily puzzle loads, scores pangrams, rejects duplicates, and restores saved answers", async () => {
-  for (let index = 0; index < data.puzzles.length; index++) {
+  for (let index = 0; index < dailyPuzzles.length; index++) {
     const game = await launch(index);
     assert.equal(game.get("message").textContent, "");
     assert.ok(game.controls.every((control) => control.disabled === false));
     assert.equal(game.get("hintBtn").disabled, true);
-    const puzzle = data.puzzles[index];
+    const puzzle = dailyPuzzles[index];
     const word = puzzle.words.find((word) => new Set(word).size === 7);
     game.type(word);
     game.submit();
@@ -94,7 +98,7 @@ test("every daily puzzle loads, scores pangrams, rejects duplicates, and restore
 
 function currentPuzzle(game) {
   const session = JSON.parse(game.saved.get("letterhive-session-v1"));
-  return data.puzzles.find((puzzle) => puzzle.id === session.history.at(-1));
+  return data.puzzles.find((puzzle) => puzzle.id === session.history.at(-1).id);
 }
 
 test("new puzzles vary letters, save progress independently, resume on reload, and support returning", async () => {
@@ -140,15 +144,18 @@ test("new puzzle does not repeat a puzzle until the entire collection is visited
   const previous = currentPuzzle(game).id;
   game.get("newPuzzle").listeners.click();
   assert.notEqual(currentPuzzle(game).id, previous);
+  const session = JSON.parse(game.saved.get("letterhive-session-v1"));
+  assert.equal(session.played.length, data.puzzles.length);
 });
 
 test("old daily saves migrate to their original letters rather than today's new puzzle", async () => {
   const index = 7;
   let date = new Date(2026, 0, 1, 12);
-  while (Math.floor(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / 86400000) % data.puzzles.length !== index) date.setDate(date.getDate() + 1);
+  while (Math.floor(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / 86400000) % dailyPuzzles.length !== index) date.setDate(date.getDate() + 1);
   const day = [date.getFullYear(), String(date.getMonth() + 1).padStart(2, "0"), String(date.getDate()).padStart(2, "0")].join("-");
   const legacyIndex = Math.floor(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / 86400000) % 4;
-  const legacy = data.puzzles[legacyIndex];
+  const legacyIds = ["o-acelrt", "i-aelnrt", "m-aeinrt", "l-aceort"];
+  const legacy = data.puzzles.find((puzzle) => puzzle.id === legacyIds[legacyIndex]);
   const saved = new Map([["letterhive-v2-" + day, JSON.stringify([legacy.words[0], "notaword"])]]);
   const game = await launch(index, undefined, saved);
   assert.equal(game.get("points").textContent, 0);
@@ -157,8 +164,8 @@ test("old daily saves migrate to their original letters rather than today's new 
 });
 
 test("progressive hints describe the only missing accepted word without revealing it", async () => {
-  const index = data.puzzles.findIndex((puzzle) => puzzle.words.includes("letter"));
-  const puzzle = data.puzzles[index];
+  const index = dailyPuzzles.findIndex((puzzle) => puzzle.words.includes("letter"));
+  const puzzle = dailyPuzzles[index];
   const word = "letter";
   const found = puzzle.words.filter((answer) => answer !== word);
   const progressKey = "letterhive-puzzle-" + puzzle.id;
@@ -201,13 +208,13 @@ test("progressive hints describe the only missing accepted word without revealin
 
 test("reviewed clues are reused across puzzles and fall back if hint data is unavailable", async () => {
   const word = "book";
-  const puzzles = data.puzzles.filter((puzzle) => puzzle.words.includes(word));
+  const puzzles = dailyPuzzles.filter((puzzle) => puzzle.words.includes(word));
   assert.ok(puzzles.length > 1);
 
   for (const puzzle of puzzles) {
     const saved = new Map([["letterhive-puzzle-" + puzzle.id,
       JSON.stringify(puzzle.words.filter((answer) => answer !== word))]]);
-    const index = data.puzzles.indexOf(puzzle);
+    const index = dailyPuzzles.indexOf(puzzle);
     const game = await launch(index, undefined, saved);
     game.get("hintBtn").listeners.click();
     const clue = game.get("puzzleClue");
@@ -224,7 +231,7 @@ test("reviewed clues are reused across puzzles and fall back if hint data is una
 });
 
 test("another word, pangram filtering, and saved hint levels respect puzzle boundaries", async () => {
-  const [puzzle] = data.puzzles;
+  const [puzzle] = dailyPuzzles;
   const pangram = puzzle.words.find((word) => new Set(word).size === 7);
   const ordinary = puzzle.words.find((word) => new Set(word).size < 7);
   const found = puzzle.words.filter((word) => word !== pangram && word !== ordinary);
@@ -297,7 +304,7 @@ test("System follows device changes while saved Light and Dark override them", a
 });
 
 test("both rank bars and hint availability update at the exact Moving Up threshold", async () => {
-  const puzzle = data.puzzles[0];
+  const puzzle = dailyPuzzles[0];
   const points = (word) => (word.length === 4 ? 1 : word.length) + (new Set(word).size === 7 ? 7 : 0);
   const threshold = Math.ceil(puzzle.words.reduce((sum, word) => sum + points(word), 0) * 2 / 9);
   const finishingWord = puzzle.words.find((word) => word.length === 4);
@@ -335,6 +342,82 @@ test("both rank bars and hint availability update at the exact Moving Up thresho
   assert.equal(restored.get("hintBtn").disabled, true);
   restored.get("previousPuzzle").listeners.click();
   assert.equal(restored.get("hintBtn").disabled, false);
+});
+
+test("daily archive retains dates and puzzle progress through history and reloads", async () => {
+  const now = new Date(2026, 10, 22, 12);
+  const date = "2026-11-21";
+  const yesterday = data.puzzles.find((puzzle) => puzzle.id === "k-abchos");
+  const reversed = { ...data, puzzles: [...data.puzzles].reverse() };
+  const saved = new Map([
+    ["letterhive-puzzle-" + yesterday.id, JSON.stringify([yesterday.words[0]])],
+    ["letterhive-session-v1", JSON.stringify({ dayKey: "2026-11-22",
+      history: [dailyPuzzles[Math.floor(Date.UTC(2026, 10, 22) / 86400000) % dailyPuzzles.length].id] })],
+  ]);
+  const fetchReorderedPuzzles = async (url) => url === "data/puzzles.json"
+    ? { ok: true, json: async () => structuredClone(reversed) }
+    : { ok: true, json: async () => structuredClone(hintData) };
+  let game = await launch(0, fetchReorderedPuzzles, saved, false, now);
+  const status = () => game.get("puzzleStatus").textContent;
+  const click = (id) => game.get(id).listeners.click();
+  const submitDate = (value) => {
+    game.get("archiveDate").value = value;
+    game.get("archiveForm").listeners.submit({ preventDefault() {} });
+  };
+  assert.equal(status(), "Today’s puzzle");
+  assert.equal(game.get("archiveDate").min, "2026-11-16");
+  assert.equal(game.get("archiveDate").max, date);
+  click("archiveBtn");
+  assert.equal(game.get("archiveDialog").open, true);
+  for (const invalid of ["2026-11-22", "2026-11-15", "2026-11-00", ""]) {
+    submitDate(invalid);
+    assert.equal(status(), "Today’s puzzle");
+    assert.match(game.get("archiveError").textContent, /archive range/);
+    assert.equal(game.get("archiveDialog").open, true);
+  }
+
+  submitDate(date);
+  assert.equal(game.get("archiveDialog").open, false);
+  assert.equal(game.get("center").textContent, yesterday.center.toUpperCase());
+  assert.equal(game.get("count").textContent, "1 word");
+  const archivedStatus = status();
+  assert.match(archivedStatus, /21/);
+  assert.equal(game.get("dailyPuzzle").disabled, false);
+
+  game = await launch(0, fetchReorderedPuzzles, saved, false, now);
+  assert.equal(status(), archivedStatus);
+  click("dailyPuzzle");
+  assert.equal(status(), "Today’s puzzle");
+  click("previousPuzzle");
+  assert.equal(status(), archivedStatus);
+  click("previousPuzzle");
+  assert.equal(status(), "Today’s puzzle");
+});
+
+test("Played puzzles recovers older saves and resumes free play across days", async () => {
+  const [visited, scored] = data.puzzles;
+  const saved = new Map([
+    ["letterhive-session-v1", JSON.stringify({ dayKey: "2026-11-20", seen: [visited.id] })],
+    ["letterhive-puzzle-" + scored.id, JSON.stringify([scored.words[0]])],
+  ]);
+  const firstDay = await launch(0, undefined, saved, false, new Date(2026, 10, 21, 12));
+  firstDay.get("newPuzzle").listeners.click();
+  const freePlay = currentPuzzle(firstDay);
+  firstDay.type(freePlay.words[0]);
+  firstDay.submit();
+  const points = firstDay.get("points").textContent;
+
+  const later = await launch(0, undefined, saved, false, new Date(2026, 10, 22, 12));
+  assert.equal(later.get("previousPuzzle").disabled, true);
+  later.get("archiveBtn").listeners.click();
+  const select = later.get("playedPuzzle");
+  const options = select.children.map((option) => option.value);
+  assert.ok(options.includes(visited.id) && options.includes(scored.id) && options.includes(freePlay.id));
+  select.value = freePlay.id;
+  later.get("playedPuzzleForm").listeners.submit({ preventDefault() {} });
+  assert.equal(currentPuzzle(later).id, freePlay.id);
+  assert.equal(later.get("points").textContent, points);
+  assert.equal(later.get("archiveDialog").open, false);
 });
 
 test("loading errors keep game controls disabled and explain how to recover", async () => {
