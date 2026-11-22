@@ -703,9 +703,13 @@ button:focus-visible {
 #archiveDate {
   -webkit-appearance: none;
   appearance: none;
+  padding-block: 0;
 }
 
 #archiveDate::-webkit-date-and-time-value {
+  display: flex;
+  align-items: center;
+  min-height: 42px;
   margin: 0;
   text-align: start;
 }
