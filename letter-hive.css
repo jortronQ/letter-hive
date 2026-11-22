@@ -737,6 +737,67 @@ button:focus-visible {
   background: var(--subtle);
 }
 
+@media (width > 950px), (width > 770px) and (height > 500px) {
+  .wrap {
+    padding-block: 20px 32px;
+  }
+
+  .top {
+    padding-bottom: 12px;
+  }
+
+  .content {
+    margin-top: 22px;
+  }
+
+  .hint {
+    margin-bottom: 12px;
+  }
+
+  .scoreline {
+    margin-bottom: 4px;
+  }
+
+  .hintRow {
+    block-size: 3.75rem;
+  }
+
+  .entry {
+    height: 48px;
+    margin-bottom: 4px;
+  }
+
+  .message {
+    height: 18px;
+  }
+
+  .hive {
+    margin-block: 3px 14px;
+  }
+
+  #archiveDialog {
+    padding: 22px;
+  }
+
+  #archiveHeading,
+  #archiveRange {
+    margin-bottom: 8px;
+  }
+
+  #archiveRange {
+    margin-top: 0;
+  }
+
+  #playedPuzzleForm {
+    margin-top: 12px;
+    padding-top: 12px;
+  }
+
+  .archiveActions {
+    margin-top: 12px;
+  }
+}
+
 #wordsDialog {
   max-height: calc(100dvh - 24px);
   padding: 0;
