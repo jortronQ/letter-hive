@@ -1,5 +1,24 @@
 (async () => {
   "use strict";
+  const $ = (id) => document.getElementById(id);
+  const themeSelect = $("themeMode");
+  const systemTheme = window.matchMedia?.("(prefers-color-scheme: dark)");
+  themeSelect.value = "system";
+  try {
+    const savedTheme = localStorage.getItem("letterhive-theme");
+    if (savedTheme === "light" || savedTheme === "dark") themeSelect.value = savedTheme;
+  } catch {}
+  function applyTheme() {
+    const mode = themeSelect.value;
+    document.documentElement.dataset.theme =
+      mode === "system" ? (systemTheme?.matches ? "dark" : "light") : mode;
+  }
+  themeSelect.addEventListener("change", () => {
+    try { localStorage.setItem("letterhive-theme", themeSelect.value); } catch {}
+    applyTheme();
+  });
+  systemTheme?.addEventListener?.("change", applyTheme);
+  applyTheme();
   const controls = document.querySelectorAll(".hex, .actions button, .puzzleNav button, #hintBtn");
   controls.forEach((button) => (button.disabled = true));
   const response = await fetch("data/puzzles.json");
@@ -12,38 +31,6 @@
     .then((result) => result.ok ? result.json() : {})
     .then((data) => data ?? {})
     .catch(() => ({}));
-  const $ = (id) => document.getElementById(id);
-  const userTheme = (() => {
-    try {
-      return localStorage.getItem("letterhive-theme");
-    } catch {
-      return null;
-    }
-  })();
-  const prefersDark =
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches;
-  let theme =
-    userTheme === "dark" || userTheme === "light"
-      ? userTheme
-      : prefersDark
-        ? "dark"
-        : "light";
-  function applyTheme() {
-    document.documentElement.dataset.theme = theme;
-    $("themeBtn").textContent = theme === "dark" ? "☀" : "☾";
-    $("themeBtn").title =
-      theme === "dark" ? "Switch to light mode" : "Switch to dark mode";
-    $("themeBtn").setAttribute("aria-label", $("themeBtn").title);
-  }
-  $("themeBtn").addEventListener("click", () => {
-    theme = theme === "dark" ? "light" : "dark";
-    try {
-      localStorage.setItem("letterhive-theme", theme);
-    } catch {}
-    applyTheme();
-  });
-  applyTheme();
   const now = new Date();
   const dayKey = [
     now.getFullYear(),
@@ -128,25 +115,32 @@
     "Genius",
     "Queen Bee",
   ];
+  const hintUnlockLevel = 2;
+  const rankThreshold = (level) => Math.ceil(total * level / (ranks.length - 1));
+  let rankLevel = 0;
+
+  function paintRankBar(bar) {
+    bar.replaceChildren();
+    ranks.forEach((rank, level) => {
+      const segment = document.createElement("i");
+      segment.title = `${rank} · ${rankThreshold(level)} points`;
+      if (level <= rankLevel) segment.className = "done";
+      bar.append(segment);
+    });
+  }
   function paintScore() {
     const n = found.reduce((sum, w) => sum + score(w), 0);
+    rankLevel = ranks.findLastIndex((_, level) => n >= rankThreshold(level));
     $("points").textContent = n;
-    $("progress").style.width =
-      (total ? Math.min(100, (100 * n) / total) : 0) + "%";
-    const level = n >= total ? 9 : Math.min(8, Math.floor((n / total) * 9));
-    $("rank").textContent = ranks[level];
+    $("rank").textContent = ranks[rankLevel];
     $("count").textContent =
       found.length + " word" + (found.length === 1 ? "" : "s");
-    $("ranks").replaceChildren();
-    for (let i = 0; i < 9; i++) {
-      const mark = document.createElement("i");
-      if (i <= level) mark.className = "done";
-      $("ranks").append(mark);
-    }
+    paintRankBar($("progress"));
+    paintRankBar($("ranks"));
     $("next").textContent =
-      level === 9
+      rankLevel === ranks.length - 1
         ? "Perfect! You found every word."
-        : `Next rank at ${Math.ceil(((level + 1) * total) / 9)} points · ${total} possible`;
+        : `Next rank at ${rankThreshold(rankLevel + 1)} points · ${total} possible`;
     const preview = $("foundPreview");
     preview.replaceChildren();
     for (const word of [...found].reverse()) {
@@ -204,6 +198,7 @@
     return [...dictionary].filter((word) => !solved.has(word));
   }
   function selectHint(pangramsOnly = false) {
+    if (rankLevel < hintUnlockLevel) return;
     const missing = missingWords();
     const eligible = pangramsOnly ? missing.filter(isPangram) : missing;
     if (pangramsOnly && eligible.length === 0) return;
@@ -218,11 +213,17 @@
     paintHint(missing, true);
   }
   function paintHint(missing = missingWords(), requested = false) {
-    const level = hintLevels.get(hintTarget);
+    const locked = rankLevel < hintUnlockLevel;
+    const level = locked ? undefined : hintLevels.get(hintTarget);
     const clue = $("puzzleClue");
-    const text = hintTarget
-      ? describeHint(hintTarget, level)
-      : requested && !missing.length ? "You’ve found every word!" : "";
+    let text = "";
+    if (locked) {
+      text = `Hints unlock at ${ranks[hintUnlockLevel]} (${rankThreshold(hintUnlockLevel)} points).`;
+    } else if (level) {
+      text = describeHint(hintTarget, level);
+    } else if (requested && !missing.length) {
+      text = "You’ve found every word!";
+    }
     if (clue.textContent !== text) {
       clue.textContent = text;
       clue.scrollTop = 0;
@@ -230,13 +231,14 @@
     clue.tabIndex = text ? 0 : -1;
 
     const hintButton = $("hintBtn");
-    const hintLabel = hintTarget ? "Different hint" : "Hint";
+    const hintLabel = level ? "Different hint" : "Hint";
     hintButton.setAttribute("aria-label", hintLabel);
     hintButton.title = hintLabel;
-    $("hintIcon").hidden = Boolean(hintTarget);
-    $("differentHintIcon").hidden = !hintTarget;
-    hintButton.disabled = Boolean(hintTarget && missing.length < 2);
+    $("hintIcon").hidden = Boolean(level);
+    $("differentHintIcon").hidden = !level;
+    hintButton.disabled = locked || Boolean(level && missing.length < 2);
     $("pangramHint").hidden = !missing.some(isPangram);
+    $("pangramHint").disabled = locked;
     $("strongerHint").hidden = !level;
     $("strongerHint").disabled = !level || level === strongestHint;
   }
@@ -342,7 +344,7 @@
   $("pangramHint").addEventListener("click", () => selectHint(true));
   $("strongerHint").addEventListener("click", () => {
     const level = hintLevels.get(hintTarget);
-    if (!level || level >= strongestHint) return;
+    if (rankLevel < hintUnlockLevel || !level || level >= strongestHint) return;
     hintLevels.set(hintTarget, level + 1);
     saveHints();
     paintHint();
@@ -364,7 +366,7 @@
       e.altKey ||
       e.ctrlKey ||
       e.metaKey ||
-      e.target.matches("input,textarea")
+      e.target.matches("input,textarea,select")
     )
       return;
     if (e.target.matches("button") && (e.key === "Enter" || e.key === " ")) return;

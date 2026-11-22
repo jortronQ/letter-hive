@@ -18,16 +18,13 @@
           <div class="subtitle">A little word game</div>
         </div>
         <div class="topRight">
-          <span class="date" id="today"></span
-          ><button
-            class="pill themeBtn"
-            id="themeBtn"
-            type="button"
-            aria-label="Switch colour theme"
-            title="Switch colour theme"
-          >
-            ◐</button
-          ><button class="pill" id="howBtn" type="button">? How to play</button>
+          <span class="date" id="today"></span>
+          <select class="pill themeSelect" id="themeMode" aria-label="Colour mode">
+            <option value="system">System</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+          <button class="pill" id="howBtn" type="button">? How to play</button>
         </div>
       </header>
       <main class="content">
@@ -78,7 +75,7 @@
                 </button>
               </div>
             </div>
-            <div class="track"><div id="progress"></div></div>
+            <div class="ranks scoreRanks" id="progress" aria-hidden="true"></div>
             <div class="hintRow">
               <p id="puzzleClue" role="status" aria-atomic="true" tabindex="-1"></p>
               <button class="pill hintIcon" id="strongerHint" type="button"
@@ -137,7 +134,7 @@
               <h2 id="foundHeading" tabindex="-1">Words you've found</h2>
               <span class="counter" id="count">0 words</span>
             </div>
-            <div class="ranks" id="ranks"></div>
+            <div class="ranks" id="ranks" aria-hidden="true"></div>
             <div class="next" id="next"></div>
             <div class="found" id="found">
               <div class="empty">

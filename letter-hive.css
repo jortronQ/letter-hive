@@ -111,19 +111,6 @@ input:focus-visible {
 .scoretitle > span {
   color: #66645e;
 }
-.track {
-  width: 100%;
-  height: 9px;
-  background: #e9e7df;
-  border-radius: 100px;
-  overflow: hidden;
-}
-.track > div {
-  height: 100%;
-  background: #efbd39;
-  border-radius: 100px;
-  transition: width 0.25s;
-}
 .entry {
   height: 62px;
   display: flex;
@@ -486,13 +473,11 @@ body {
 :root[data-theme="dark"] .hex:hover {
   filter: brightness(1.14);
 }
-.track > div,
-.ranks i.done {
-  background: var(--gold);
-}
-.track,
 .ranks i {
   background: var(--track);
+}
+.ranks i.done {
+  background: var(--gold);
 }
 .panel {
   background: var(--panel);
@@ -556,9 +541,14 @@ button:focus-visible {
   flex-wrap: wrap;
   justify-content: flex-end;
 }
-.themeBtn {
-  min-width: 42px;
-  padding: 9px 12px;
+.themeSelect {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.themeSelect:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
 }
 .hex {
   line-height: 1;
@@ -572,8 +562,12 @@ button:focus-visible {
   }
 }
 
-#progress {
-  width: 0%;
+.scoreRanks {
+  margin: 0;
+}
+
+.scoreRanks i {
+  height: 9px;
 }
 
 .foot a {

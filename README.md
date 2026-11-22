@@ -1,6 +1,6 @@
 # Letter Hive
 
-A daily word game with ESDB Australian English answers, light and dark themes, and progress saved on your device.
+A daily word game with ESDB Australian English answers, System, Light, and Dark colour modes, and progress saved on your device.
 
 Serve this directory, then open `http://localhost:8000`:
 
@@ -25,7 +25,7 @@ Open the installed app once while online so it can cache the game and puzzle dat
 
 ## Optional puzzle hints
 
-Choose **Hint** beside the score to show a clue below the progress bar. It gives the first letter and a simple definition. **Stronger hint**, to the right of the clue, reveals the first two letters and a more specific definition for the same meaning. Words without reviewed definitions use structural clues instead. Use **Different hint** to switch targets or **Pangram hint** to choose an undiscovered pangram. Hints never show the full answer or affect scoring or rank.
+Hints unlock at the third rank, **Moving Up**, for each puzzle. Choose **Hint** beside the score to show a clue below the progress bar. It gives the first letter and a simple definition. **Stronger hint**, to the right of the clue, reveals the first two letters and a more specific definition for the same meaning. Words without reviewed definitions use structural clues instead. Use **Different hint** to switch targets or **Pangram hint** to choose an undiscovered pangram. Hints never show the full answer or affect scoring or rank.
 
 Letter Hive remembers the current target and strongest clue you’ve requested for each word on this device. Progress is separate for each puzzle, and hints work offline with the cached game data.
 
