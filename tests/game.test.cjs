@@ -96,6 +96,22 @@ test("every daily puzzle loads, scores pangrams, rejects duplicates, and restore
   }
 });
 
+test("excluded answers are rejected and filtered from existing progress", async () => {
+  const index = dailyPuzzles.findIndex((puzzle) => puzzle.id === "i-bekrtz");
+  const puzzle = dailyPuzzles[index];
+  const valid = puzzle.words.find((word) => new Set(word).size === 7);
+  const progressKey = "letterhive-puzzle-" + puzzle.id;
+  const saved = new Map([[progressKey, JSON.stringify([valid, "tektite", "kike"])]]);
+  const game = await launch(index, undefined, saved);
+  assert.equal(game.get("count").textContent, "1 word");
+  assert.equal(game.get("points").textContent, valid.length + 7);
+  game.type("tektite");
+  game.submit();
+  assert.equal(game.get("message").textContent, "Not in this puzzle’s dictionary");
+  assert.equal(game.get("count").textContent, "1 word");
+  assert.equal(game.get("points").textContent, valid.length + 7);
+});
+
 function currentPuzzle(game) {
   const session = JSON.parse(game.saved.get("letterhive-session-v1"));
   return data.puzzles.find((puzzle) => puzzle.id === session.history.at(-1).id);
@@ -231,6 +247,19 @@ test("reviewed clues are reused across puzzles and fall back if hint data is una
     }, saved);
     assert.match(fallback.get("puzzleClue").textContent, /^4 letters, BO—: Contains 2 vowels/);
   }
+});
+
+test("clues from a separate definition source work at both hint levels", async () => {
+  const word = "gypsy";
+  const index = dailyPuzzles.findIndex((puzzle) => puzzle.words.includes(word));
+  const puzzle = dailyPuzzles[index];
+  const saved = new Map([["letterhive-puzzle-" + puzzle.id,
+    JSON.stringify(puzzle.words.filter((answer) => answer !== word))]]);
+  const game = await launch(index, undefined, saved);
+  game.get("hintBtn").listeners.click();
+  assert.equal(game.get("puzzleClue").textContent, `5 letters, G—: ${hintData.clues[word].gentle}`);
+  game.get("strongerHint").listeners.click();
+  assert.equal(game.get("puzzleClue").textContent, `5 letters, GY—: ${hintData.clues[word].stronger}`);
 });
 
 test("another word, pangram filtering, and saved hint levels respect puzzle boundaries", async () => {

@@ -15,7 +15,7 @@ Use a local server rather than opening `index.html` as a file: the game fetches 
 - `letter-hive.js` contains the game logic.
 - `data/puzzle-config.json` defines collection size, answer-count limits, selection seed, and preserved letter sets.
 - `data/puzzles.json` contains the generated answers used by the game.
-- `data/word-overrides.json` holds explicit additions and exclusions (initially empty).
+- `data/word-overrides.json` holds explicit additions and exclusions.
 
 ## Install and play offline
 
@@ -35,9 +35,13 @@ Hints unlock at the third rank, **Moving Up**, for each puzzle. Choose **Hint** 
 
 Letter Hive remembers the current target and strongest clue you’ve requested for each word on this device. Progress is separate for each puzzle, and hints work offline with the cached game data.
 
-ESDB supplies the accepted spellings. [data/hints.json](data/hints.json) stores a starter set of two reviewed clues per spelling, shared across puzzles. It records the matching sense ID and the pinned source archive and checksum. The clues are adapted from [Open English WordNet 2025](https://github.com/globalwordnet/english-wordnet/releases/tag/2025-edition) under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). See the [source licence and notices](https://github.com/globalwordnet/english-wordnet/blob/2025-edition/LICENSE.md). A matching spelling alone doesn’t verify the intended sense, so only reviewed clues ship. New hint targets favour reviewed clues where available, and the game can still offer structural clues for other answers.
+ESDB supplies the accepted spellings. [data/hints.json](data/hints.json) stores two reviewed clues per spelling, shared across puzzles. It records the matching sense ID and the pinned source archive and checksum. The WordNet clues are adapted from [Open English WordNet 2025](https://github.com/globalwordnet/english-wordnet/releases/tag/2025-edition) under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). See the [source licence and notices](https://github.com/globalwordnet/english-wordnet/blob/2025-edition/LICENSE.md). A matching spelling alone doesn’t verify the intended sense, so only reviewed clues ship. New hint targets favour reviewed clues where available, and the game can still offer structural clues for other answers.
 
-To expand coverage, add or edit entries in `data/hints.json`. Use an accepted spelling, verify the source sense, and write two increasingly specific clues that omit the answer. Run `python3 scripts/check-hints.py` to check the bundled entries, or pass `--wordnet-zip /path/to/english-wordnet-2025-json.zip` to also verify each sense ID against the pinned archive and measure exact-spelling coverage. The game and normal deployment use the bundled file and don’t need the WordNet archive or API.
+To expand coverage, add or edit entries in `data/hints.json`. Use an accepted spelling, verify the source sense, and write two increasingly specific clues that omit the answer. WordNet entries use a `synset` ID. For a separately supplied definition, use a per-entry `source` object containing its `name` and `definition` instead; do not attach an unrelated WordNet sense. Both kinds receive the same answer and clue checks, while archive validation applies to WordNet entries. Run `python3 scripts/check-hints.py` to check the bundled entries, or pass `--wordnet-zip /path/to/english-wordnet-2025-json.zip` to also verify each sense ID against the pinned archive and measure exact-spelling coverage. The game and normal deployment use the bundled file and don’t need the WordNet archive or API.
+
+The collection has reviewed clues for 2,678 of the 4,326 accepted words across all 121 puzzles: 2,677 use verified WordNet senses, and `gypsy` uses a user-provided definition of the historical, colloquial term for a member of the Romani people, whose origins are in northern India. Its clue pair uses that specific sense rather than applying the term to other travelling communities.
+
+Some words have been excluded through `data/word-overrides.json` because of their potentially offensive nature or unsuitable source definitions. Another 1,648 accepted words have no exact-spelling WordNet definition and retain structural hints. Further coverage needs spelling-variant research or another definition source.
 
 ## Dictionary
 
@@ -49,13 +53,13 @@ Each generated answer must contain the centre letter and use only the seven puzz
 
 ## Puzzle collection and free play
 
-The collection contains **120 distinct seven-letter sets**, with **121 puzzles** because two of the preserved original puzzles use the same letters with different centre letters. The original four remain available. New sets are selected deterministically from actual ESDB pangrams, with 40–150 accepted answers, two or three vowels, and at most one of J/Q/X/Z. Selection favours different letters between neighbouring puzzles and balances letter and centre-letter usage. These are vocabulary and variety checks rather than a guarantee of equal difficulty.
+The collection contains **120 distinct seven-letter sets**, with **121 puzzles** because two of the preserved original puzzles use the same letters with different centre letters. All published letter sets are pinned in the configuration’s `preserve` list, including the original four, so vocabulary exclusions cannot change daily assignments. Two published puzzles (`b-eginrz` and `i-bekrtz`) now have 39 answers after exclusions. New sets are selected deterministically from actual ESDB pangrams, with 40–150 accepted answers, two or three vowels, and at most one of J/Q/X/Z. Selection favours different letters between neighbouring puzzles and balances letter and centre-letter usage. These are vocabulary and variety checks rather than a guarantee of equal difficulty.
 
 The local date chooses a daily puzzle. **New** starts another immediately, preferring unvisited puzzles whose letters differ most from the current set. No puzzle repeats until the collection has been visited; a new cycle then begins. **Previous** returns through this session's puzzle history, and **Today** returns to the daily challenge. A reload on the same day resumes the current puzzle. A new day opens that day's challenge.
 
 Progress is stored separately by a stable ID made from the centre and outer letters, so it survives switching puzzles, reloading, and reordering the collection. Today's saves from the old four-puzzle daily rotation are migrated to their original letter set without deleting the old save. Saved answers outside the current dictionary are excluded from the displayed score. Browser storage must be available for persistence across reloads.
 
-ESDB is a spelling dictionary, so its acceptance rules differ from other word games. Add lowercase words to the `add` or `exclude` arrays in `data/word-overrides.json` to curate exceptions. No additional exceptions are currently applied.
+ESDB is a spelling dictionary, so its acceptance rules differ from other word games. Add lowercase words to the `add` or `exclude` arrays in `data/word-overrides.json` to curate exceptions.
 
 Regenerate the collection after changing its settings, preserved letter sets, or an override:
 

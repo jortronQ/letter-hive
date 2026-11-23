@@ -38,7 +38,9 @@ class PuzzleGenerationTests(unittest.TestCase):
         puzzles = json.loads(builder.render())["puzzles"]
         for puzzle in puzzles:
             words = puzzle["words"]
-            self.assertGreaterEqual(len(words), 40)
+            # Keep these published puzzles after explicit vocabulary exclusions.
+            minimum = 39 if puzzle["id"] in {"b-eginrz", "i-bekrtz"} else 40
+            self.assertGreaterEqual(len(words), minimum)
             self.assertEqual(words, sorted(set(words)))
             self.assertTrue(any(set(word) == set(puzzle["center"] + puzzle["outer"]) for word in words))
         self.assertEqual(len({"".join(sorted(puzzle["center"] + puzzle["outer"])) for puzzle in puzzles}), 120)
@@ -50,6 +52,18 @@ class PuzzleGenerationTests(unittest.TestCase):
             self.assertLessEqual(len(puzzle["words"]), 150)
             self.assertTrue(2 <= len(letters & set("aeiou")) <= 3)
             self.assertLessEqual(len(letters & set("jqxz")), 1)
+
+    def test_published_puzzles_survive_vocabulary_exclusions(self):
+        bundled = json.loads((ROOT / "data/puzzles.json").read_text())["puzzles"]
+        generated = json.loads(builder.render())["puzzles"]
+        rotation = json.loads((ROOT / "data/daily-rotation.json").read_text())
+        self.assertTrue(set(rotation["puzzleIds"]).issubset({p["id"] for p in generated}))
+        self.assertEqual(generated, bundled)
+        answers = {word for puzzle in generated for word in puzzle["words"]}
+        exclusions = set(json.loads((ROOT / "data/word-overrides.json").read_text())["exclude"])
+        self.assertTrue(exclusions)
+        self.assertTrue(answers.isdisjoint(exclusions))
+        self.assertIn("gypsy", answers)
 
 
 if __name__ == "__main__":
