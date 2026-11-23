@@ -4,10 +4,50 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+import re
 from zipfile import ZipFile
 
 
 ROOT = Path(__file__).resolve().parents[1]
+REGULAR_RELATIONS = {
+    "plural": {"n"}, "third-person": {"v"}, "past": {"v"},
+    "participle": {"v"}, "comparative": {"a", "s", "r"}, "superlative": {"a", "s", "r"},
+}
+
+
+def without_word_separators(word):
+    return re.sub(r"[- ]", "", word)
+
+
+def regular_forms(lemma, pos, relation):
+    """Conservative spelling guards for reviewed mappings, not a lemmatiser."""
+    if pos not in REGULAR_RELATIONS.get(relation, ()) or not re.fullmatch(r"[a-z]+", lemma):
+        return set()
+    consonant_y = len(lemma) > 1 and lemma.endswith("y") and lemma[-2] not in "aeiou"
+    if relation in ("plural", "third-person"):
+        if consonant_y:
+            return {lemma[:-1] + "ies"}
+        if lemma.endswith(("s", "x", "z", "ch", "sh")):
+            return {lemma + "es"}
+        if lemma.endswith("o"):
+            return {lemma + "s", lemma + "es"}
+        return {lemma + "s"}
+    suffix = {"past": "ed", "participle": "ing", "comparative": "er", "superlative": "est"}[relation]
+    if relation == "participle" and lemma.endswith("ie"):
+        return {lemma[:-2] + "ying"}
+    if relation != "participle" and consonant_y:
+        return {lemma[:-1] + "i" + suffix}
+    if lemma.endswith("e"):
+        if relation == "participle" and lemma.endswith(("ee", "oe", "ye")):
+            return {lemma + suffix}
+        return {lemma[:-1] + suffix}
+    forms = {lemma + suffix}
+    if (len(lemma) >= 3 and lemma[-1] not in "aeiouwxy"
+            and lemma[-2] in "aeiou" and lemma[-3] not in "aeiou"):
+        forms.add(lemma + lemma[-1] + suffix)
+    if lemma.endswith("c") and relation in ("past", "participle"):
+        forms.add(lemma + "k" + suffix)
+    return forms
 
 
 def check_clues(accepted, clues):
@@ -20,10 +60,18 @@ def check_clues(accepted, clues):
                     or any(not isinstance(source.get(key), str) or not source[key].strip()
                            for key in ("name", "definition"))):
                 raise ValueError(f"{word!r} is missing its definition source or source text")
-            if "synset" in entry:
+            if any(key in entry for key in ("synset", "lemma", "relation")):
                 raise ValueError(f"{word!r} mixes a separate definition source with a WordNet synset")
         elif not isinstance(entry.get("synset"), str) or not entry["synset"]:
             raise ValueError(f"{word!r} is missing a synset ID")
+        if "lemma" in entry or "relation" in entry:
+            lemma = entry.get("lemma")
+            if not isinstance(lemma, str) or not lemma.strip() or lemma == word:
+                raise ValueError(f"{word!r} is missing a distinct WordNet headword")
+            if entry.get("relation") not in {"inflection", "punctuation", *REGULAR_RELATIONS}:
+                raise ValueError(f"{word!r} has an unsupported WordNet relationship")
+            if entry["relation"] == "punctuation" and without_word_separators(lemma) != word:
+                raise ValueError(f"{word!r} is not a punctuation variant of {lemma!r}")
         for level in ("gentle", "stronger"):
             clue = entry.get(level)
             if not isinstance(clue, str) or not clue.strip() or word in clue.casefold():
@@ -37,7 +85,10 @@ def check_archive(path, source, accepted, clues):
         if hashlib.file_digest(stream, "sha256").hexdigest() != source["sha256"]:
             raise ValueError("WordNet archive checksum does not match data/hints.json")
 
+    lemmas = {entry["lemma"] for entry in clues.values() if "lemma" in entry}
     senses = {}
+    inflections = {}
+    headwords = {}
     defined = set()
     with ZipFile(path) as archive:
         for name in archive.namelist():
@@ -47,12 +98,20 @@ def check_archive(path, source, accepted, clues):
                 entries = json.load(stream)
             if name.startswith("entries-"):
                 for word, parts in entries.items():
-                    if word in accepted:
+                    if word in accepted or word in lemmas:
+                        if word in lemmas:
+                            headwords[word] = parts
                         senses.setdefault(word, set()).update(
                             sense["synset"]
                             for part in parts.values()
                             for sense in part.get("sense", [])
                         )
+                        for part in parts.values():
+                            for form in part.get("form", []):
+                                if form in accepted:
+                                    inflections.setdefault((word, form), set()).update(
+                                        sense["synset"] for sense in part.get("sense", [])
+                                    )
             else:
                 defined.update(
                     key for key, entry in entries.items()
@@ -63,11 +122,27 @@ def check_archive(path, source, accepted, clues):
         if "source" in entry:
             continue
         synset = entry["synset"]
-        if synset not in senses.get(word, ()) or synset not in defined:
-            raise ValueError(f"{word!r} does not have a definition for synset {synset}")
+        lemma = entry.get("lemma", word)
+        if synset not in senses.get(lemma, ()) or synset not in defined:
+            raise ValueError(f"{word!r} has no definition under {lemma!r} for synset {synset}")
+        if entry.get("relation") == "inflection" and synset not in inflections.get((lemma, word), ()):
+            raise ValueError(f"{word!r} is not a listed form for {lemma!r} and synset {synset}")
+        relation = entry.get("relation")
+        if relation in REGULAR_RELATIONS:
+            valid = any(
+                word in regular_forms(lemma, pos, relation)
+                and (relation != "plural" or not part.get("form") or word in part["form"])
+                and any(sense["synset"] == synset for sense in part.get("sense", []))
+                for pos, part in headwords.get(lemma, {}).items()
+            )
+            if not valid:
+                raise ValueError(f"{word!r} is not a supported {relation} of {lemma!r} for synset {synset}")
 
-    matches = sum(bool(ids & defined) for ids in senses.values())
+    matches = sum(bool(ids & defined) for word, ids in senses.items() if word in accepted)
     print(f"WordNet definitions by exact spelling: {matches:,}/{len(accepted):,}.")
+    mapped = sum("lemma" in entry for entry in clues.values())
+    if mapped:
+        print(f"Reviewed WordNet headword mappings: {mapped:,}.")
 
 
 def main():
