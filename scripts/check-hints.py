@@ -14,7 +14,15 @@ def check_clues(accepted, clues):
     for word, entry in clues.items():
         if word not in accepted:
             raise ValueError(f"{word!r} is not an accepted answer")
-        if not isinstance(entry.get("synset"), str) or not entry["synset"]:
+        if "source" in entry:
+            source = entry["source"]
+            if (not isinstance(source, dict)
+                    or any(not isinstance(source.get(key), str) or not source[key].strip()
+                           for key in ("name", "definition"))):
+                raise ValueError(f"{word!r} is missing its definition source or source text")
+            if "synset" in entry:
+                raise ValueError(f"{word!r} mixes a separate definition source with a WordNet synset")
+        elif not isinstance(entry.get("synset"), str) or not entry["synset"]:
             raise ValueError(f"{word!r} is missing a synset ID")
         for level in ("gentle", "stronger"):
             clue = entry.get(level)
@@ -52,6 +60,8 @@ def check_archive(path, source, accepted, clues):
                 )
 
     for word, entry in clues.items():
+        if "source" in entry:
+            continue
         synset = entry["synset"]
         if synset not in senses.get(word, ()) or synset not in defined:
             raise ValueError(f"{word!r} does not have a definition for synset {synset}")
