@@ -143,6 +143,25 @@
         "troll",
         "trot",
         "trotter"
+      ],
+      "threeLetterWords": [
+        "col",
+        "coo",
+        "cor",
+        "cot",
+        "loo",
+        "lot",
+        "oar",
+        "oat",
+        "ole",
+        "orc",
+        "ore",
+        "roe",
+        "rot",
+        "toe",
+        "too",
+        "tor",
+        "tot"
       ]
     },
     {
@@ -324,6 +343,22 @@
         "trill",
         "trite",
         "triter"
+      ],
+      "threeLetterWords": [
+        "ail",
+        "air",
+        "ill",
+        "inn",
+        "ire",
+        "lei",
+        "lie",
+        "lit",
+        "nil",
+        "nit",
+        "tie",
+        "til",
+        "tin",
+        "tit"
       ]
     },
     {
@@ -477,6 +512,20 @@
         "trimaran",
         "trimmer",
         "trireme"
+      ],
+      "threeLetterWords": [
+        "aim",
+        "arm",
+        "mam",
+        "man",
+        "mar",
+        "mat",
+        "men",
+        "met",
+        "ram",
+        "rem",
+        "rim",
+        "tam"
       ]
     },
     {
@@ -614,6 +663,20 @@
         "total",
         "treacle",
         "troll"
+      ],
+      "threeLetterWords": [
+        "ale",
+        "all",
+        "col",
+        "eel",
+        "ell",
+        "lac",
+        "lea",
+        "lee",
+        "let",
+        "loo",
+        "lot",
+        "ole"
       ]
     },
     {
@@ -672,6 +735,23 @@
         "unpins",
         "yips",
         "yups"
+      ],
+      "threeLetterWords": [
+        "bis",
+        "bus",
+        "ins",
+        "nus",
+        "pis",
+        "psi",
+        "pus",
+        "sin",
+        "sip",
+        "sis",
+        "spy",
+        "sub",
+        "sun",
+        "sup",
+        "ups"
       ]
     },
     {
@@ -752,6 +832,30 @@
         "wooed",
         "woofed",
         "wowed"
+      ],
+      "threeLetterWords": [
+        "def",
+        "dew",
+        "doe",
+        "eel",
+        "eff",
+        "elf",
+        "ell",
+        "ewe",
+        "fed",
+        "fee",
+        "few",
+        "foe",
+        "hew",
+        "hoe",
+        "led",
+        "lee",
+        "ode",
+        "ole",
+        "owe",
+        "wed",
+        "wee",
+        "woe"
       ]
     },
     {
@@ -802,6 +906,25 @@
         "spasm",
         "spasms",
         "zaps"
+      ],
+      "threeLetterWords": [
+        "amp",
+        "app",
+        "asp",
+        "ass",
+        "gag",
+        "gap",
+        "gas",
+        "mag",
+        "mam",
+        "map",
+        "mas",
+        "pap",
+        "pas",
+        "sag",
+        "sap",
+        "spa",
+        "zap"
       ]
     },
     {
@@ -889,6 +1012,19 @@
         "veered",
         "verb",
         "verve"
+      ],
+      "threeLetterWords": [
+        "bro",
+        "brr",
+        "ere",
+        "err",
+        "orb",
+        "ore",
+        "red",
+        "rev",
+        "rob",
+        "rod",
+        "roe"
       ]
     },
     {
@@ -951,6 +1087,21 @@
         "unis",
         "unsung",
         "using"
+      ],
+      "threeLetterWords": [
+        "fin",
+        "fun",
+        "gin",
+        "gnu",
+        "gun",
+        "inn",
+        "ins",
+        "nix",
+        "nun",
+        "nus",
+        "sin",
+        "sun",
+        "uni"
       ]
     },
     {
@@ -1001,6 +1152,15 @@
         "weed",
         "weeded",
         "whacked"
+      ],
+      "threeLetterWords": [
+        "add",
+        "cad",
+        "dad",
+        "dew",
+        "had",
+        "wad",
+        "wed"
       ]
     },
     {
@@ -1061,6 +1221,24 @@
         "typo",
         "typos",
         "yips"
+      ],
+      "threeLetterWords": [
+        "ops",
+        "opt",
+        "pip",
+        "pis",
+        "pit",
+        "poi",
+        "poo",
+        "pop",
+        "pot",
+        "psi",
+        "sip",
+        "sop",
+        "spy",
+        "tip",
+        "top",
+        "yip"
       ]
     },
     {
@@ -1114,6 +1292,17 @@
         "mumbled",
         "muumuu",
         "umbel"
+      ],
+      "threeLetterWords": [
+        "bub",
+        "bud",
+        "bum",
+        "dub",
+        "dud",
+        "due",
+        "emu",
+        "mud",
+        "mum"
       ]
     },
     {
@@ -1175,6 +1364,21 @@
         "shoos",
         "yahoo",
         "yahoos"
+      ],
+      "threeLetterWords": [
+        "aah",
+        "aha",
+        "ash",
+        "has",
+        "hay",
+        "hos",
+        "och",
+        "oho",
+        "ohs",
+        "ooh",
+        "shh",
+        "shy",
+        "ssh"
       ]
     },
     {
@@ -1226,6 +1430,16 @@
         "tuning",
         "tutting",
         "uniting"
+      ],
+      "threeLetterWords": [
+        "gig",
+        "gin",
+        "git",
+        "gnu",
+        "gun",
+        "gut",
+        "lug",
+        "tug"
       ]
     },
     {
@@ -1277,6 +1491,16 @@
         "whack",
         "whacko",
         "wrack"
+      ],
+      "threeLetterWords": [
+        "arc",
+        "car",
+        "caw",
+        "coo",
+        "cor",
+        "cow",
+        "och",
+        "orc"
       ]
     },
     {
@@ -1326,6 +1550,17 @@
         "tuttis",
         "tutu",
         "tutus"
+      ],
+      "threeLetterWords": [
+        "its",
+        "jut",
+        "pit",
+        "put",
+        "sit",
+        "tip",
+        "tit",
+        "tum",
+        "tut"
       ]
     },
     {
@@ -1384,6 +1619,21 @@
         "webbed",
         "wobble",
         "wobbled"
+      ],
+      "threeLetterWords": [
+        "bed",
+        "bee",
+        "bob",
+        "bod",
+        "boo",
+        "bow",
+        "deb",
+        "dob",
+        "ebb",
+        "fob",
+        "lbw",
+        "lob",
+        "web"
       ]
     },
     {
@@ -1433,6 +1683,18 @@
         "yaps",
         "yipping",
         "yips"
+      ],
+      "threeLetterWords": [
+        "any",
+        "gay",
+        "gyp",
+        "nay",
+        "pay",
+        "say",
+        "spy",
+        "yap",
+        "yin",
+        "yip"
       ]
     },
     {
@@ -1482,6 +1744,12 @@
         "vote",
         "voted",
         "voter"
+      ],
+      "threeLetterWords": [
+        "eve",
+        "rev",
+        "vet",
+        "vex"
       ]
     },
     {
@@ -1529,6 +1797,12 @@
         "naff",
         "naif",
         "niff"
+      ],
+      "threeLetterWords": [
+        "fag",
+        "fan",
+        "fig",
+        "fin"
       ]
     },
     {
@@ -1578,6 +1852,19 @@
         "wore",
         "wove",
         "wowed"
+      ],
+      "threeLetterWords": [
+        "cow",
+        "dew",
+        "ewe",
+        "owe",
+        "row",
+        "vow",
+        "wed",
+        "wee",
+        "woe",
+        "woo",
+        "wow"
       ]
     },
     {
@@ -1628,6 +1915,12 @@
         "sulks",
         "sunk",
         "unskillful"
+      ],
+      "threeLetterWords": [
+        "ilk",
+        "ink",
+        "kin",
+        "ski"
       ]
     },
     {
@@ -1685,6 +1978,22 @@
         "yabber",
         "year",
         "zebra"
+      ],
+      "threeLetterWords": [
+        "are",
+        "bar",
+        "bra",
+        "brr",
+        "ear",
+        "era",
+        "ere",
+        "err",
+        "raw",
+        "ray",
+        "rye",
+        "war",
+        "wry",
+        "yer"
       ]
     },
     {
@@ -1763,6 +2072,17 @@
         "sumo",
         "sums",
         "suss"
+      ],
+      "threeLetterWords": [
+        "cos",
+        "hos",
+        "mus",
+        "ohs",
+        "oms",
+        "shh",
+        "sou",
+        "ssh",
+        "sum"
       ]
     },
     {
@@ -1833,6 +2153,20 @@
         "tinting",
         "titan",
         "titian"
+      ],
+      "threeLetterWords": [
+        "fig",
+        "fin",
+        "fit",
+        "fix",
+        "gig",
+        "gin",
+        "git",
+        "inn",
+        "nit",
+        "nix",
+        "tin",
+        "tit"
       ]
     },
     {
@@ -1905,6 +2239,18 @@
         "ruder",
         "rued",
         "udder"
+      ],
+      "threeLetterWords": [
+        "cue",
+        "due",
+        "ecu",
+        "ere",
+        "err",
+        "her",
+        "hue",
+        "rec",
+        "red",
+        "rue"
       ]
     },
     {
@@ -1970,6 +2316,21 @@
         "polygamy",
         "polyp",
         "pool"
+      ],
+      "threeLetterWords": [
+        "all",
+        "alp",
+        "gal",
+        "lag",
+        "lam",
+        "lap",
+        "lay",
+        "log",
+        "loo",
+        "lop",
+        "pal",
+        "ply",
+        "pol"
       ]
     },
     {
@@ -2027,7 +2388,8 @@
         "squirts",
         "tuque",
         "tuques"
-      ]
+      ],
+      "threeLetterWords": []
     },
     {
       "id": "o-ablmpw",
@@ -2078,6 +2440,30 @@
         "womb",
         "wool",
         "woop"
+      ],
+      "threeLetterWords": [
+        "boa",
+        "bob",
+        "boo",
+        "bop",
+        "bow",
+        "lob",
+        "loo",
+        "lop",
+        "low",
+        "mob",
+        "moo",
+        "mop",
+        "mow",
+        "owl",
+        "pol",
+        "pom",
+        "poo",
+        "pop",
+        "pow",
+        "woo",
+        "wop",
+        "wow"
       ]
     },
     {
@@ -2137,6 +2523,18 @@
         "unis",
         "unsung",
         "using"
+      ],
+      "threeLetterWords": [
+        "gin",
+        "gnu",
+        "gun",
+        "inn",
+        "ins",
+        "nun",
+        "nus",
+        "sin",
+        "sun",
+        "uni"
       ]
     },
     {
@@ -2194,6 +2592,15 @@
         "veered",
         "voodoo",
         "voodooed"
+      ],
+      "threeLetterWords": [
+        "doe",
+        "dry",
+        "dye",
+        "odd",
+        "ode",
+        "red",
+        "rod"
       ]
     },
     {
@@ -2250,6 +2657,15 @@
         "zing",
         "zinging",
         "zipping"
+      ],
+      "threeLetterWords": [
+        "gig",
+        "gin",
+        "gnu",
+        "gun",
+        "lug",
+        "pig",
+        "pug"
       ]
     },
     {
@@ -2299,6 +2715,21 @@
         "wear",
         "wearer",
         "wreak"
+      ],
+      "threeLetterWords": [
+        "are",
+        "ark",
+        "awe",
+        "baa",
+        "bar",
+        "bra",
+        "ear",
+        "era",
+        "jab",
+        "jar",
+        "jaw",
+        "raw",
+        "war"
       ]
     },
     {
@@ -2375,6 +2806,23 @@
         "typo",
         "typos",
         "yups"
+      ],
+      "threeLetterWords": [
+        "fop",
+        "ops",
+        "opt",
+        "poo",
+        "pop",
+        "pot",
+        "pup",
+        "pus",
+        "put",
+        "sop",
+        "spy",
+        "sup",
+        "top",
+        "ups",
+        "yup"
       ]
     },
     {
@@ -2432,6 +2880,18 @@
         "minx",
         "mixing",
         "naming"
+      ],
+      "threeLetterWords": [
+        "aim",
+        "dam",
+        "dim",
+        "mad",
+        "mag",
+        "mam",
+        "man",
+        "max",
+        "mid",
+        "mix"
       ]
     },
     {
@@ -2497,6 +2957,19 @@
         "tutu",
         "tutus",
         "utes"
+      ],
+      "threeLetterWords": [
+        "bet",
+        "but",
+        "cut",
+        "etc",
+        "jet",
+        "jut",
+        "set",
+        "tee",
+        "tub",
+        "tut",
+        "ute"
       ]
     },
     {
@@ -2546,6 +3019,13 @@
         "ramify",
         "riff",
         "riffraff"
+      ],
+      "threeLetterWords": [
+        "far",
+        "fay",
+        "fir",
+        "fly",
+        "fry"
       ]
     },
     {
@@ -2608,6 +3088,21 @@
         "those",
         "tooth",
         "tosh"
+      ],
+      "threeLetterWords": [
+        "hex",
+        "hob",
+        "hoe",
+        "hos",
+        "hot",
+        "oho",
+        "ohs",
+        "ooh",
+        "she",
+        "shh",
+        "ssh",
+        "the",
+        "tho"
       ]
     },
     {
@@ -2658,6 +3153,17 @@
         "placidly",
         "play",
         "playa"
+      ],
+      "threeLetterWords": [
+        "cay",
+        "day",
+        "icy",
+        "lay",
+        "pay",
+        "ply",
+        "yap",
+        "yid",
+        "yip"
       ]
     },
     {
@@ -2707,6 +3213,19 @@
         "untruer",
         "ureter",
         "utter"
+      ],
+      "threeLetterWords": [
+        "fun",
+        "fur",
+        "nun",
+        "nut",
+        "rue",
+        "run",
+        "rut",
+        "tun",
+        "tut",
+        "urn",
+        "ute"
       ]
     },
     {
@@ -2761,6 +3280,14 @@
         "loch",
         "lock",
         "loco"
+      ],
+      "threeLetterWords": [
+        "cab",
+        "cob",
+        "col",
+        "coo",
+        "lac",
+        "och"
       ]
     },
     {
@@ -2822,6 +3349,11 @@
         "vivider",
         "wive",
         "wived"
+      ],
+      "threeLetterWords": [
+        "eve",
+        "rev",
+        "vie"
       ]
     },
     {
@@ -2881,6 +3413,11 @@
         "socks",
         "sook",
         "sooks"
+      ],
+      "threeLetterWords": [
+        "ask",
+        "oak",
+        "ska"
       ]
     },
     {
@@ -2927,6 +3464,18 @@
         "grebe",
         "ribber",
         "ribbing"
+      ],
+      "threeLetterWords": [
+        "bee",
+        "beg",
+        "bib",
+        "big",
+        "bin",
+        "biz",
+        "brr",
+        "ebb",
+        "nib",
+        "rib"
       ]
     },
     {
@@ -3003,6 +3552,24 @@
         "yaws",
         "yowl",
         "yowls"
+      ],
+      "threeLetterWords": [
+        "awl",
+        "haw",
+        "how",
+        "law",
+        "low",
+        "owl",
+        "saw",
+        "sow",
+        "was",
+        "way",
+        "who",
+        "why",
+        "woo",
+        "wow",
+        "yaw",
+        "yow"
       ]
     },
     {
@@ -3050,6 +3617,20 @@
         "zing",
         "zinging",
         "ziti"
+      ],
+      "threeLetterWords": [
+        "fig",
+        "fin",
+        "fit",
+        "gig",
+        "gin",
+        "git",
+        "inn",
+        "nit",
+        "tin",
+        "tit",
+        "uni",
+        "zit"
       ]
     },
     {
@@ -3106,6 +3687,26 @@
         "wooer",
         "wore",
         "wove"
+      ],
+      "threeLetterWords": [
+        "emo",
+        "ere",
+        "err",
+        "eve",
+        "ewe",
+        "hem",
+        "her",
+        "hew",
+        "hoe",
+        "meh",
+        "mew",
+        "ore",
+        "owe",
+        "rem",
+        "rev",
+        "roe",
+        "wee",
+        "woe"
       ]
     },
     {
@@ -3154,6 +3755,14 @@
         "nick",
         "nicking",
         "ninja"
+      ],
+      "threeLetterWords": [
+        "can",
+        "gin",
+        "ink",
+        "inn",
+        "kin",
+        "nag"
       ]
     },
     {
@@ -3218,6 +3827,19 @@
         "verdure",
         "verve",
         "very"
+      ],
+      "threeLetterWords": [
+        "dry",
+        "ere",
+        "err",
+        "per",
+        "pry",
+        "red",
+        "rep",
+        "rev",
+        "rue",
+        "rye",
+        "yer"
       ]
     },
     {
@@ -3291,6 +3913,21 @@
         "taxicabs",
         "taxis",
         "tibia"
+      ],
+      "threeLetterWords": [
+        "abs",
+        "act",
+        "ass",
+        "baa",
+        "bat",
+        "cab",
+        "cat",
+        "sac",
+        "sat",
+        "sax",
+        "tab",
+        "tat",
+        "tax"
       ]
     },
     {
@@ -3345,6 +3982,15 @@
         "luffed",
         "lulled",
         "yelled"
+      ],
+      "threeLetterWords": [
+        "def",
+        "dud",
+        "due",
+        "duh",
+        "dye",
+        "fed",
+        "led"
       ]
     },
     {
@@ -3395,6 +4041,15 @@
         "onion",
         "vino",
         "voicing"
+      ],
+      "threeLetterWords": [
+        "cog",
+        "con",
+        "coo",
+        "goo",
+        "ion",
+        "non",
+        "oik"
       ]
     },
     {
@@ -3443,6 +4098,9 @@
         "statuesque",
         "tuque",
         "tuques"
+      ],
+      "threeLetterWords": [
+        "qua"
       ]
     },
     {
@@ -3515,6 +4173,15 @@
         "oiling",
         "ongoing",
         "oolong"
+      ],
+      "threeLetterWords": [
+        "big",
+        "bog",
+        "gig",
+        "gin",
+        "gob",
+        "goo",
+        "log"
       ]
     },
     {
@@ -3570,6 +4237,15 @@
         "tusks",
         "tuts",
         "tutus"
+      ],
+      "threeLetterWords": [
+        "ask",
+        "ass",
+        "mas",
+        "mus",
+        "sat",
+        "ska",
+        "sum"
       ]
     },
     {
@@ -3646,6 +4322,20 @@
         "weep",
         "weeper",
         "woop"
+      ],
+      "threeLetterWords": [
+        "ope",
+        "pee",
+        "pep",
+        "per",
+        "pew",
+        "pod",
+        "poo",
+        "pop",
+        "pow",
+        "pro",
+        "rep",
+        "wop"
       ]
     },
     {
@@ -3697,6 +4387,15 @@
         "nail",
         "nailing",
         "niggling"
+      ],
+      "threeLetterWords": [
+        "ail",
+        "all",
+        "gal",
+        "ill",
+        "lag",
+        "lay",
+        "nil"
       ]
     },
     {
@@ -3744,6 +4443,13 @@
         "mooched",
         "opcode",
         "pooch"
+      ],
+      "threeLetterWords": [
+        "cod",
+        "coo",
+        "cop",
+        "doc",
+        "och"
       ]
     },
     {
@@ -3792,6 +4498,16 @@
         "watts",
         "wits",
         "witty"
+      ],
+      "threeLetterWords": [
+        "its",
+        "sat",
+        "sit",
+        "sty",
+        "tat",
+        "tax",
+        "tit",
+        "wit"
       ]
     },
     {
@@ -3876,6 +4592,18 @@
         "mumbled",
         "muumuu",
         "umbel"
+      ],
+      "threeLetterWords": [
+        "bub",
+        "bud",
+        "bum",
+        "dub",
+        "dud",
+        "due",
+        "emu",
+        "flu",
+        "mud",
+        "mum"
       ]
     },
     {
@@ -3933,6 +4661,12 @@
         "socks",
         "sook",
         "sooks"
+      ],
+      "threeLetterWords": [
+        "ark",
+        "ask",
+        "oak",
+        "ska"
       ]
     },
     {
@@ -3988,6 +4722,15 @@
         "pumped",
         "umbel",
         "umped"
+      ],
+      "threeLetterWords": [
+        "bum",
+        "elm",
+        "emu",
+        "med",
+        "mud",
+        "mum",
+        "ump"
       ]
     },
     {
@@ -4037,6 +4780,14 @@
         "inching",
         "nigh",
         "oohing"
+      ],
+      "threeLetterWords": [
+        "chi",
+        "hog",
+        "hon",
+        "och",
+        "oho",
+        "ooh"
       ]
     },
     {
@@ -4108,6 +4859,13 @@
         "tufts",
         "useful",
         "zestful"
+      ],
+      "threeLetterWords": [
+        "eff",
+        "elf",
+        "fee",
+        "fez",
+        "flu"
       ]
     },
     {
@@ -4155,6 +4913,22 @@
         "ibid",
         "knob",
         "nonbinding"
+      ],
+      "threeLetterWords": [
+        "bib",
+        "bid",
+        "big",
+        "bin",
+        "bio",
+        "bob",
+        "bod",
+        "bog",
+        "boo",
+        "dob",
+        "gob",
+        "nib",
+        "nob",
+        "obi"
       ]
     },
     {
@@ -4203,6 +4977,21 @@
         "type",
         "tyre",
         "year"
+      ],
+      "threeLetterWords": [
+        "aye",
+        "eye",
+        "pay",
+        "pry",
+        "pyx",
+        "ray",
+        "rye",
+        "try",
+        "yap",
+        "yea",
+        "yep",
+        "yer",
+        "yet"
       ]
     },
     {
@@ -4253,6 +5042,15 @@
         "wools",
         "woos",
         "wows"
+      ],
+      "threeLetterWords": [
+        "how",
+        "low",
+        "owl",
+        "sow",
+        "who",
+        "woo",
+        "wow"
       ]
     },
     {
@@ -4301,6 +5099,12 @@
         "verger",
         "verve",
         "very"
+      ],
+      "threeLetterWords": [
+        "eve",
+        "rev",
+        "var",
+        "veg"
       ]
     },
     {
@@ -4376,6 +5180,14 @@
         "tutus",
         "unctuous",
         "unjust"
+      ],
+      "threeLetterWords": [
+        "cos",
+        "nus",
+        "son",
+        "sot",
+        "sou",
+        "sun"
       ]
     },
     {
@@ -4454,6 +5266,14 @@
         "verve",
         "viler",
         "virile"
+      ],
+      "threeLetterWords": [
+        "ere",
+        "err",
+        "fir",
+        "ire",
+        "ref",
+        "rev"
       ]
     },
     {
@@ -4510,6 +5330,24 @@
         "skua",
         "skuas",
         "spas"
+      ],
+      "threeLetterWords": [
+        "abs",
+        "app",
+        "ask",
+        "asp",
+        "ass",
+        "auk",
+        "baa",
+        "bap",
+        "cab",
+        "cap",
+        "pap",
+        "pas",
+        "sac",
+        "sap",
+        "ska",
+        "spa"
       ]
     },
     {
@@ -4559,6 +5397,16 @@
         "zine",
         "zing",
         "zinging"
+      ],
+      "threeLetterWords": [
+        "gen",
+        "gin",
+        "hen",
+        "inn",
+        "nee",
+        "new",
+        "wen",
+        "win"
       ]
     },
     {
@@ -4609,6 +5457,24 @@
         "roar",
         "rood",
         "room"
+      ],
+      "threeLetterWords": [
+        "ado",
+        "boa",
+        "bob",
+        "bod",
+        "boo",
+        "bro",
+        "dob",
+        "job",
+        "mob",
+        "mod",
+        "moo",
+        "oar",
+        "odd",
+        "orb",
+        "rob",
+        "rod"
       ]
     },
     {
@@ -4663,7 +5529,8 @@
         "uniquest",
         "unquiet",
         "unquietest"
-      ]
+      ],
+      "threeLetterWords": []
     },
     {
       "id": "l-afkowy",
@@ -4719,6 +5586,16 @@
         "yawl",
         "yolk",
         "yowl"
+      ],
+      "threeLetterWords": [
+        "all",
+        "awl",
+        "fly",
+        "law",
+        "lay",
+        "loo",
+        "low",
+        "owl"
       ]
     },
     {
@@ -4769,6 +5646,16 @@
         "undue",
         "unheeded",
         "unneeded"
+      ],
+      "threeLetterWords": [
+        "cue",
+        "den",
+        "due",
+        "ecu",
+        "end",
+        "hen",
+        "hue",
+        "nee"
       ]
     },
     {
@@ -4848,6 +5735,28 @@
         "spasms",
         "spool",
         "spools"
+      ],
+      "threeLetterWords": [
+        "alp",
+        "amp",
+        "app",
+        "asp",
+        "lap",
+        "lop",
+        "map",
+        "mop",
+        "ops",
+        "pal",
+        "pap",
+        "pas",
+        "pol",
+        "pom",
+        "poo",
+        "pop",
+        "pox",
+        "sap",
+        "sop",
+        "spa"
       ]
     },
     {
@@ -4894,6 +5803,18 @@
         "trite",
         "triter",
         "ziti"
+      ],
+      "threeLetterWords": [
+        "bib",
+        "bit",
+        "biz",
+        "ire",
+        "irk",
+        "kit",
+        "rib",
+        "tie",
+        "tit",
+        "zit"
       ]
     },
     {
@@ -4946,6 +5867,27 @@
         "whys",
         "yahoo",
         "yahoos"
+      ],
+      "threeLetterWords": [
+        "aah",
+        "aha",
+        "ash",
+        "ham",
+        "has",
+        "haw",
+        "hay",
+        "hmm",
+        "hos",
+        "how",
+        "ohm",
+        "oho",
+        "ohs",
+        "ooh",
+        "shh",
+        "shy",
+        "ssh",
+        "who",
+        "why"
       ]
     },
     {
@@ -5015,6 +5957,13 @@
         "udder",
         "upped",
         "urged"
+      ],
+      "threeLetterWords": [
+        "dud",
+        "due",
+        "dug",
+        "pud",
+        "red"
       ]
     },
     {
@@ -5067,6 +6016,15 @@
         "tactility",
         "talc",
         "vivacity"
+      ],
+      "threeLetterWords": [
+        "act",
+        "cat",
+        "cay",
+        "icy",
+        "lac",
+        "tic",
+        "vac"
       ]
     },
     {
@@ -5135,6 +6093,16 @@
         "sums",
         "supreme",
         "umps"
+      ],
+      "threeLetterWords": [
+        "ems",
+        "emu",
+        "mum",
+        "mus",
+        "rem",
+        "rum",
+        "sum",
+        "ump"
       ]
     },
     {
@@ -5203,6 +6171,17 @@
         "zigzagging",
         "zing",
         "zinging"
+      ],
+      "threeLetterWords": [
+        "bag",
+        "big",
+        "gab",
+        "gag",
+        "gal",
+        "gig",
+        "gin",
+        "lag",
+        "nag"
       ]
     },
     {
@@ -5254,6 +6233,19 @@
         "workweek",
         "wove",
         "wowed"
+      ],
+      "threeLetterWords": [
+        "dew",
+        "ewe",
+        "owe",
+        "row",
+        "vow",
+        "wed",
+        "wee",
+        "woe",
+        "wok",
+        "woo",
+        "wow"
       ]
     },
     {
@@ -5307,6 +6299,21 @@
         "unfitting",
         "unit",
         "uniting"
+      ],
+      "threeLetterWords": [
+        "fit",
+        "git",
+        "gut",
+        "hit",
+        "hut",
+        "nit",
+        "nth",
+        "nut",
+        "tin",
+        "tit",
+        "tug",
+        "tun",
+        "tut"
       ]
     },
     {
@@ -5359,6 +6366,10 @@
         "versos",
         "verve",
         "very"
+      ],
+      "threeLetterWords": [
+        "eve",
+        "rev"
       ]
     },
     {
@@ -5406,6 +6417,19 @@
         "muumuu",
         "null",
         "unfulfilling"
+      ],
+      "threeLetterWords": [
+        "flu",
+        "fug",
+        "fun",
+        "gnu",
+        "gum",
+        "gun",
+        "lug",
+        "mug",
+        "mum",
+        "nun",
+        "uni"
       ]
     },
     {
@@ -5465,6 +6489,11 @@
         "socks",
         "sook",
         "sooks"
+      ],
+      "threeLetterWords": [
+        "ask",
+        "oak",
+        "ska"
       ]
     },
     {
@@ -5517,6 +6546,16 @@
         "rifer",
         "riff",
         "riffed"
+      ],
+      "threeLetterWords": [
+        "def",
+        "eff",
+        "fed",
+        "fee",
+        "fie",
+        "fir",
+        "fix",
+        "ref"
       ]
     },
     {
@@ -5565,6 +6604,19 @@
         "tubs",
         "washtub",
         "washtubs"
+      ],
+      "threeLetterWords": [
+        "abs",
+        "baa",
+        "bah",
+        "bat",
+        "bub",
+        "bus",
+        "but",
+        "hub",
+        "sub",
+        "tab",
+        "tub"
       ]
     },
     {
@@ -5613,6 +6665,16 @@
         "yelled",
         "yield",
         "yielded"
+      ],
+      "threeLetterWords": [
+        "dry",
+        "dye",
+        "eye",
+        "ivy",
+        "lye",
+        "rye",
+        "yer",
+        "yid"
       ]
     },
     {
@@ -5663,6 +6725,27 @@
         "uncommon",
         "uncouth",
         "unto"
+      ],
+      "threeLetterWords": [
+        "con",
+        "coo",
+        "cot",
+        "hon",
+        "hot",
+        "moo",
+        "mot",
+        "non",
+        "not",
+        "och",
+        "ohm",
+        "oho",
+        "ooh",
+        "out",
+        "tho",
+        "tom",
+        "ton",
+        "too",
+        "tot"
       ]
     },
     {
@@ -5724,6 +6807,25 @@
         "yelled",
         "yield",
         "yielded"
+      ],
+      "threeLetterWords": [
+        "def",
+        "die",
+        "dye",
+        "eel",
+        "eff",
+        "elf",
+        "ell",
+        "eye",
+        "fed",
+        "fee",
+        "fey",
+        "fie",
+        "led",
+        "lee",
+        "lei",
+        "lie",
+        "lye"
       ]
     },
     {
@@ -5777,6 +6879,17 @@
         "swabs",
         "wacks",
         "wuss"
+      ],
+      "threeLetterWords": [
+        "abs",
+        "ask",
+        "ass",
+        "bus",
+        "sac",
+        "saw",
+        "ska",
+        "sub",
+        "was"
       ]
     },
     {
@@ -5828,6 +6941,23 @@
         "topee",
         "tote",
         "totem"
+      ],
+      "threeLetterWords": [
+        "met",
+        "mot",
+        "net",
+        "not",
+        "opt",
+        "pet",
+        "pot",
+        "tee",
+        "ten",
+        "toe",
+        "tom",
+        "ton",
+        "too",
+        "top",
+        "tot"
       ]
     },
     {
@@ -5875,6 +7005,18 @@
         "razz",
         "rial",
         "riyal"
+      ],
+      "threeLetterWords": [
+        "ail",
+        "air",
+        "all",
+        "arc",
+        "car",
+        "cay",
+        "lac",
+        "lay",
+        "ray",
+        "zac"
       ]
     },
     {
@@ -5933,6 +7075,15 @@
         "upend",
         "upended",
         "upped"
+      ],
+      "threeLetterWords": [
+        "den",
+        "dud",
+        "due",
+        "dug",
+        "dun",
+        "end",
+        "pud"
       ]
     },
     {
@@ -5984,6 +7135,20 @@
         "wall",
         "wallow",
         "wool"
+      ],
+      "threeLetterWords": [
+        "alb",
+        "all",
+        "awl",
+        "col",
+        "lab",
+        "lac",
+        "law",
+        "lbw",
+        "lob",
+        "loo",
+        "low",
+        "owl"
       ]
     },
     {
@@ -6031,6 +7196,20 @@
         "upping",
         "yipping",
         "yuppifying"
+      ],
+      "threeLetterWords": [
+        "fin",
+        "fun",
+        "gin",
+        "gnu",
+        "gun",
+        "inn",
+        "nip",
+        "nun",
+        "pin",
+        "pun",
+        "uni",
+        "yin"
       ]
     },
     {
@@ -6081,6 +7260,21 @@
         "shoos",
         "smooch",
         "smooches"
+      ],
+      "threeLetterWords": [
+        "hem",
+        "hmm",
+        "hoe",
+        "hos",
+        "meh",
+        "och",
+        "ohm",
+        "oho",
+        "ohs",
+        "ooh",
+        "she",
+        "shh",
+        "ssh"
       ]
     },
     {
@@ -6130,6 +7324,20 @@
         "viva",
         "vivid",
         "vividly"
+      ],
+      "threeLetterWords": [
+        "aid",
+        "ail",
+        "did",
+        "dip",
+        "ill",
+        "ivy",
+        "lid",
+        "lip",
+        "pip",
+        "via",
+        "yid",
+        "yip"
       ]
     },
     {
@@ -6179,6 +7387,17 @@
         "susses",
         "unseen",
         "uses"
+      ],
+      "threeLetterWords": [
+        "cue",
+        "ecu",
+        "hue",
+        "huh",
+        "nun",
+        "nus",
+        "sue",
+        "sun",
+        "use"
       ]
     },
     {
@@ -6248,6 +7467,23 @@
         "worrywart",
         "wort",
         "yarrow"
+      ],
+      "threeLetterWords": [
+        "arm",
+        "art",
+        "mar",
+        "oar",
+        "ram",
+        "rat",
+        "raw",
+        "ray",
+        "rot",
+        "row",
+        "tar",
+        "tor",
+        "try",
+        "war",
+        "wry"
       ]
     },
     {
@@ -6307,6 +7543,16 @@
         "zing",
         "zinged",
         "zinging"
+      ],
+      "threeLetterWords": [
+        "beg",
+        "big",
+        "dig",
+        "egg",
+        "gee",
+        "gen",
+        "gig",
+        "gin"
       ]
     },
     {
@@ -6378,6 +7624,22 @@
         "umps",
         "upmost",
         "utmost"
+      ],
+      "threeLetterWords": [
+        "hmm",
+        "hum",
+        "moo",
+        "mop",
+        "mot",
+        "mum",
+        "mus",
+        "ohm",
+        "oms",
+        "pom",
+        "sum",
+        "tom",
+        "tum",
+        "ump"
       ]
     },
     {
@@ -6444,6 +7706,17 @@
         "referable",
         "relabel",
         "zebra"
+      ],
+      "threeLetterWords": [
+        "alb",
+        "baa",
+        "bar",
+        "bee",
+        "bra",
+        "brr",
+        "ebb",
+        "fab",
+        "lab"
       ]
     },
     {
@@ -6509,6 +7782,25 @@
         "topi",
         "topmost",
         "tops"
+      ],
+      "threeLetterWords": [
+        "imp",
+        "mop",
+        "ops",
+        "opt",
+        "pip",
+        "pis",
+        "pit",
+        "poi",
+        "pom",
+        "poo",
+        "pop",
+        "pot",
+        "psi",
+        "sip",
+        "sop",
+        "tip",
+        "top"
       ]
     },
     {
@@ -6568,6 +7860,13 @@
         "recce",
         "recede",
         "receded"
+      ],
+      "threeLetterWords": [
+        "ace",
+        "arc",
+        "cad",
+        "car",
+        "rec"
       ]
     },
     {
@@ -6618,6 +7917,11 @@
         "wolfs",
         "woof",
         "woofs"
+      ],
+      "threeLetterWords": [
+        "flu",
+        "off",
+        "oft"
       ]
     },
     {
@@ -6672,6 +7976,11 @@
         "vied",
         "vine",
         "vivid"
+      ],
+      "threeLetterWords": [
+        "eve",
+        "veg",
+        "vie"
       ]
     },
     {
@@ -6720,6 +8029,20 @@
         "whoosh",
         "woos",
         "wows"
+      ],
+      "threeLetterWords": [
+        "bow",
+        "haw",
+        "how",
+        "saw",
+        "sow",
+        "tow",
+        "two",
+        "was",
+        "who",
+        "woo",
+        "wot",
+        "wow"
       ]
     },
     {
@@ -6776,6 +8099,13 @@
         "reeked",
         "rick",
         "ricked"
+      ],
+      "threeLetterWords": [
+        "eek",
+        "eke",
+        "irk",
+        "kid",
+        "kip"
       ]
     },
     {
@@ -6835,6 +8165,17 @@
         "yobbo",
         "yobbos",
         "yobs"
+      ],
+      "threeLetterWords": [
+        "bay",
+        "boy",
+        "hay",
+        "lay",
+        "say",
+        "shy",
+        "sly",
+        "soy",
+        "yob"
       ]
     },
     {
@@ -6897,6 +8238,21 @@
         "undue",
         "unneeded",
         "untended"
+      ],
+      "threeLetterWords": [
+        "den",
+        "due",
+        "eek",
+        "eke",
+        "end",
+        "jet",
+        "ken",
+        "nee",
+        "net",
+        "ted",
+        "tee",
+        "ten",
+        "ute"
       ]
     },
     {
@@ -6954,6 +8310,28 @@
         "spays",
         "yaps",
         "yips"
+      ],
+      "threeLetterWords": [
+        "ash",
+        "asp",
+        "ass",
+        "has",
+        "his",
+        "pas",
+        "pis",
+        "psi",
+        "sap",
+        "sax",
+        "say",
+        "shh",
+        "shy",
+        "sip",
+        "sis",
+        "six",
+        "spa",
+        "spy",
+        "ssh",
+        "xis"
       ]
     },
     {
@@ -7006,6 +8384,16 @@
         "rule",
         "ruler",
         "ulcer"
+      ],
+      "threeLetterWords": [
+        "bub",
+        "bur",
+        "cub",
+        "cue",
+        "cur",
+        "ecu",
+        "rub",
+        "rue"
       ]
     },
     {
@@ -7078,6 +8466,17 @@
         "vamping",
         "vanning",
         "vaping"
+      ],
+      "threeLetterWords": [
+        "gin",
+        "inn",
+        "man",
+        "nag",
+        "nap",
+        "nip",
+        "pan",
+        "pin",
+        "van"
       ]
     },
     {
@@ -7148,6 +8547,23 @@
         "wools",
         "woos",
         "wows"
+      ],
+      "threeLetterWords": [
+        "bob",
+        "boo",
+        "bow",
+        "fob",
+        "lob",
+        "loo",
+        "low",
+        "off",
+        "owl",
+        "sob",
+        "sol",
+        "sou",
+        "sow",
+        "woo",
+        "wow"
       ]
     },
     {
@@ -7203,6 +8619,27 @@
         "reggae",
         "rehear",
         "rhea"
+      ],
+      "threeLetterWords": [
+        "aah",
+        "age",
+        "aha",
+        "are",
+        "arm",
+        "axe",
+        "ear",
+        "era",
+        "gag",
+        "gar",
+        "hag",
+        "ham",
+        "mag",
+        "mam",
+        "mar",
+        "max",
+        "rag",
+        "rah",
+        "ram"
       ]
     },
     {
@@ -7252,6 +8689,14 @@
         "sols",
         "yolk",
         "yolks"
+      ],
+      "threeLetterWords": [
+        "ilk",
+        "ill",
+        "loo",
+        "oil",
+        "sly",
+        "sol"
       ]
     },
     {
@@ -7312,6 +8757,20 @@
         "weened",
         "wend",
         "wended"
+      ],
+      "threeLetterWords": [
+        "add",
+        "and",
+        "bad",
+        "bed",
+        "dab",
+        "dad",
+        "deb",
+        "den",
+        "dew",
+        "end",
+        "wad",
+        "wed"
       ]
     }
   ]

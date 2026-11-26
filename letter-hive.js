@@ -73,6 +73,10 @@
   function save(key, value) {
     try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
   }
+  const threeLetterOption = $("allowThreeLetterWords");
+  threeLetterOption.checked = readSaved("letterhive-three-letter-words", false) === true;
+  const minimumLength = () => threeLetterOption.checked ? 3 : 4;
+  const allWords = (puzzle) => [...puzzle.words, ...(puzzle.threeLetterWords ?? [])];
   const savedSession = readSaved("letterhive-session-v1", {});
   const validIds = (value) => Array.isArray(value) ? value.filter((id) => byId.has(id)) : [];
   const history = [];
@@ -89,9 +93,11 @@
   const progress = new Map();
   let current, currentArchiveDate, center, outer, available, dictionary, total, storageKey;
   let guess = "", found = [];
+  // Keep discoveries from both modes, including words hidden by the minimum.
+  let savedFound = [];
   let hintTarget, hintLevels;
   const isPangram = (word) => [...available].every((letter) => word.includes(letter));
-  const score = (word) => (word.length === 4 ? 1 : word.length) + (isPangram(word) ? 7 : 0);
+  const score = (word) => (word.length <= 4 ? 1 : word.length) + (isPangram(word) ? 7 : 0);
 
   // Old saves were keyed only by date, using the original four-puzzle rotation.
   // Move today's answers to their actual letter set, even if today's new daily
@@ -197,7 +203,7 @@
       const node = document.createElement("div");
       node.className = "empty";
       node.textContent =
-        "Your discoveries will appear here. Start with any four-letter word!";
+        `Your discoveries will appear here. Start with any ${minimumLength() === 3 ? "three" : "four"}-letter word!`;
       list.append(node);
     } else {
       for (const w of [...found].sort()) {
@@ -221,13 +227,13 @@
     const saved = readSaved(hintStorageKey(), {});
     const levels = saved?.levels;
     hintLevels = new Map();
-    for (const word of dictionary) {
+    for (const word of allWords(current)) {
       const level = levels?.[word];
       if (Number.isInteger(level) && level >= 1 && level <= 3) {
         hintLevels.set(word, Math.min(level, strongestHint));
       }
     }
-    hintTarget = hintLevels.has(saved?.target) && !found.includes(saved.target)
+    hintTarget = dictionary.has(saved?.target) && hintLevels.has(saved.target) && !found.includes(saved.target)
       ? saved.target : null;
   }
   function saveHints() {
@@ -312,7 +318,7 @@
     const w = guess.toLowerCase();
     guess = "";
     paintGuess();
-    if (w.length < 4) return feedback("Too short");
+    if (w.length < minimumLength()) return feedback("Too short");
     if (!w.includes(center)) return feedback("Missing the centre letter");
     if (found.includes(w)) return feedback("Already found");
     if (!dictionary.has(w)) return feedback("Not in this puzzle’s dictionary");
@@ -321,8 +327,9 @@
       hintTarget = null;
       saveHints();
     }
-    progress.set(current.id, [...found]);
-    save(storageKey, found);
+    savedFound.push(w);
+    progress.set(current.id, [...savedFound]);
+    save(storageKey, savedFound);
     paintScore();
     paintHint();
     feedback((isPangram(w) ? "★ Pangram! " : "Nice! ") + "+" + score(w));
@@ -333,12 +340,14 @@
     center = puzzle.center;
     outer = [...puzzle.outer];
     available = new Set(center + puzzle.outer);
-    dictionary = new Set(puzzle.words);
-    total = puzzle.words.reduce((sum, word) => sum + score(word), 0);
+    const accepted = new Set(allWords(puzzle));
+    dictionary = new Set([...accepted].filter((word) => word.length >= minimumLength()));
+    total = [...dictionary].reduce((sum, word) => sum + score(word), 0);
     storageKey = "letterhive-puzzle-" + puzzle.id;
     const saved = progress.get(puzzle.id) ?? readSaved(storageKey, []);
-    found = Array.isArray(saved)
-      ? [...new Set(saved.filter((word) => dictionary.has(word)))] : [];
+    savedFound = Array.isArray(saved)
+      ? [...new Set(saved.filter((word) => accepted.has(word)))] : [];
+    found = savedFound.filter((word) => dictionary.has(word));
     guess = "";
     clearTimeout(messageTimeout);
     $("message").textContent = "";
@@ -364,6 +373,19 @@
     paintGuess();
     paintScore();
     paintHint();
+  }
+  threeLetterOption.addEventListener("change", () => {
+    save("letterhive-three-letter-words", threeLetterOption.checked);
+    paintRules();
+    loadPuzzle(current, { date: currentArchiveDate, remember: false });
+  });
+  function paintRules() {
+    const rules = `Words must be at least ${minimumLength()} letters long and contain the centre letter. ` +
+      "Letters may be reused. " +
+      (minimumLength() === 3 ? "Three- and four-letter words earn 1 point; " : "Four-letter words earn 1 point; ") +
+      "longer words earn 1 point per letter. Use all 7 letters for a 7-point pangram bonus.";
+    $("rulesText").textContent = rules;
+    $("helpRules").textContent = rules;
   }
   $("newPuzzle").addEventListener("click", () => {
     let candidates = puzzles.filter((puzzle) => puzzle.id !== current.id && !seen.has(puzzle.id));
@@ -505,6 +527,7 @@
     $("archiveRange").textContent = `Available from ${formatArchiveDate(archiveStart)} to ${formatArchiveDate(archiveEnd)}.`;
   }
   const last = history.at(-1);
+  paintRules();
   loadPuzzle(last ? byId.get(last.id) : dailyPuzzle, { date: last?.date });
 })().catch(() => {
   document.getElementById("message").textContent =

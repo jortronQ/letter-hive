@@ -148,7 +148,7 @@
           </div>
           <div class="rules">
             <strong>THE RULES</strong>
-            <p>
+            <p id="rulesText">
               Words must be at least 4 letters long and contain the centre
               letter. Letters may be reused. Four-letter words earn 1 point;
               longer words earn 1 point per letter. Use all 7 letters for a
@@ -196,14 +196,16 @@
     </dialog>
     <dialog id="help">
       <h2>How to play</h2>
-      <p>
-        Build words from the seven letters. Each word must use the
-        <strong>golden centre letter</strong>, be at least four letters long,
-        and use only the letters shown. Repeated letters are allowed.
-      </p>
-      <p>
+      <p>Build words using only the seven letters shown.</p>
+      <p id="helpRules">
+        Words must be at least 4 letters long and contain the centre letter.
         Score 1 point for four-letter words, 1 point per letter for longer
         words, and a bonus 7 points for words using all seven letters.
+      </p>
+      <p>
+        <label><input id="allowThreeLetterWords" type="checkbox" /> Allow three-letter words</label>
+        <br />Three-letter words earn 1 point each. Ranks and possible points
+        adjust to this setting. Your found words are kept when switching modes.
       </p>
       <p>
         Find as many words as you can and aim for the highest rank. Try the

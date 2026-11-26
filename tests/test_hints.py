@@ -15,6 +15,14 @@ spec.loader.exec_module(checker)
 
 
 class HintSourceTests(unittest.TestCase):
+    def test_bundled_definitions_cover_default_and_optional_answers(self):
+        puzzles = json.loads((ROOT / "data/puzzles.json").read_text())["puzzles"]
+        clues = json.loads((ROOT / "data/hints.json").read_text())["clues"]
+        accepted = {word for puzzle in puzzles
+                    for word in puzzle["words"] + puzzle.get("threeLetterWords", [])}
+        self.assertEqual(set(clues), accepted)
+        checker.check_clues(accepted, clues)
+
     def setUp(self):
         self.editorial = {
             "source": {"name": "User-provided definition", "definition": "A member of the Romani people."},
