@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def playable(word):
     # Check case before normalising: capitalised names must not become answers.
-    return isinstance(word, str) and re.fullmatch(r"[a-z]{4,30}", word) is not None
+    return isinstance(word, str) and re.fullmatch(r"[a-z]{3,30}", word) is not None
 
 
 def select_configs(words, settings):
@@ -68,14 +68,14 @@ def select_configs(words, settings):
 def build_puzzles(vocabulary, configs, overrides):
     for group in ("add", "exclude"):
         if not all(playable(word) for word in overrides[group]):
-            raise ValueError(f"Every {group} override must contain 4–30 lowercase ASCII letters")
+            raise ValueError(f"Every {group} override must contain 3–30 lowercase ASCII letters")
     if set(overrides["add"]) & set(overrides["exclude"]):
         raise ValueError("A word cannot be both added and excluded")
     words = {word for word in vocabulary if playable(word)}
     words.update(overrides["add"])
     words.difference_update(overrides["exclude"])
     if isinstance(configs, dict):
-        configs = select_configs(words, configs)
+        configs = select_configs({word for word in words if len(word) >= 4}, configs)
     puzzles = []
     for config in configs:
         center, outer = config["center"], config["outer"]
@@ -86,7 +86,11 @@ def build_puzzles(vocabulary, configs, overrides):
         answers = sorted(word for word in words if center in word and set(word) <= allowed)
         if not any(set(word) == allowed for word in answers):
             raise ValueError(f"Puzzle {letters} has no pangram")
-        puzzles.append({"id": center + "-" + "".join(sorted(outer)), **config, "words": answers})
+        puzzles.append({
+            "id": center + "-" + "".join(sorted(outer)), **config,
+            "words": [word for word in answers if len(word) >= 4],
+            "threeLetterWords": [word for word in answers if len(word) == 3],
+        })
     return puzzles
 
 

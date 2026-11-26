@@ -150,7 +150,8 @@ def main():
     parser.add_argument("--wordnet-zip", type=Path)
     args = parser.parse_args()
     puzzles = json.loads((ROOT / "data/puzzles.json").read_text())["puzzles"]
-    accepted = {word for puzzle in puzzles for word in puzzle["words"]}
+    accepted = {word for puzzle in puzzles
+                for word in puzzle["words"] + puzzle.get("threeLetterWords", [])}
     data = json.loads((ROOT / "data/hints.json").read_text())
     check_clues(accepted, data["clues"])
     if args.wordnet_zip:

@@ -30,8 +30,9 @@ the player's device.
   `data/esdb/COPYRIGHT.txt` and the in-game attribution. The export uses size
   60, spelling D, variant level 1 and ESDB's deaccent option. It excludes
   abbreviations, nonwords and word parts and uses the default word category.
-- Playable answers match `[a-z]{4,30}`. Filter capitalised entries and words
-  with punctuation, spaces or hyphens as written. Put explicit exceptions in
+- Default answers match `[a-z]{4,30}`; optional three-letter answers match
+  `[a-z]{3}` and are generated separately under `threeLetterWords`. Filter
+  capitalised entries and words with punctuation, spaces or hyphens as written. Put explicit exceptions in
   `data/word-overrides.json`. Both the `add` and `exclude` lists follow the
   playable format and must be disjoint.
 - Edit `data/puzzle-config.json` or the overrides and regenerate
@@ -46,10 +47,12 @@ the player's device.
 
 ## Gameplay, saves and daily archive
 
-- Four-letter words earn one point, longer words earn one point per letter,
-  and pangrams earn a seven-point bonus. Compute possible points from the
-  full generated answer set. Use the same rank thresholds for the scoreline,
-  both rank bars and hint availability. Hints unlock at **Moving Up**.
+- Three- and four-letter words earn one point, longer words earn one point
+  per letter, and pangrams earn a seven-point bonus. Compute possible points from the
+  generated answer set for the selected minimum (four by default). Preserve
+  saved three-letter answers when that option is off. Use the same rank
+  thresholds for the scoreline, both rank bars and hint availability.
+  Hints unlock at **Moving Up**.
 - Puzzle IDs use the centre letter followed by a hyphen and the sorted outer
   letters. Progress and hint state follow that ID across daily, archive and
   free play. Keep existing save keys and compatibility with older date-keyed

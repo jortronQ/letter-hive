@@ -40,7 +40,8 @@ def main():
         if hashlib.file_digest(stream, "sha256").hexdigest() != hints["source"]["sha256"]:
             raise ValueError("WordNet archive checksum does not match data/hints.json")
     puzzles = json.loads((ROOT / "data/puzzles.json").read_text())["puzzles"]
-    frequency = Counter(word for puzzle in puzzles for word in puzzle["words"])
+    frequency = Counter(word for puzzle in puzzles
+                        for word in puzzle["words"] + puzzle.get("threeLetterWords", []))
     remaining = set(frequency) - set(hints["clues"])
     entries, definitions = {}, {}
     with ZipFile(args.wordnet_zip) as archive:

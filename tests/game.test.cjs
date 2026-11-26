@@ -22,7 +22,7 @@ class Element {
   matches() { return false; }
 }
 
-async function launch(index, fetchOverride, saved = new Map(), systemDark = false, fixedDate) {
+async function launch(index, fetchOverride, saved = new Map(), systemDark = false, fixedDate, storageUnavailable = false) {
   const elements = new Map();
   const get = (id) => {
     if (!elements.has(id)) elements.set(id, new Element());
@@ -49,7 +49,10 @@ async function launch(index, fetchOverride, saved = new Map(), systemDark = fals
   await vm.runInNewContext(code, {
     document, Date: Today,
     window: { matchMedia: () => media },
-    localStorage: { getItem: (key) => saved.get(key) ?? null, setItem: (key, value) => saved.set(key, value) },
+    localStorage: {
+      getItem: (key) => { if (storageUnavailable) throw new Error("Storage unavailable"); return saved.get(key) ?? null; },
+      setItem: (key, value) => { if (storageUnavailable) throw new Error("Storage unavailable"); saved.set(key, value); },
+    },
     fetch: async (url) => {
       if (url === "data/daily-rotation.json") return { ok: true, json: async () => structuredClone(rotation) };
       if (url === "data/hints.json" && !fetchOverride) {
@@ -460,4 +463,120 @@ test("loading errors keep game controls disabled and explain how to recover", as
     assert.ok(game.navigation.every((control) => control.disabled));
     assert.equal(game.get("hintBtn").disabled, true);
   }
+});
+
+function setThreeLetterMode(game, enabled) {
+  const option = game.get("allowThreeLetterWords");
+  option.checked = enabled;
+  option.listeners.change();
+}
+
+test("three-letter words are opt-in, obey letter rules, and score one point", async () => {
+  const game = await launch(0);
+  const puzzle = dailyPuzzles[0];
+  const word = puzzle.threeLetterWords[0];
+  assert.equal(game.get("allowThreeLetterWords").checked, false);
+  assert.match(game.get("helpRules").textContent, /at least 4 letters/);
+  game.type(word);
+  game.submit();
+  assert.equal(game.get("message").textContent, "Too short");
+  setThreeLetterMode(game, true);
+  assert.match(game.get("rulesText").textContent, /at least 3 letters/);
+  assert.match(game.get("helpRules").textContent, /Three- and four-letter words earn 1 point/);
+  assert.match(game.get("found").children[0].textContent, /three-letter/);
+  for (const [guess, feedback] of [
+    [puzzle.center.repeat(2), "Too short"],
+    [puzzle.outer[0].repeat(3), "Missing the centre letter"],
+    [puzzle.center.repeat(3), "Not in this puzzle’s dictionary"],
+  ]) {
+    game.type(guess);
+    game.submit();
+    assert.equal(game.get("message").textContent, feedback);
+  }
+  game.type(word);
+  game.submit();
+  assert.equal(game.get("points").textContent, 1);
+  assert.equal(game.get("message").textContent, "Nice! +1");
+  game.type(word);
+  game.submit();
+  assert.equal(game.get("message").textContent, "Already found");
+});
+
+test("switching modes preserves saved answers across submissions, navigation, and reload", async () => {
+  let game = await launch(0);
+  const puzzle = dailyPuzzles[0];
+  const [short] = puzzle.threeLetterWords;
+  const [long] = puzzle.words;
+  const key = "letterhive-puzzle-" + puzzle.id;
+  setThreeLetterMode(game, true);
+  game.type(short);
+  game.submit();
+  setThreeLetterMode(game, false);
+  assert.equal(game.get("points").textContent, 0);
+  assert.equal(game.get("count").textContent, "0 words");
+  game.type(long);
+  game.submit();
+  assert.deepEqual(JSON.parse(game.saved.get(key)), [short, long]);
+  game = await launch(0, undefined, game.saved);
+  assert.equal(game.get("allowThreeLetterWords").checked, false);
+  assert.equal(game.get("count").textContent, "1 word");
+  setThreeLetterMode(game, true);
+  assert.equal(game.get("count").textContent, "2 words");
+  game.get("newPuzzle").listeners.click();
+  game.get("previousPuzzle").listeners.click();
+  assert.equal(game.get("count").textContent, "2 words");
+  game = await launch(0, undefined, game.saved);
+  assert.equal(game.get("allowThreeLetterWords").checked, true);
+  assert.equal(game.get("count").textContent, "2 words");
+});
+
+test("completion, rank thresholds, and definition hints use the selected answer set", async () => {
+  const puzzle = dailyPuzzles[0];
+  const short = puzzle.threeLetterWords[0];
+  const key = "letterhive-puzzle-" + puzzle.id;
+  const saved = new Map([[key, JSON.stringify([...puzzle.words, ...puzzle.threeLetterWords.slice(1)])]]);
+  const game = await launch(0, undefined, saved);
+  assert.equal(game.get("rank").textContent, "Queen Bee");
+  assert.equal(game.get("next").textContent, "Perfect! You found every word.");
+  const oldThresholds = game.get("ranks").children.map((segment) => segment.title);
+  const session = game.saved.get("letterhive-session-v1");
+  setThreeLetterMode(game, true);
+  assert.equal(game.saved.get("letterhive-session-v1"), session);
+  assert.equal(game.get("rank").textContent, "Genius");
+  const total = puzzle.words.reduce((sum, word) => sum + (word.length === 4 ? 1 : word.length) +
+    (new Set(word).size === 7 ? 7 : 0), 0) + puzzle.threeLetterWords.length;
+  assert.match(game.get("next").textContent, new RegExp(`${total} possible$`));
+  assert.equal(game.get("ranks").children[2].title, `Moving Up · ${Math.ceil(total * 2 / 9)} points`);
+  assert.notDeepEqual(game.get("ranks").children.map((segment) => segment.title), oldThresholds);
+  assert.deepEqual(game.get("ranks").children.map((segment) => segment.title),
+    game.get("progress").children.map((segment) => segment.title));
+  game.get("hintBtn").listeners.click();
+  assert.equal(game.get("puzzleClue").textContent,
+    `3 letters, ${short[0].toUpperCase()}—: ${hintData.clues[short].gentle}`);
+  game.get("strongerHint").listeners.click();
+  const stronger = `3 letters, ${short.slice(0, 2).toUpperCase()}—: ${hintData.clues[short].stronger}`;
+  assert.equal(game.get("puzzleClue").textContent, stronger);
+  const hintKey = "letterhive-hints-" + puzzle.id;
+  setThreeLetterMode(game, false);
+  assert.equal(game.get("puzzleClue").textContent, "");
+  setThreeLetterMode(game, true);
+  assert.equal(game.get("puzzleClue").textContent, stronger);
+  assert.equal(JSON.parse(saved.get(hintKey)).levels[short], 2);
+  game.type(short);
+  game.submit();
+  assert.equal(game.get("rank").textContent, "Queen Bee");
+  assert.equal(game.get("next").textContent, "Perfect! You found every word.");
+  assert.equal(game.get("count").textContent, `${puzzle.words.length + puzzle.threeLetterWords.length} words`);
+});
+
+test("mode switching keeps progress in memory when storage is unavailable", async () => {
+  const game = await launch(0, undefined, new Map(), false, undefined, true);
+  const short = dailyPuzzles[0].threeLetterWords[0];
+  setThreeLetterMode(game, true);
+  game.type(short);
+  game.submit();
+  setThreeLetterMode(game, false);
+  assert.equal(game.get("points").textContent, 0);
+  setThreeLetterMode(game, true);
+  assert.equal(game.get("points").textContent, 1);
 });
